@@ -1,6 +1,6 @@
-.wrapper-main{
-    width: 100%;
+.wrapper-home{
+	width: 100%;
+	max-width: 45.625rem;
 	height: 100%;
-	padding: 4.5em 3em;
-
+	margin: 0px auto;
 }

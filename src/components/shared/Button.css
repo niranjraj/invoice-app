@@ -1,0 +1,57 @@
+.btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.header-dropdown {
+  width: max-content;
+  height: 2rem;
+  background: transparent none repeat scroll 0% 0%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.medium {
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  font-size: 0.75rem;
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  border-radius: 10em;
+}
+
+.plus-btn {
+  margin-left: 2.5em;
+  min-width: 5.87em;
+  background-color: #7c5dfa;
+  color: #ffffff;
+}
+.fa-plus{
+  color:#7c5dfa;
+
+}
+
+.plus-btn .icon-value{
+    display: inline-flex;
+    margin-right: 0.5rem;
+    padding: 0.625rem;
+    background: white none repeat scroll 0% 0%;
+    border-radius: 50%;
+}
+
+.plus-btn .invoice-span-btn{
+display: initial;
+}
+.plus-btn:hover{
+    background-color:#9277FF;
+}
+
+@media screen and (max-width: 540px) {
+    .plus-btn{
+        margin-left: 1em;
+    }
+    .plus-btn .invoice-span-btn{
+        display: none;
+    }
+}

@@ -12,3 +12,27 @@ body{
     font-family: 'Spartan', sans-serif;
     background:#F8F8FB;
 }
+
+.wrapper-main{
+    width: 100%;
+	height: 100%;
+	padding: 4.5em 3em;
+
+}
+
+/* When the browser is 1000px and below */
+@media screen and (max-width: 1000px) {
+    .wrapper-main{
+    
+        padding: 3.5em 3em;
+    
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .wrapper-main{
+    
+        padding: 2em 1.5em;
+    
+    }
+}

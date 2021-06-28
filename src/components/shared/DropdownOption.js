@@ -1,14 +1,13 @@
 import React from 'react'
+import "./DropdownOption.css"
 
-function DropdownOption({checked,id,children}) {
+function DropdownOption({checked,id,children,handleClick}) {
 
-    const handleClick=(id) =>{}
     return (
-        <div>
-            
-              <input type="checkbox" checked={checked} onChange={() => {handleClick(id)}}/>
-              <label htmlFor={id}>{children}</label>
-        </div>
+        <label  className="dropdown-option">
+              <span id={id} className="checkbox" onClick={() => {handleClick(id)}}></span>
+              <span className="label-option" >{children}</span>
+        </label>
     )
 }
 

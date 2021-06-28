@@ -1,10 +1,15 @@
 .home-header{
-  width: 100%;
-max-width: 45.625rem;
-height: 100%;
-margin: 0px auto;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 4rem;
 }
 
+.header-text{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+}
 .invoice-header{
     font-size: 2rem;
     color:#0c0e16;
@@ -12,6 +17,7 @@ margin: 0px auto;
     font-weight: bold;
     font-size: 2rem;
     letter-spacing: -1px;
+    margin-bottom: 0.5rem;
 
 }
 
@@ -22,3 +28,10 @@ margin: 0px auto;
     color:#888eb0;
 }
 
+/* when browse size is below 540px */
+@media screen and (max-width: 540px) {
+   .invoice-header{
+       font-size: 1.25rem;
+   }
+   
+}
