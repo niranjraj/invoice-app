@@ -10,9 +10,10 @@ function Dropdown() {
       style={{ transform: "rotate(-180deg)" }}
     ></i>
   );
-  const dropdown = useRef();
+  const buttonRef = useRef();
+  const dropdownRef = useRef();
   const [open, setOpen] = useState(false);
-  console.log("button");
+
   const [options, setOptions] = useState([
     {
       id: 0,
@@ -35,23 +36,29 @@ function Dropdown() {
   };
 
   const handleCheck = (id) => {
-      console.log(id)
-    setOptions([...options].map(option =>{if(id===option.id){
-        return{...option,checked:!option.checked}
-    }else return {...option,checked:false}
-}));
-    console.log(options);
+    const updatedOptions = options.map((option) => {
+      if (id === option.id) {
+        return { ...option, checked: !option.checked };
+      }
+      return { ...option, checked: false };
+    });
+
+    setOptions(updatedOptions);
   };
 
   const handleClickOutside = (e) => {
-    if (!dropdown.current.contains(e.target)) {
+    if (
+      !dropdownRef.current.contains(e.target) &&
+      !buttonRef.current.contains(e.target)
+    ) {
       setOpen(false);
     }
   };
 
   useEffect(() => {
-    if (dropdown.current.classList.contains("isActive")) {
+    if (dropdownRef.current.classList.contains("isActive")) {
       document.addEventListener("mousedown", handleClickOutside);
+
       return () => {
         document.removeEventListener("mousedown", handleClickOutside);
       };
@@ -61,9 +68,8 @@ function Dropdown() {
   return (
     <div className="dropdown-wrapper">
       <Button
-        type="button"
         buttonStyle="header-dropdown"
-        buttonSize="medium"
+        forwardedRef={buttonRef}
         iconValue={open ? upArrow : downArrow}
         onClick={toggleClick}
       >
@@ -72,7 +78,7 @@ function Dropdown() {
         </h4>
       </Button>
       <div
-        ref={dropdown}
+        ref={dropdownRef}
         className={open ? "isActive" : "dropdown-options-container"}
       >
         {options.map((option) => {

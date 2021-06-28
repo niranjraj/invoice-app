@@ -14,7 +14,7 @@ export const Header = () => {
           <p className="invoice-msg">There are 7 total invoices.</p>
         </div>
         <Dropdown/>
-        <Button iconValue={plusIcon} type="button" buttonStyle="plus-btn" buttonSize="medium">
+        <Button iconValue={plusIcon}  buttonStyle="plus-btn" >
           New <span className="invoice-span-btn">Invoice</span> 
         </Button>
         </div>

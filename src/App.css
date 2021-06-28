@@ -13,6 +13,10 @@ body{
     background:#F8F8FB;
 }
 
+.container{
+    display: flex;
+    flex-direction: row;
+}
 .wrapper-main{
     width: 100%;
 	height: 100%;

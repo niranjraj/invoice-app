@@ -19,7 +19,13 @@
 }
 
 .input-options{
-  display: none;
+  position:relative;
+  left:15px;
+  visibility: hidden;
+}
+.fa-check{
+    color:#ffffff;
+    visibility: hidden;
 }
 .checkbox{
     display: flex;
@@ -34,7 +40,14 @@
     background: #dfe3fa;
 }
 
-.label-options input:checked + .checkbox{
+.input-options[type=checkbox]:checked + span {
     background:#7C5DFA;
-    
+
+}
+.input-options[type=checkbox]:checked + span > .fa-check{
+    visibility: initial;
+    font-size: 0.75rem;
+}
+.checkbox:hover{
+    border: 1px solid #7C5DFA;
 }

@@ -3,7 +3,20 @@
   outline: none;
   border: none;
 }
+.transparent-btn {
+  margin: 1.75em 0;
+  border: none;
+  padding: 0.25em;
+  background: transparent;
+  cursor: pointer;
+  outline:none ;
+}
 
+.fa-moon,.fa-sun{
+  font-size: 1.25rem;
+  color:#7E88C3;
+  transform: rotate(-30deg);
+}
 .header-dropdown {
   width: max-content;
   height: 2rem;
@@ -27,31 +40,30 @@
   background-color: #7c5dfa;
   color: #ffffff;
 }
-.fa-plus{
-  color:#7c5dfa;
-
+.fa-plus {
+  color: #7c5dfa;
 }
 
-.plus-btn .icon-value{
-    display: inline-flex;
-    margin-right: 0.5rem;
-    padding: 0.625rem;
-    background: white none repeat scroll 0% 0%;
-    border-radius: 50%;
+.plus-btn .icon-value {
+  display: inline-flex;
+  margin-right: 0.5rem;
+  padding: 0.625rem;
+  background: white none repeat scroll 0% 0%;
+  border-radius: 50%;
 }
 
-.plus-btn .invoice-span-btn{
-display: initial;
+.plus-btn .invoice-span-btn {
+  display: initial;
 }
-.plus-btn:hover{
-    background-color:#9277FF;
+.plus-btn:hover {
+  background-color: #9277ff;
 }
 
 @media screen and (max-width: 540px) {
-    .plus-btn{
-        margin-left: 1em;
-    }
-    .plus-btn .invoice-span-btn{
-        display: none;
-    }
+  .plus-btn {
+    margin-left: 1em;
+  }
+  .plus-btn .invoice-span-btn {
+    display: none;
+  }
 }

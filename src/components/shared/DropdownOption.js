@@ -5,7 +5,8 @@ function DropdownOption({checked,id,children,handleClick}) {
 
     return (
         <label  className="dropdown-option">
-              <span id={id} className="checkbox" onClick={() => {handleClick(id)}}></span>
+              <input className="input-options"  type="checkbox" checked={checked} onChange={() => {handleClick(id)}}/>
+              <span className="checkbox" ><i className="fas fa-check"></i></span>
               <span className="label-option" >{children}</span>
         </label>
     )
