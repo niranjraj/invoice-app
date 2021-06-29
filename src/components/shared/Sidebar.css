@@ -1,11 +1,11 @@
 .sidebar-wrapper {
   position: sticky;
-  background-color: #373b53;
   display: flex;
   top: 0px;
-  z-index: 20;
+  background-color: #373b53;
   flex-direction: column;
-  align-items: center;
+  width: initial;
+  z-index: 20;
   height: 100vh;
   border-radius: 0px 20px 20px 0px;
 }
@@ -46,9 +46,33 @@
   cursor: pointer;
 }
 
-.divider{
-    display: block;
-    width: 100%;
-    height:1px;
-    background-color:#494E6E;
+.divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #494e6e;
+}
+
+@media screen and (max-width: 840px) {
+  .sidebar-wrapper {
+    flex-direction: row;
+    align-items: center;
+    height: initial;
+    border-radius: 0px;
+  }
+  .logo-wrapper{
+    margin-right: auto;
+    margin-bottom: initial;
+    width:5em;
+    height:5em;
+  }
+  .divider{
+    width: 1px;
+    height: initial;
+   align-self: stretch;
+  }
+  .logo-img{
+    width: 31px;
+  height: 29px;
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../shared/Button';
-import Dropdown from '../shared/Dropdown';
+import Dropdown from './Dropdown';
 import './Header.css';
 
 export const Header = () => {

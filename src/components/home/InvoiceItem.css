@@ -1,0 +1,79 @@
+.invoiceItem {
+  display: grid;
+  grid-template-columns: 5em 9em 1fr min-content min-content min-content;
+  grid-template-rows: min-content;
+  column-gap: 1em;
+  width: 100%;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1em 1.5em;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.invoiceItem:hover{
+    border: 1px solid  #7C5DFA;
+}
+.invoiceItem-header {
+  color: #0c0e16;
+  font-family: "Spartan", sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.63px;
+}
+.invoiceItem-header span {
+  color: #7e88c3;
+}
+
+.invoiceItem-date,
+.invoiceItem-client {
+  font-family: "Spartan", sans-serif;
+  color: #888eb0;
+  font-size: 0.75rem;
+  line-height: 1.125;
+  letter-spacing: -0.25px;
+}
+
+.invoiceItem-total {
+  margin-right: 1em;
+  color: rgb(12, 14, 22);
+  font-family: "Spartan", sans-serif;
+  font-weight: bold;
+  transition: color 0.3s ease 0s;
+  line-height: 1.1;
+  letter-spacing: -0.63px;
+}
+
+.invoiceItem-total span{
+    font-size: 1.2rem;
+}
+.invoiceStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: rgba(255, 143, 0, 0.06);
+  margin-right: 1.25em;
+  height: 2.5em;
+  width: 6.5em;
+}
+
+.invoiceStatus-circle {
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  background: #ff9100;
+}
+.invoiceStatus-text {
+  font-family: "Spartan", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.125;
+  letter-spacing: -0.25px;
+  color: #ff9100;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+

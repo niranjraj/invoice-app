@@ -4,7 +4,7 @@ import Button from './Button';
 import './Sidebar.css';
 import Avatar from '../../assets/images/avatar.png';
 function Sidebar() {
-    const moonIcon=<i className="fas fa-moon"  style={{ transform: "rotate(-30 deg)" }}></i>;
+    const moonIcon=<i className="fas fa-moon" ></i>;
     const sunIcon=<i className="fas fa-sun"></i>;
     const toggleTheme= () =>{}
     return (

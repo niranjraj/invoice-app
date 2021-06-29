@@ -67,3 +67,9 @@
     display: none;
   }
 }
+
+@media screen  and (max-width:840px){
+  .transparent-btn{
+    margin: 0px 1.75rem;
+  }
+}
