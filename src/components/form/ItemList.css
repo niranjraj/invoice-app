@@ -1,0 +1,41 @@
+.itemList-legend {
+  margin-bottom: 1.5em;
+  letter-spacing: -0.25px;
+  color: #777f98;
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 2rem;
+}
+
+.invoiceForm-item-wrapper{
+    display: grid;
+    grid-template-columns: 2.5fr 4.125rem 1.25fr 0.75fr min-content;
+    gap: 1.5em 1em;
+    margin-bottom: 1em;
+}
+
+.invoiceForm-item-wrapper > :nth-child(1){
+    grid-column: 1 / span 1;
+
+}
+.invoiceForm-item-wrapper > :nth-child(2){
+    grid-column: 2 / span 1;
+
+}
+.invoiceForm-item-wrapper > :nth-child(3){
+    grid-column: 3 / span 1;
+}
+.invoiceForm-item-wrapper > :nth-child(4){
+    grid-column: 4 / span 1;
+
+}
+.invoiceForm-item-wrapper > :nth-child(5){
+    grid-column: 5 / span 1;
+
+}
+
+.disabled-field-total{
+    border: none;
+    padding: 1em 0;
+    color: #888EB0;
+}

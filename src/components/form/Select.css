@@ -1,0 +1,35 @@
+.selection-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625em;
+  color: #888eb0;
+  font-size: 0.75rem;
+  line-height: 1.125;
+  letter-spacing: -0.25px;
+}
+.select-payment-wrapper {
+  position: relative;
+}
+.select-payment-wrapper::after {
+  content: url("../../assets/images/down-arrow.svg");
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  transform: translateY(-50%);
+}
+
+.select-payment-term {
+  width: 100%;
+  border: 1px solid #dfe3fa;
+  border-radius: 4px;
+  padding: 1em 1.25em;
+  background: #ffffff;
+  appearance: none;
+  outline: none;
+  color: #0c0e16;
+  font-weight: bold;
+  cursor: pointer;
+}
+.select-payment-term:focus {
+  border: 1px solid #9277ff;
+}

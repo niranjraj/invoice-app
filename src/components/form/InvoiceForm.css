@@ -1,0 +1,33 @@
+.form-wrapper {
+  position: fixed;
+  background: #ffffff;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+  padding-left: 6.4375em;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.form-main {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  height: 100vh;
+  max-width: 40em;
+  padding: 3.5em 2em 0px 3.5em;
+}
+
+.form-heading {
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  color: #0c0e16;
+  font-family: "Spartan", sans-serif;
+  font-weight: bold;
+  line-height: 1.1;
+  letter-spacing: -0.63px;
+}
+
+.form-btn-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  padding: 2em 0px;
+}

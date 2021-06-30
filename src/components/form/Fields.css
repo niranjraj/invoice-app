@@ -1,0 +1,73 @@
+.fields-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+  padding-right: 2em;
+  padding-bottom: 1em;
+  overflow-y: scroll;
+}
+fieldset{
+    border:none;
+}
+
+.field-heading{
+    margin-bottom: 1.5em;
+  
+    font-size: 0.75rem;
+    line-height: 1.125;
+    letter-spacing: -0.25px;
+    color: #7C5DFA;
+    font-weight: bold;
+
+}
+.bill-from,.bill-to{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:1.5em;
+}
+
+.bill-from > :nth-child(1){
+    grid-column: 1 / -1;
+}
+.bill-from > :nth-child(2){
+    grid-column: 1 / 2;
+}
+.bill-from > :nth-child(3){
+    grid-column: 2 / 3;
+}
+.bill-from > :nth-child(4){
+    grid-column: 3 / 4;
+}
+
+
+.bill-to > *{
+    grid-column: 1 / -1;
+}
+.bill-to > :nth-child(4){
+    grid-column: 1 / 2;
+}
+.bill-to > :nth-child(5){
+    grid-column: 2 / 3;
+}
+.bill-to > :nth-child(6){
+    grid-column: 3 / 4;
+}
+
+.selection-field{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:1.5em;
+}
+.selection-field > :nth-child(1){
+    grid-column: 1 / 2;
+
+}
+.selection-field > :nth-child(2){
+    grid-column: 2/ 3;
+
+}
+.selection-field > :nth-child(3){
+    grid-column: 1 / -1;
+
+}

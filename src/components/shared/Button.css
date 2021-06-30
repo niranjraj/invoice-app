@@ -2,6 +2,21 @@
   cursor: pointer;
   outline: none;
   border: none;
+  font-family: "Spartan", sans-serif;
+}
+.medium {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  border-radius: 10em;
+}
+
+.large {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  border-radius: 10em;
+  padding: 1rem 1.5rem;
 }
 .transparent-btn {
   margin: 1.75em 0;
@@ -9,12 +24,13 @@
   padding: 0.25em;
   background: transparent;
   cursor: pointer;
-  outline:none ;
+  outline: none;
 }
 
-.fa-moon,.fa-sun{
+.fa-moon,
+.fa-sun {
   font-size: 1.25rem;
-  color:#7E88C3;
+  color: #7e88c3;
   transform: rotate(-30deg);
 }
 .header-dropdown {
@@ -25,16 +41,9 @@
   flex-direction: row-reverse;
   align-items: center;
 }
-.medium {
-  padding: 0.5rem 1rem 0.5rem 0.5rem;
-  font-size: 0.75rem;
-  font-family: "Spartan", sans-serif;
-  font-weight: 700;
-  line-height: 1.25;
-  border-radius: 10em;
-}
 
 .plus-btn {
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
   margin-left: 2.5em;
   min-width: 5.87em;
   background-color: #7c5dfa;
@@ -46,9 +55,9 @@
 
 .plus-btn .icon-value {
   display: inline-flex;
-  margin-right: 0.5rem;
+  margin-right: 0.5em;
   padding: 0.625rem;
-  background: white none repeat scroll 0% 0%;
+  background: white;
   border-radius: 50%;
 }
 
@@ -57,6 +66,72 @@
 }
 .plus-btn:hover {
   background-color: #9277ff;
+}
+
+.datepicker-btn {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  height: 3em;
+  border: 1px solid #dfe3fa;
+  border-radius: 4px;
+  width: 100%;
+  background: white;
+  letter-spacing: -0.25px;
+  color: #0c0e16;
+}
+
+.fa-calendar {
+  color: #bec3e1;
+  font-size: 1rem;
+}
+
+.add-item-btn {
+  width: 100%;
+  transition: background 0.3s ease 0s, color 0.3s ease 0s;
+  background: #f9fafe;
+  color: #7e88c3;
+}
+
+.delete-item-btn {
+  display: flex;
+  align-self: end;
+
+  justify-content: center;
+
+  align-items: flex-start;
+  height: 3em;
+  background: transparent none repeat scroll 0% 0%;
+}
+.fa-trash {
+  color: #888eb0;
+  font-size: 1rem;
+}
+
+.discard-btn {
+  margin-right: auto;
+  background: #f9fafe;
+  color: #7e88c3;
+}
+.draft-btn{
+  background: #363b53;
+  color: #888eb0;
+}
+.save-send-btn{
+  background:#7c5dfa;
+  color:#ffffff;
+}
+
+
+.discard-btn:hover{
+background:#dfe3fa;
+}
+.draft-btn:hover{
+  background:#0c0e16;
+}
+.save-send-btn:hover{
+  background:#9277ff;
 }
 
 @media screen and (max-width: 540px) {
@@ -68,8 +143,8 @@
   }
 }
 
-@media screen  and (max-width:840px){
-  .transparent-btn{
+@media screen and (max-width: 840px) {
+  .transparent-btn {
     margin: 0px 1.75rem;
   }
 }

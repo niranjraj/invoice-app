@@ -1,0 +1,30 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.62em;
+  color: #888eb0;
+  font-size: 0.75rem;
+  line-height: 1.125;
+  letter-spacing: -0.25px;
+}
+.input-label {
+  color: #7e88c3;
+}
+
+.input-field-main {
+  width: 100%;
+  border-radius: 4px;
+  padding: 1em 1.25em;
+  background: #ffffff;
+  color: #0c0e16;
+  border: 1px solid #dfe3fa;
+  outline: none;
+  font-size: 0.75rem;
+  line-height: 1.125;
+  letter-spacing: -0.25px;
+  font-weight: bold;
+}
+
+.input-field-main:focus{
+  border: 1px solid #9277ff;
+}
