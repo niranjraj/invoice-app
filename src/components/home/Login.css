@@ -1,0 +1,47 @@
+.login-wrapper {
+  width: 100%;
+  max-width: 45.625rem;
+  height: 100%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:2.2em;
+}
+.login-wrapper p{
+    font-size: 0.75rem;
+    color:#888eb0;
+}
+
+.login-img{
+    height:25em;
+    width:25em;
+}
+.login-modal{
+  background:#ffffff;
+  position:relative;
+  top:0px;
+  height: 20em;
+  width:20em;
+  border-radius:4px;
+  display: flex;
+  flex-direction: column;
+  gap:1em;
+  padding:1em;
+ align-items: center;
+  z-index:10;
+}
+
+.login-modal h2{
+  font-size:1rem;
+  text-align: center;
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+}
+
+.login-divider{
+  width:100%;
+  background:#0c0e16 ;
+  height:2px;
+ 
+}

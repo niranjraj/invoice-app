@@ -6,6 +6,7 @@
   left: 0px;
   padding-left: 6.4375em;
   border-radius: 0px 20px 20px 0px;
+  transition: transform 300ms ease-in;
 }
 
 .form-main {

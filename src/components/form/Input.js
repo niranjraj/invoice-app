@@ -3,7 +3,6 @@ import { useField } from 'formik';
 import './Input.css'
 function Input({ label, name,className, hideLabels, ...props }) {
     const [field, meta] = useField(name);
-        console.log(field,meta)
     return (
         <div className="input-wrapper">
             <label className="input-label" htmlFor={name} valid={`${!(meta.touched && meta.error)}`}>{label}</label>

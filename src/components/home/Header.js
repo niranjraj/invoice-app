@@ -1,11 +1,12 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Button from '../shared/Button';
 import Dropdown from './Dropdown';
+import {FormContext} from "../../contexts/FormContext";
 import './Header.css';
 
 export const Header = () => {
   const plusIcon =<i className="fas fa-plus"></i>
-
+  const [formIsOpen, setFormIsOpen] =useContext(FormContext);
     return (
       <>
       <div className="home-header">
@@ -14,7 +15,7 @@ export const Header = () => {
           <p className="invoice-msg">There are 7 total invoices.</p>
         </div>
         <Dropdown/>
-        <Button iconValue={plusIcon}   buttonStyle="plus-btn" >
+        <Button iconValue={plusIcon}  onClick={() => setFormIsOpen(true)}  buttonStyle="plus-btn" >
           New <span className="invoice-span-btn">Invoice</span> 
         </Button>
         </div>

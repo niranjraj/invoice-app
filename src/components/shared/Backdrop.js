@@ -1,10 +1,28 @@
 import React from 'react'
 import './Backdrop.css';
-function Backdrop() {
+import { motion ,AnimatePresence} from 'framer-motion';
+
+const animation = {
+    hidden: { opacity: 0 },
+    visible: { 
+        opacity: 1,
+        transition: { duration: .3 }
+    }
+}
+
+function Backdrop({formIsOpen,setFormIsOpen}) {
+    
+ 
+    console.log("inbackdrop")
     return (
-        <div className="backdrop-style">
+        <AnimatePresence>
+            {formIsOpen  &&  <motion.div className="backdrop-style"  variants={animation}
+        initial="hidden"
+        animate="visible"
+        exit="hidden" onClick={() => setFormIsOpen(false)} >
             
-        </div>
+        </motion.div>}
+        </AnimatePresence>
     )
 }
 
