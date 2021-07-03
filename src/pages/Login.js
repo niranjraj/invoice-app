@@ -1,24 +1,28 @@
 import React,{useState} from 'react'
 import './Login.css'
 import {motion,AnimatePresence} from 'framer-motion';
-import Button from "../shared/Button";
-import Backdrop from "../shared/Backdrop";
-import LoginImg from "../../assets/images/login-img.svg";
-
-import {useAuth} from "../../contexts/AuthContext";
-
+import Button from "../components/shared/Button";
+import Backdrop from "../components/shared/Backdrop";
+import LoginImg from "../assets/images/login-img.svg";
+import { firebase } from "../firebase/initFirebase";
+import {Redirect,useHistory} from "react-router-dom";
+import {useAuth} from "../contexts/AuthContext";
+import Loading from "./Loading"
 function Login() {
     const googleIcon=<i className="fab fa-google"></i>
     const crossIcon =<i className="fas fa-times"></i>
     const [loginIsOpen,setLoginIsOpen]=useState(false);
-
+    const history = useHistory();
     const {login,user,loading}= useAuth()
 
+    if( user){
+        history.push("/");
+    }
     return (
 
         <>
         <Backdrop formIsOpen={loginIsOpen} setFormIsOpen={setLoginIsOpen}/>
-        <div className="login-wrapper">
+            <div className="login-wrapper">
             <AnimatePresence>
                 {loginIsOpen && <motion.div className="login-modal">
                         <Button iconValue={crossIcon} onClick={()=>{setLoginIsOpen(false)}}/>

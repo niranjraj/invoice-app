@@ -1,50 +1,53 @@
 import React, { useState, useEffect, useContext } from "react";
 import { firebase } from "../firebase/initFirebase";
-
+import { addInvoice, setUserId } from "../services/api";
 const AuthContext = React.createContext();
 
-
-export function useAuth(){
-    return useContext(AuthContext);
+export function useAuth() {
+  return useContext(AuthContext);
+}
+export function getId() {
+  return firebase.auth().currentUser.id;
 }
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+
   const [loading, setLoading] = useState(true);
 
- function login(){
-     console.log("in login")
-    
-     let provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithRedirect(provider).then(function(result){
-        if (result.credential) {
-
-            let credential = result.credential;
-      
-            // This gives you a Google Access Token. You can use it to access the Google API.
-           let token = credential.accessToken;
-            // ...
+  function login() {
+    try {
+      setLoading(true);
+      let provider = new firebase.auth.GoogleAuthProvider();
+      firebase
+        .auth()
+        .signInWithRedirect(provider)
+        .then((res) => {
+          if (res.user) {
+            setUser(res.user);
           }
-          // The signed-in user info.
-         let  user = result.user;
-        }).catch((error) => {
-        console.log(error);
-      })
- }
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function logout() {
+    return firebase.auth().signOut();
+  }
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((u) => {
-        
-        setUser(u);
-        setLoading(false);
-        
+      setUser(u);
+      if (u) {
+        setUserId(u.uid, u.displayName, u.photoURL);
+      }
+      setLoading(false);
     });
     return () => unsubscribe();
   }, []);
 
   return (
-    <AuthContext.Provider
-      value={{ user, loading,login, logout: () => firebase.auth().signOut() }}
-    >
+    <AuthContext.Provider value={{ user, loading,setLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

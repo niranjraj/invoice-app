@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Input from "./Input"
 import Button from  "../shared/Button"
+import {useFormikContext} from "formik";
 import './ItemList.css'
 function Item({index,helpers}) {
+    const{values,setFieldValue}=useFormikContext();
+
+    useEffect(()=>{
+        const total=values.items[index].quantity * values.items[index].price
+        const rounded = Math.round((total + Number.EPSILON) * 100) / 100
+        setFieldValue(`items[${index}].total`, rounded || '0')
+    },[values.items[index].quantity, values.items[index].price])
 
     const trashIcon =<i className="fas fa-trash"></i>
     return (

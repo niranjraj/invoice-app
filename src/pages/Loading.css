@@ -1,0 +1,21 @@
+.loading-state{
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(50%,-50%);
+}
+
+.loading-container{
+    position:relative;
+    width:3em;
+    height: 3em;
+}
+.circle-loader{
+    display: block;
+    width:3em;
+    height: 3em;
+    border:5px solid lightgrey;
+    border-top: 8px solid plum;
+    border-radius: 50%;
+    position: absolute;
+}
