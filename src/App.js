@@ -7,10 +7,13 @@ import { InvoiceProvider } from "./contexts/InvoiceContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Loading from "./pages/Loading";
 import { useAuth } from "./contexts/AuthContext";
+import Invoice from "./pages/Invoice";
 import PrivateRoute from "./pages/PrivateRoute";
 function App() {
   const { loading, user } = useAuth();
+  console.log(loading);
   return (
+    
     <FormProvider>
       <div className="container">
         <Sidebar />
@@ -22,8 +25,11 @@ function App() {
               <Switch>
                 <InvoiceProvider>
                   <PrivateRoute exact path="/" component={Home} />
+                  <PrivateRoute path='/invoice/:id' component={Invoice}/>
+                  <Route exact path="/login" component={Login} />
+                  
                 </InvoiceProvider>
-                <Route exact path="/login" component={Login} />
+              
               </Switch>
             </Router>
           )}

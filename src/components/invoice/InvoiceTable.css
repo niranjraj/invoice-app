@@ -1,0 +1,77 @@
+.invoice-table-wrapper {
+  grid-area: 6 / 1 / 7 / -1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.invoice-table {
+  padding-top: 2em;
+  width: 100%;
+  border-spacing: 0px;
+  background-color: #f9fafe;
+}
+.invoice-table-header {
+  display: table-header-group;
+  font-size: 0.6875rem;
+  line-height: 1.63;
+  letter-spacing: -0.23px;
+  color: #888eb0;
+}
+.invoice-table-header-row th {
+  font-weight: 500;
+}
+.invoice-table-header-row th:nth-child(1),
+.table-item-name{
+  text-align: start;
+  padding: 0px 0px 2em 2em;
+}
+.invoice-table-header-row th:nth-child(2),
+.table-item-quantity {
+  text-align: center;
+  padding-bottom: 2em;
+}
+.invoice-table-header-row th:nth-child(3),
+.table-item-price {
+  text-align: center;
+  padding-bottom: 2em;
+}
+.invoice-table-header-row th:nth-child(4),
+.table-item-total{
+  text-align: end;
+  padding: 0px 2em 2em 0px;
+}
+.table-item-name,
+.table-item-total {
+  color: #0c0e16;
+}
+
+.table-item-name,
+.table-item-quantity,
+.table-item-price,
+.table-item-total {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.table-footer-content {
+  background-color: #373b53;
+  
+}
+
+
+.table-footer-amount {
+  color: white;
+  font-size: 0.6875rem;
+  text-align: start;
+  padding: 2em 0px 2em 2em;
+}
+
+.table-footer-total{
+    font-size: 1.5rem;
+    line-height: 1.33;
+    letter-spacing: -.02em;
+    text-align: end;
+    font-weight: 700;
+    color:white;
+    padding: 1em 2em 1em 0px ;
+}

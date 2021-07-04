@@ -134,8 +134,19 @@ background:#dfe3fa;
   background:#9277ff;
 }
 
-.google-btn{
-
+.invoice-edit-btn{
+ background: #f9fafe;
+ color:#7e88c3;
+}
+.invoice-delete-btn{
+  background: #ec5757;
+  color:#ffffff;
+  
+}
+.invoice-paid-btn{
+  background:#7c5dfa;
+  color:#ffffff;
+  
 }
 .fa-times{
   position: absolute;

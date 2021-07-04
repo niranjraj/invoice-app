@@ -1,11 +1,9 @@
 import React from "react";
 import InvoiceItem from "./InvoiceItem";
-import { useInvoice } from "../../contexts/InvoiceContext";
 
 import "./InvoiceList.css";
-function InvoiceList() {
-  const {invoices} = useInvoice();
-  console.log(invoices)
+function InvoiceList({invoices}) {
+
 
   return (
     <div className="invoicelist-wrapper">
@@ -13,7 +11,7 @@ function InvoiceList() {
         return (
           <InvoiceItem
             key={invoiceitem.id}
-            id={invoiceitem.id.slice(0,5)}
+            id={invoiceitem.id}
             paymentDue={invoiceitem.paymentDue}
             clientName={invoiceitem.clientName}
             total={invoiceitem.total}

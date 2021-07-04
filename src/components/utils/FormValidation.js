@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 
-export const initialValues = {
+
+const initialValues = {
     senderAddress: {
         street: '',
         city: '',
@@ -20,6 +21,24 @@ export const initialValues = {
     description: '',
     items: []
 }
+
+export function setInitialValues (invoice){
+    if(invoice){
+        return {
+            senderAddress: invoice.senderAddress,
+            clientName: invoice.clientName,
+            clientEmail: invoice.clientEmail,
+            clientAddress: invoice.clientAddress,
+            createdAt: new Date(invoice.createdAt),
+            paymentTerms: invoice.paymentTerms,
+            description: invoice.description,
+            items: invoice.items
+        }
+    }
+    return initialValues;
+
+}
+
 
 export const validationSchema = Yup.object().shape({
     senderAddress: Yup.object().shape({

@@ -22,6 +22,32 @@ export function getInvoices(userId) {
   }
 }
 
+export function updateInvoice(userId,invoiceId,updatedInvoice){
+  try {
+    const ref=firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);
+    ref.set(updatedInvoice);
+  } catch (error) {
+    console.log(error)
+  }
+}
+export async function deleteInvoice(userId,invoiceId){
+  try {
+    const ref=firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);
+     await ref.delete();
+  } catch (error) {
+    console.log(error)
+  }
+}
+export async function updateStatus(userId,invoiceId,updatedStatus){
+  try {
+    const ref=firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);
+    await ref.update({status:updatedStatus})
+  } catch (error) {
+    
+  }
+}
+
+
 export async function setUserId(userId, userName, photoURL) {
   const data = {
     displayName: userName,

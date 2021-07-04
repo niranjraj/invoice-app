@@ -1,0 +1,25 @@
+.invoice-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 45.625em;
+  height: 100%;
+  margin: 0px auto;
+}
+
+.home-link-wrapper {
+  display: flex;
+  font-size: 0.75rem;
+  align-items: center;
+  padding:1em;
+  padding-left:initial;
+  margin-bottom: 2em;
+  text-decoration: none;
+  color: #0c0e16;
+  font-weight: 700;
+}
+
+.left-arrow-icon {
+  margin-right: 1.5em;
+}

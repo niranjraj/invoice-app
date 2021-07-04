@@ -1,16 +1,16 @@
 
 
-function FormErrorMsg(errors){
+function formErrorMsg(errors){
     const messages = []
     for(const key in errors){
         let value= errors[key]
         if(typeof value === "string"){
             messages.push(value);
         }else if(typeof value=== "object"){
-            messages.push(...FormErrorMsg(value))
+            messages.push(...formErrorMsg(value))
         }else if(Array.isArray(value)){
             for(const item of value){
-                messages.push(...FormErrorMsg(item))
+                messages.push(...formErrorMsg(item))
             }
         }
 
@@ -24,4 +24,4 @@ function FormErrorMsg(errors){
 
 
 
-export default FormErrorMsg;
+export default formErrorMsg;

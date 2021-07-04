@@ -1,0 +1,25 @@
+.invoice-header-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow:  0 10px 10px -10px rgba(72,84,159,0.1);
+  padding: 1.5em;
+  background: #ffffff;
+  margin-bottom: 1.5em;
+}
+
+.invoice-header-status {
+  color: #888eb0;
+  font-size: 0.75rem;
+  margin-right: 1rem;
+
+  line-height: 1.125;
+  letter-spacing: -0.25px;
+}
+
+.invoice-header-btn-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}

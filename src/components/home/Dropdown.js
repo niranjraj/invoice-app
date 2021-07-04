@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Button from "../shared/Button";
 import DropdownOption from "./DropdownOption";
 import "./Dropdown.css";
-function Dropdown() {
+function Dropdown({setFilterStatus}) {
   const downArrow = <i className="fas fa-angle-down"></i>;
   const upArrow = (
     <i
@@ -38,6 +38,8 @@ function Dropdown() {
   const handleCheck = (id) => {
     const updatedOptions = options.map((option) => {
       if (id === option.id) {
+        // option.checked is false for the  checked id
+        setFilterStatus(option.checked? null:option.value);
         return { ...option, checked: !option.checked };
       }
       return { ...option, checked: false };

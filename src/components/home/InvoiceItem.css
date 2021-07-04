@@ -5,7 +5,7 @@
   column-gap: 1em;
   width: 100%;
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--secondary-bg-color);
   border-radius: 8px;
   padding: 1em 1.5em;
   border: 1px solid transparent;
@@ -49,31 +49,5 @@
 .invoiceItem-total span{
     font-size: 1.2rem;
 }
-.invoiceStatus {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  background: rgba(255, 143, 0, 0.06);
-  margin-right: 1.25em;
-  height: 2.5em;
-  width: 6.5em;
-}
 
-.invoiceStatus-circle {
-  width: 0.5em;
-  height: 0.5em;
-  margin-right: 0.5em;
-  border-radius: 50%;
-  background: #ff9100;
-}
-.invoiceStatus-text {
-  font-family: "Spartan", sans-serif;
-  font-size: 0.75rem;
-  line-height: 1.125;
-  letter-spacing: -0.25px;
-  color: #ff9100;
-  font-weight: 700;
-  text-transform: capitalize;
-}
 

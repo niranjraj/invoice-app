@@ -1,0 +1,86 @@
+.invoice-content-wrapper {
+  padding: 3em;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+  font-size: 0.75rem;
+  width:100%;
+  color: #888eb0;
+}
+
+.invoice-content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1.25em;
+}
+
+.invoice-id-wrapper {
+  grid-area: 1 / 1 / 2 / 3;
+}
+.invoice-content-id {
+  margin-bottom: 0.5em;
+  font-size: 1rem;
+  color: #0c0e16;
+}
+
+
+.invoice-address-wrapper {
+  grid-area: 1/2/2/4;
+  text-align: end;
+}
+
+.invoice-payment-wrapper {
+  grid-area: 3 / 1 / 4 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.invoice-content-date,
+.invoice-content-due {
+  display: flex;
+  flex-direction: column;
+}
+.invoice-content-due-label,
+.invoice-content-date-label {
+  margin-bottom: 0.75em;
+}
+
+.invoice-content-due-heading,
+.invoice-content-date-heading,
+.invoice-client-name,
+.invoice-email-content {
+  color: #0c0e16;
+  font-size: 0.9375rem;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.invoice-client-address-wrapper {
+  grid-area: 3 / 2 / 4 / 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.invoice-client-address-label ,.invoice-email-label{
+    font-size: 0.6875rem;
+    line-height: 1.63;
+    letter-spacing: -0.23px;
+    margin-bottom: 0.5em;
+}
+.invoice-client-name {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+.invoice-client-address-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45em;
+}
+.invoice-email-wrapper {
+  grid-area: 3 / 3 / 4 / 4;
+  display: flex;
+  flex-direction: column;
+}
+

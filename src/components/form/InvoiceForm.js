@@ -1,18 +1,19 @@
 import React, { useContext } from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, FormikConsumer } from "formik";
 import { motion, AnimatePresence } from "framer-motion";
 import Fields from "./Fields";
 import Button from "../shared/Button";
-import {useInvoice} from "../../contexts/InvoiceContext"
-import { initialValues, validationSchema } from "../utils/FormValidation";
+import formErrorMsg from "../utils/ErrorMessage";
+import { useInvoice } from "../../contexts/InvoiceContext";
+import { setInitialValues, validationSchema } from "../utils/FormValidation";
 import { createInvoice } from "../utils/FormatInvoice";
 import { FormContext } from "../../contexts/FormContext";
 import { useAuth } from "../../contexts/AuthContext";
-import { addInvoice } from "../../services/api";
+import { addInvoice, updateInvoice } from "../../services/api";
 import "./InvoiceForm.css";
-function InvoiceForm() {
-  const [formIsOpen, setFormIsOpen] = useContext(FormContext);
-  const {setSending}= useInvoice();
+import { object } from "yup/lib/locale";
+function InvoiceForm({ invoice, formIsOpen, setFormIsOpen }) {
+  const { setSending } = useInvoice();
   const { user } = useAuth();
 
   const onSubmit = async (values) => {
@@ -22,16 +23,25 @@ function InvoiceForm() {
     setSending(false);
     setFormIsOpen(false);
   };
-  const addDraft = (values) => {
-    console.log(values);
+
+  const addDraft = async (values) => {
+    const newInvoice = { ...createInvoice("draft", values) };
+    await addInvoice(user.uid, newInvoice);
+    setFormIsOpen(false);
   };
 
-  console.log("in invoiceform");
+  function handleUpdate(values, errors) {
+    if (Object.keys(errors).length === 0 && errors.constructor === Object) {
+      const updatedInvoice = { ...createInvoice("pending", values) };
+      updateInvoice(user.uid, invoice.id, updatedInvoice);
+    }
+  }
+
   return (
     <AnimatePresence>
       {formIsOpen && (
         <Formik
-          initialValues={initialValues}
+          initialValues={setInitialValues(invoice)}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
@@ -44,29 +54,54 @@ function InvoiceForm() {
               <Form className="form-main">
                 <h2 className="form-heading">Create Invoice</h2>
                 <Fields />
-                <div className="form-btn-wrapper">
-                  <Button
-                    buttonStyle="discard-btn"
-                    buttonSize="large"
-                    onClick={() => setFormIsOpen(false)}
-                  >
-                    Discard
-                  </Button>
-                  <Button
-                    buttonStyle="draft-btn"
-                    buttonSize="large"
-                    onClick={() => addDraft(formik.values)}
-                  >
-                    Save as Draft
-                  </Button>
-                  <Button
-                    buttonStyle="save-send-btn"
-                    buttonSize="large"
-                    type="submit"
-                  >
-                    Save & Send
-                  </Button>
-                </div>
+                {invoice ? (
+                  <div className="edit-form-wrapper">
+                    <Button
+                      buttonSize="large"
+                      buttonStyle="edit-form-cancel-btn"
+                      onClick={() => setFormIsOpen(false)}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      buttonSize="large"
+                      buttonStyle="update-form-btn"
+                      onClick={() =>
+                        formik
+                          .validateForm()
+                          .then(() =>
+                            handleUpdate(formik.values, formik.errors)
+                          )
+                      }
+                    >
+                      Save Changes
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="form-btn-wrapper">
+                    <Button
+                      buttonStyle="discard-btn"
+                      buttonSize="large"
+                      onClick={() => setFormIsOpen(false)}
+                    >
+                      Discard
+                    </Button>
+                    <Button
+                      buttonStyle="draft-btn"
+                      buttonSize="large"
+                      onClick={() => addDraft(formik.values)}
+                    >
+                      Save as Draft
+                    </Button>
+                    <Button
+                      buttonStyle="save-send-btn"
+                      buttonSize="large"
+                      type="submit"
+                    >
+                      Save & Send
+                    </Button>
+                  </div>
+                )}
               </Form>
             </motion.div>
           )}

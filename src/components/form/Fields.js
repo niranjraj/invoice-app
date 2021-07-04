@@ -3,7 +3,7 @@ import Input from "./Input";
 import DatePicker from "./DatePicker";
 import Select from "./Select";
 import ItemList from "./ItemList";
-import FormErrorMsg from "../utils/ErrorMessage";
+import formErrorMsg from "../utils/ErrorMessage";
 import "./Fields.css";
 import { useFormikContext } from "formik";
 
@@ -50,8 +50,8 @@ function Fields() {
           </div>
       </fieldset>
       <ItemList name="items"/>
-      {formik.submitCount >0 && formik.errors && <div className="invoiceForm-errorList">
-          {FormErrorMsg(formik.errors).map((item,index)=>{
+      {formik.errors && <div className="invoiceForm-errorList">
+          {formErrorMsg(formik.errors).map((item,index)=>{
            return  <div key={index} className="invoiceForm-error">{item}</div>
           })}
       </div> }
