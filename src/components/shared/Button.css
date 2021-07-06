@@ -46,11 +46,11 @@
   padding: 0.5rem 1rem 0.5rem 0.5rem;
   margin-left: 2.5em;
   min-width: 5.87em;
-  background-color: #7c5dfa;
+  background-color: var(--clr-purple-main);
   color: #ffffff;
 }
 .fa-plus {
-  color: #7c5dfa;
+  color: var(--clr-purple-main);
 }
 
 .plus-btn .icon-value {
@@ -65,7 +65,7 @@
   display: initial;
 }
 .plus-btn:hover {
-  background-color: #9277ff;
+  background-color: var(--clr-purple-sec);
 }
 
 .datepicker-btn {
@@ -73,13 +73,13 @@
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
-  height: 3em;
-  border: 1px solid #dfe3fa;
+  padding: 1em 1.25em;
+  border: 1px solid var(--clr-form-border);
   border-radius: 4px;
   width: 100%;
-  background: white;
+  background: var(--clr-sec-bg);
   letter-spacing: -0.25px;
-  color: #0c0e16;
+  color: var(--clr-main-text);
 }
 
 .fa-calendar {
@@ -90,8 +90,8 @@
 .add-item-btn {
   width: 100%;
   transition: background 0.3s ease 0s, color 0.3s ease 0s;
-  background: #f9fafe;
-  color: #7e88c3;
+  background: var( --clr-alt-bg);
+  color: var(--clr-sec-text);
 }
 
 .delete-item-btn {
@@ -111,49 +111,46 @@
 
 .discard-btn {
   margin-right: auto;
-  background: #f9fafe;
-  color: #7e88c3;
+  background: var( --clr-main-bg);
+  color: var(--clr-sec-text);
 }
 .draft-btn{
   background: #363b53;
   color: #888eb0;
 }
-.save-send-btn{
-  background:#7c5dfa;
+.save-send-btn,.invoice-paid-btn{
+  background:var(--clr-purple-main);
   color:#ffffff;
 }
+.edit-cancel-btn,.invoice-edit-btn{
+  background: var( --clr-alt-bg);
+  color: var(--clr-sec-text);
+}
 
+ .invoice-delete-btn{
+   background: #ec5757;
+   color:#ffffff;
+   
+ }
 
-.discard-btn:hover{
+ .fa-times{
+   position: absolute;
+   font-size: 1rem;
+   right:5px;
+   top:5px;
+ }
+
+.discard-btn:hover,.edit-cancel-btn:hover{
 background:#dfe3fa;
 }
 .draft-btn:hover{
   background:#0c0e16;
 }
 .save-send-btn:hover{
-  background:#9277ff;
+  background:var(--clr-purple-sec);
 }
 
-.invoice-edit-btn{
- background: #f9fafe;
- color:#7e88c3;
-}
-.invoice-delete-btn{
-  background: #ec5757;
-  color:#ffffff;
-  
-}
-.invoice-paid-btn{
-  background:#7c5dfa;
-  color:#ffffff;
-  
-}
-.fa-times{
-  position: absolute;
-  font-size: 1rem;
-  right:5px;
-  top:5px;
-}
+
 
 @media screen and (max-width: 540px) {
   .plus-btn {

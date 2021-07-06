@@ -1,7 +1,7 @@
 import React from 'react';
 import { useField } from 'formik';
 import './Input.css'
-function Input({ label, name,className, hideLabels, ...props }) {
+const Input=React.memo(({ label, name,className, hideLabels, ...props }) =>{
     const [field, meta] = useField(name);
     return (
         <div className="input-wrapper">
@@ -9,6 +9,6 @@ function Input({ label, name,className, hideLabels, ...props }) {
             <input className={`input-field-main ${className? className:""}`} type="text" id={name} {...field} valid={`${!(meta.touched && meta.error)}`} {...props}/>
         </div>
     )
-}
+})
 
 export default Input

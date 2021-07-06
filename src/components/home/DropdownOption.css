@@ -10,7 +10,7 @@
     font-size: 0.75rem;
     line-height: 1.125;
     letter-spacing: -0.25px;
-    color:#0c0e16;
+    color:var(--clr-main-text);;
     margin-left: 1em;
     font-weight: bold;
     text-transform: capitalize;
@@ -37,11 +37,11 @@
     height: 1rem;
     border: transparent;
     border-radius: 2px;
-    background: #dfe3fa;
+    background: var(--clr-chk-box);
 }
 
 .input-options[type=checkbox]:checked + span {
-    background:#7C5DFA;
+    background-color:var(--clr-purple-main);
 
 }
 .input-options[type=checkbox]:checked + span > .fa-check{
@@ -49,5 +49,5 @@
     font-size: 0.75rem;
 }
 .checkbox:hover{
-    border: 1px solid #7C5DFA;
+    border: 1px solid var(--clr-purple-main);
 }

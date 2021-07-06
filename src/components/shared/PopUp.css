@@ -16,19 +16,19 @@
   margin: 0 1.5em;
   border-radius: 8px;
   padding: 3em;
-  background-color: white;
+  background-color: var(--clr-sec-bg);
 }
 
 .delete-pop-heading {
   font-size: 1.5rem;
-  color: #0c0e16;
+  color: var(--clr-main-text);
   margin-bottom: 1.4em;
   line-height: 1.1;
   letter-spacing: -0.63px;
 }
 
 .delete-pop-msg {
-  color: #888eb0;
+  color: var(--clr-alt-text);
   font-size: 0.75rem;
   letter-spacing: -0.25px;
   line-height: 1.375em;

@@ -8,13 +8,13 @@ export function useInvoice() {
   return useContext(InvoiceContext);
 }
 export function InvoiceProvider({ children }) {
-  console.log("in");
   const { user } = useAuth();
   const [sending, setSending] = useState(false);
   const [invoices, setInvoices] = useState(null);
 
   useEffect(() => {
     if (user) {
+      
       getInvoices(user.uid).onSnapshot((querySnapshot) => {
         var newInvoices = [];
         querySnapshot.forEach((doc) => {

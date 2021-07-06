@@ -16,7 +16,7 @@
   padding-left:initial;
   margin-bottom: 2em;
   text-decoration: none;
-  color: #0c0e16;
+  color: var(--clr-main-text);
   font-weight: 700;
 }
 

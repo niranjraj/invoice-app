@@ -8,12 +8,15 @@ export function calcTotal(items) {
   return total;
 }
 
+function filterPaymentTerms(paymentTerms){
+  return Number(paymentTerms.replace(/\D/g,''));
+}
 export function createInvoice(status, values) {
   return {
     ...values,
     createdAt: dayjs(values.createdAt).format("YYYY-MM-DD"),
     paymentDue: dayjs(values.createdAt)
-      .add(Number(values.paymentTerms), "day")
+      .add(filterPaymentTerms(values.paymentTerms), "day")
       .format("YYYY-MM-DD"),
     status,
     total: calcTotal(values.items),

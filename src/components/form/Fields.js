@@ -8,13 +8,13 @@ import "./Fields.css";
 import { useFormikContext } from "formik";
 
 const options = [
-  {name: 'Net 1 Day', value: 1},
-  {name: 'Net 7 Days', value: 7},
-  {name: 'Net 14 Days', value: 14},
-  {name: 'Net 30 Days', value: 30}
+  'Net 1 Day',
+  'Net 7 Days',
+   'Net 14 Days',
+  'Net 30 Days'
 ]
 
-function Fields() {
+const Fields=React.memo(() =>{
   const formik =useFormikContext();
   return (
     <div className="fields-wrapper">
@@ -45,18 +45,19 @@ function Fields() {
       <fieldset>
           <div className="selection-field">
               <DatePicker label="Invoice Date" name="createdAt" />
+              {/* <DatePicker label="Invoice Date" name="createdAt" /> */}
               <Select label="Payment Terms" name="paymentTerms" options={options}/>
               <Input label="Description" name="description" placeholder="e.g. Graphic Design Service"/>
           </div>
       </fieldset>
       <ItemList name="items"/>
-      {formik.errors && <div className="invoiceForm-errorList">
+      {formik.errors && <div className="invoiceform-errorlist">
           {formErrorMsg(formik.errors).map((item,index)=>{
-           return  <div key={index} className="invoiceForm-error">{item}</div>
+           return  <div key={index} className="invoiceform-error">{item}</div>
           })}
       </div> }
     </div>
   );
-}
+})
 
 export default Fields;

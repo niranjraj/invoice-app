@@ -1,35 +1,52 @@
 .selection-field-wrapper {
   display: flex;
   flex-direction: column;
+  position:relative;
   gap: 0.625em;
-  color: #888eb0;
+  color: var(--clr-sec-text);
   font-size: 0.75rem;
   line-height: 1.125;
   letter-spacing: -0.25px;
 }
 .select-payment-wrapper {
-  position: relative;
+  position:absolute;
+  z-index: 4;
+  top: 110%;
+  width: 100%;
+  box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
+  background: var(--clr-sec-bg);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+ 
+  overflow: hidden;
+  list-style: none;
 }
-.select-payment-wrapper::after {
-  content: url("../../assets/images/down-arrow.svg");
-  position: absolute;
-  top: 50%;
-  right: 1em;
-  transform: translateY(-50%);
+.select-payment-option{
+  padding:1em;
+  font-weight: bold;
+  color:var(--clr-main-text);;
+  width:100%;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+.select-payment-option:hover{
+  color:var(--clr-purple-main);
 }
 
 .select-payment-term {
   width: 100%;
-  border: 1px solid #dfe3fa;
+  border: 1px solid var(--clr-form-border);
   border-radius: 4px;
   padding: 1em 1.25em;
-  background: #ffffff;
+  background: var( --clr-sec-bg);
   appearance: none;
   outline: none;
-  color: #0c0e16;
+  color: var(--clr-main-text);
   font-weight: bold;
   cursor: pointer;
 }
 .select-payment-term:focus {
-  border: 1px solid #9277ff;
+  border: 1px solid var(--clr-purple-sec);
 }

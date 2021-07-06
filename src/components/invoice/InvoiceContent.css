@@ -1,11 +1,11 @@
 .invoice-content-wrapper {
   padding: 3em;
-  background-color: #ffffff;
+  background-color: var(--clr-sec-bg);
   border-radius: 8px;
   box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
   font-size: 0.75rem;
   width:100%;
-  color: #888eb0;
+  color: var(--clr-sec-text);
 }
 
 .invoice-content-grid {
@@ -20,7 +20,7 @@
 .invoice-content-id {
   margin-bottom: 0.5em;
   font-size: 1rem;
-  color: #0c0e16;
+  color: var(--clr-main-text);;
 }
 
 
@@ -51,7 +51,7 @@
 .invoice-content-date-heading,
 .invoice-client-name,
 .invoice-email-content {
-  color: #0c0e16;
+  color: var(--clr-main-text);;
   font-size: 0.9375rem;
   margin-bottom: 0.5em;
   font-weight: bold;

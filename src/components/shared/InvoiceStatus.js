@@ -1,6 +1,7 @@
 import React from 'react'
 import "./InvoiceStatus.css"
 function InvoiceStatus({status}) {
+    console.log("invoice Status")
     return (
         <div className="invoiceStatus">
         <div className="invoiceStatus-circle"></div>

@@ -1,6 +1,6 @@
 .form-wrapper {
   position: fixed;
-  background: #ffffff;
+  background: var( --clr-form-bg);
   z-index: 10;
   top: 0px;
   left: 0px;
@@ -20,15 +20,18 @@
 .form-heading {
   margin-bottom: 3rem;
   font-size: 1.5rem;
-  color: #0c0e16;
+  color:var(--clr-main-text);
   font-family: "Spartan", sans-serif;
   font-weight: bold;
   line-height: 1.1;
   letter-spacing: -0.63px;
 }
 
-.form-btn-wrapper {
+.form-btn-wrapper ,.edit-form-wrapper{
   display: flex;
   gap: 0.5rem;
   padding: 2em 0px;
+}
+.edit-form-wrapper{
+  justify-content: flex-end;
 }

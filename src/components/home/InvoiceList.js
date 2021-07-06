@@ -1,26 +1,33 @@
 import React from "react";
 import InvoiceItem from "./InvoiceItem";
-
+import EmptyPage from "../../pages/EmptyPage";
 import "./InvoiceList.css";
-function InvoiceList({invoices}) {
 
-
+const InvoiceList = React.memo(({ invoices }) => {
   return (
-    <div className="invoicelist-wrapper">
-      {invoices? invoices.map((invoiceitem) => {
-        return (
-          <InvoiceItem
-            key={invoiceitem.id}
-            id={invoiceitem.id}
-            paymentDue={invoiceitem.paymentDue}
-            clientName={invoiceitem.clientName}
-            total={invoiceitem.total}
-            status={invoiceitem.status}
-          />
-        );
-      }):<p>nothing here</p>}
-    </div>
+    <>
+      {invoices && (
+        <div className="invoicelist-wrapper">
+          {invoices.length > 0 ? (
+            invoices.map((invoiceitem) => {
+              return (
+                <InvoiceItem
+                  key={invoiceitem.id}
+                  id={invoiceitem.id}
+                  paymentDue={invoiceitem.paymentDue}
+                  clientName={invoiceitem.clientName}
+                  total={invoiceitem.total}
+                  status={invoiceitem.status}
+                />
+              );
+            })
+          ) : (
+            <EmptyPage isErrorPage={false} />
+          )}
+        </div>
+      )}
+    </>
   );
-}
+});
 
 export default InvoiceList;

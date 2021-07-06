@@ -8,14 +8,14 @@
   padding-top: 2em;
   width: 100%;
   border-spacing: 0px;
-  background-color: #f9fafe;
+  background-color: var(--clr-alt-bg);
 }
 .invoice-table-header {
   display: table-header-group;
   font-size: 0.6875rem;
   line-height: 1.63;
   letter-spacing: -0.23px;
-  color: #888eb0;
+  color: var(--clr-perm-shade);
 }
 .invoice-table-header-row th {
   font-weight: 500;
@@ -42,7 +42,7 @@
 }
 .table-item-name,
 .table-item-total {
-  color: #0c0e16;
+  color: var(--clr-main-text);
 }
 
 .table-item-name,
@@ -54,7 +54,7 @@
 }
 
 .table-footer-content {
-  background-color: #373b53;
+  background-color: var(--clr-tb-ftr-bg);
   
 }
 

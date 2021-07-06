@@ -11,13 +11,22 @@ import { useAuth } from "../contexts/AuthContext";
 import { deleteInvoice } from "../services/api";
 import {useHistory} from "react-router-dom"
 function Invoice() {
-  const { invoices } = useInvoice();
+  const { id } = useParams();
+    
   const history =useHistory();
+  const { invoices } = useInvoice();
+  const idCheck= invoices?.find(invoiceItem => invoiceItem.id===id);
+  if(!idCheck){
+    //random value to push for 404 page
+    history.push("/dsaljf")
+  }
+  console.log(idCheck)
+
   const { user ,setLoading} = useAuth();
   const leftArrow = (
     <i className="fas fa-angle-down" style={{ transform: "rotate(90deg)" }}></i>
   );
-  const { id } = useParams();
+
   const [currentInvoice, setCurrentInvoice] = useState(null);
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [popIsOpen, setPopIsOpen] = useState(false);

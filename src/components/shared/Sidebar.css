@@ -2,7 +2,7 @@
   position: sticky;
   display: flex;
   top: 0px;
-  background-color: #373b53;
+  background-color: var(--clr-side-bar);
   flex-direction: column;
   width: initial;
   z-index: 20;
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #7c5dfa;
+  background-color: var(--clr-purple-main);
   border-radius: 0px 20px 20px 0px;
   margin-bottom: auto;
 }
@@ -29,7 +29,7 @@
   left: 0px;
   bottom: 0px;
   height: 50%;
-  background-color: #9277ff;
+  background-color: var(--clr-purple-sec);
   border-radius: 20px 0;
 }
 

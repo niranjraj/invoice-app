@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Wrapper from "../components/shared/Wrapper";
 import { Header } from "../components/home/Header";
 import InvoiceList from "../components/home/InvoiceList";
 import Backdrop from "../components/shared/Backdrop";
 import InvoiceForm from "../components/form/InvoiceForm";
 import { useInvoice } from "../contexts/InvoiceContext";
-import { FormContext } from "../contexts/FormContext";
+
 
 function Home() {
-  const [formIsOpen, setFormIsOpen] = useContext(FormContext);
+  const [formIsOpen, setFormIsOpen] = useState(false);
   const [filteredInvoices, setFilteredInvoices] = useState(null);
   const [filterStatus, setFilterStatus] = useState(null);
   const { invoices } = useInvoice();
@@ -25,6 +25,7 @@ function Home() {
       }
     }
   }, [invoices, filterStatus]);
+  
   return (
     <>
       <Backdrop formIsOpen={formIsOpen} setFormIsOpen={setFormIsOpen} />

@@ -13,11 +13,10 @@ fieldset{
 
 .field-heading{
     margin-bottom: 1.5em;
-  
     font-size: 0.75rem;
     line-height: 1.125;
     letter-spacing: -0.25px;
-    color: #7C5DFA;
+    color: var(--clr-purple-main);
     font-weight: bold;
 
 }
@@ -70,4 +69,15 @@ fieldset{
 .selection-field > :nth-child(3){
     grid-column: 1 / -1;
 
+}
+.invoiceform-errorlist{
+   margin-top: -1em;
+}
+
+.invoiceform-error{
+    color: #EC5757;
+    font-size: 0.85rem;
+    padding:0.25em;
+    font-weight: bold;
+    line-height: 1em;
 }

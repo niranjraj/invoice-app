@@ -3,7 +3,7 @@ import Input from "./Input"
 import Button from  "../shared/Button"
 import {useFormikContext} from "formik";
 import './ItemList.css'
-function Item({index,helpers}) {
+const Item=React.memo(({index,helpers})=> {
     const{values,setFieldValue}=useFormikContext();
 
     useEffect(()=>{
@@ -45,6 +45,6 @@ function Item({index,helpers}) {
 
         </div>
     )
-}
+})
 
 export default Item

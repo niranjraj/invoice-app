@@ -1,0 +1,26 @@
+.no-invoice-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.noinvoice-img {
+  height: 200px;
+  width: 200px;
+  margin: 4em auto;
+}
+.noinvoice-heading {
+  font-size: 1.25rem;
+  line-height: 1.1;
+  letter-spacing: -0.0315em;
+  margin-bottom: 1.5em;
+  color:var(--clr-main-text);
+}
+
+.noinvoice-msg {
+  font-size: 0.75rem;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  color:#888eb0;
+}

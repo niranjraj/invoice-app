@@ -9,7 +9,6 @@ import { Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Loading from "./Loading";
 function Login() {
-    console.log("inlogin")
   const googleIcon = <i className="fab fa-google"></i>;
   const crossIcon = <i className="fas fa-times"></i>;
   const [loginIsOpen, setLoginIsOpen] = useState(false);

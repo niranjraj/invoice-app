@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
-import { Formik, Form, FormikConsumer } from "formik";
+import React from "react";
+import { Formik, Form } from "formik";
 import { motion, AnimatePresence } from "framer-motion";
 import Fields from "./Fields";
 import Button from "../shared/Button";
-import formErrorMsg from "../utils/ErrorMessage";
+
 import { useInvoice } from "../../contexts/InvoiceContext";
 import { setInitialValues, validationSchema } from "../utils/FormValidation";
 import { createInvoice } from "../utils/FormatInvoice";
-import { FormContext } from "../../contexts/FormContext";
 import { useAuth } from "../../contexts/AuthContext";
 import { addInvoice, updateInvoice } from "../../services/api";
 import "./InvoiceForm.css";
-import { object } from "yup/lib/locale";
-function InvoiceForm({ invoice, formIsOpen, setFormIsOpen }) {
+
+const InvoiceForm =React.memo(({ invoice, formIsOpen, setFormIsOpen }) =>{
+  console.log("inform")
   const { setSending } = useInvoice();
   const { user } = useAuth();
 
@@ -58,14 +58,14 @@ function InvoiceForm({ invoice, formIsOpen, setFormIsOpen }) {
                   <div className="edit-form-wrapper">
                     <Button
                       buttonSize="large"
-                      buttonStyle="edit-form-cancel-btn"
+                      buttonStyle="edit-cancel-btn"
                       onClick={() => setFormIsOpen(false)}
                     >
                       Cancel
                     </Button>
                     <Button
                       buttonSize="large"
-                      buttonStyle="update-form-btn"
+                      buttonStyle="save-send-btn"
                       onClick={() =>
                         formik
                           .validateForm()
@@ -109,6 +109,6 @@ function InvoiceForm({ invoice, formIsOpen, setFormIsOpen }) {
       )}
     </AnimatePresence>
   );
-}
+})
 
 export default InvoiceForm;

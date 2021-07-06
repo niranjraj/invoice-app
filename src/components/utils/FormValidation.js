@@ -17,7 +17,7 @@ const initialValues = {
         country: ''
     },
     createdAt: new Date(),
-    paymentTerms: '30',
+    paymentTerms: 'Net 30 Days',
     description: '',
     items: []
 }

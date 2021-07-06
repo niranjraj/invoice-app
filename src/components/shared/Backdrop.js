@@ -11,19 +11,16 @@ const animation = {
 };
 
 function Backdrop({ formIsOpen, setFormIsOpen }) {
-
-
-  
   return (
     <AnimatePresence>
-      {formIsOpen  && (
+      {formIsOpen && (
         <motion.div
           className="backdrop-style"
           variants={animation}
           initial="hidden"
           animate="visible"
           exit="hidden"
-          onClick={()=>setFormIsOpen(false)}
+          onClick={() => setFormIsOpen(false)}
         ></motion.div>
       )}
     </AnimatePresence>

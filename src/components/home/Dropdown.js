@@ -2,44 +2,48 @@ import React, { useState, useRef, useEffect } from "react";
 import Button from "../shared/Button";
 import DropdownOption from "./DropdownOption";
 import "./Dropdown.css";
-function Dropdown({setFilterStatus}) {
-  const downArrow = <i className="fas fa-angle-down"></i>;
-  const upArrow = (
-    <i
-      className="fas fa-angle-down"
-      style={{ transform: "rotate(-180deg)" }}
-    ></i>
-  );
+
+const downArrow = <i className="fas fa-angle-down"></i>;
+const upArrow = (
+  <i className="fas fa-angle-down" style={{ transform: "rotate(-180deg)" }}></i>
+);
+const statusOption = [
+  {
+    id: 0,
+    value: "paid",
+    checked: false,
+  },
+  {
+    id: 1,
+    value: "pending",
+    checked: false,
+  },
+  {
+    id: 2,
+    value: "draft",
+    checked: false,
+  },
+];
+
+const Dropdown = React.memo(({ setFilterStatus }) => {
   const buttonRef = useRef();
   const dropdownRef = useRef();
-  const [open, setOpen] = useState(false);
 
-  const [options, setOptions] = useState([
-    {
-      id: 0,
-      value: "paid",
-      checked: false,
-    },
-    {
-      id: 1,
-      value: "pending",
-      checked: false,
-    },
-    {
-      id: 2,
-      value: "draft",
-      checked: false,
-    },
-  ]);
+  const [openDropdown, setOpenDropdown] = useState(false);
+
+  const [options, setOptions] = useState(statusOption);
+
   const toggleClick = () => {
-    setOpen((prev) => !prev);
+    // open and close the dropdown
+    setOpenDropdown((prev) => !prev);
   };
 
   const handleCheck = (id) => {
     const updatedOptions = options.map((option) => {
+      //change the clicked option to true and the rest to false
       if (id === option.id) {
         // option.checked is false for the  checked id
-        setFilterStatus(option.checked? null:option.value);
+        setFilterStatus(option.checked ? null : option.value);
         return { ...option, checked: !option.checked };
       }
       return { ...option, checked: false };
@@ -49,30 +53,32 @@ function Dropdown({setFilterStatus}) {
   };
 
   const handleClickOutside = (e) => {
+    //close the dropdown if click is outside the dropdown and not on the button
     if (
       !dropdownRef.current.contains(e.target) &&
       !buttonRef.current.contains(e.target)
     ) {
-      setOpen(false);
+      setOpenDropdown(false);
     }
   };
 
   useEffect(() => {
-    if (dropdownRef.current.classList.contains("isActive")) {
+    //add listener when drop down is open
+    if (openDropdown) {
       document.addEventListener("mousedown", handleClickOutside);
 
       return () => {
         document.removeEventListener("mousedown", handleClickOutside);
       };
     }
-  });
+  }, [openDropdown]);
 
   return (
     <div className="dropdown-wrapper">
       <Button
         buttonStyle="header-dropdown"
         forwardedRef={buttonRef}
-        iconValue={open ? upArrow : downArrow}
+        iconValue={openDropdown ? upArrow : downArrow}
         onClick={toggleClick}
       >
         <h4>
@@ -81,7 +87,7 @@ function Dropdown({setFilterStatus}) {
       </Button>
       <div
         ref={dropdownRef}
-        className={open ? "isActive" : "dropdown-options-container"}
+        className={openDropdown ? "isActive" : "dropdown-options-container"}
       >
         {options.map((option) => {
           return (
@@ -98,6 +104,6 @@ function Dropdown({setFilterStatus}) {
       </div>
     </div>
   );
-}
+});
 
 export default Dropdown;

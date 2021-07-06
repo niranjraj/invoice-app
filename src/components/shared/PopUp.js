@@ -2,7 +2,8 @@ import React from "react";
 import Button from "./Button";
 import "./PopUp.css";
 
-function DeletePopUp({ popUpIsOpen, setPopIsOpen,invoiceId, userId,handleClick }) {
+const DeletePopUp =({ popUpIsOpen, setPopIsOpen,invoiceId, userId,handleClick }) => {
+  console.log("in  pop up")
   return (
     <>
       {popUpIsOpen && (

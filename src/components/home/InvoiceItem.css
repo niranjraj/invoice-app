@@ -5,18 +5,20 @@
   column-gap: 1em;
   width: 100%;
   align-items: center;
-  background-color: var(--secondary-bg-color);
+  background-color: var(--clr-sec-bg);
   border-radius: 8px;
-  padding: 1em 1.5em;
+  padding:  1.5em;
   border: 1px solid transparent;
   cursor: pointer;
+  margin-bottom: 1em;
+  
 }
 
 .invoiceItem:hover{
-    border: 1px solid  #7C5DFA;
+    border: 1px solid  var(--clr-purple-main);
 }
 .invoiceItem-header {
-  color: #0c0e16;
+  color: var(--clr-main-text);;
   font-family: "Spartan", sans-serif;
   font-weight: bold;
   font-size: 0.75rem;
@@ -29,8 +31,7 @@
 
 .invoiceItem-date,
 .invoiceItem-client {
-  font-family: "Spartan", sans-serif;
-  color: #888eb0;
+  color: var(--clr-sec-text);
   font-size: 0.75rem;
   line-height: 1.125;
   letter-spacing: -0.25px;
@@ -38,8 +39,7 @@
 
 .invoiceItem-total {
   margin-right: 1em;
-  color: rgb(12, 14, 22);
-  font-family: "Spartan", sans-serif;
+  color: var(--clr-main-text);
   font-weight: bold;
   transition: color 0.3s ease 0s;
   line-height: 1.1;
