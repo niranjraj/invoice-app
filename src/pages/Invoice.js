@@ -20,9 +20,9 @@ function Invoice() {
     //random value to push for 404 page
     history.push("/dsaljf")
   }
-  console.log(idCheck)
 
-  const { user ,setLoading} = useAuth();
+
+  const { user ,setLoading,setSending} = useAuth();
   const leftArrow = (
     <i className="fas fa-angle-down" style={{ transform: "rotate(90deg)" }}></i>
   );
@@ -32,7 +32,9 @@ function Invoice() {
   const [popIsOpen, setPopIsOpen] = useState(false);
 
   function handleDelete(userId, invoiceId) {
+ 
     setLoading(true);
+    setSending(true)
     deleteInvoice(userId, invoiceId);
     setPopIsOpen(false);
     setLoading(false);

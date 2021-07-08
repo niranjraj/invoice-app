@@ -1,53 +1,53 @@
 import React, { useState, useEffect, useContext } from "react";
 import { firebase } from "../firebase/initFirebase";
-import { addInvoice, setUserId } from "../services/api";
+import { setUserId } from "../services/api";
 const AuthContext = React.createContext();
 
 export function useAuth() {
   return useContext(AuthContext);
 }
-export function getId() {
-  return firebase.auth().currentUser.id;
-}
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-
+  const [sending,setSending]=useState(false)
   const [loading, setLoading] = useState(true);
 
-  function login() {
+  async function login() {
     try {
       setLoading(true);
-      let provider = new firebase.auth.GoogleAuthProvider();
-      firebase
-        .auth()
-        .signInWithRedirect(provider)
-        .then((res) => {
-          if (res.user) {
-            setUser(res.user);
-          }
-        });
+      const provider = new firebase.auth.GoogleAuthProvider();
+      await firebase.auth().signInWithRedirect(provider);
+      
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
   }
 
-  function logout() {
-    return firebase.auth().signOut();
+  async function logout() {
+    return await firebase.auth().signOut();
   }
 
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((u) => {
-      setUser(u);
-      if (u) {
-        setUserId(u.uid, u.displayName, u.photoURL);
-      }
-      setLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
+    try {
+     
+      const unsubscribe = firebase.auth().onAuthStateChanged((newUser) => {
+        if (newUser &&!user) {
+          console.log("in use effect auth")
+          setUserId(newUser.uid, newUser.displayName, newUser.photoURL);
+        }
+        setUser(newUser);
+        setSending(true)
+        setLoading(false);
+      });
+      return () => unsubscribe();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, loading,setLoading, login, logout }}>
+    <AuthContext.Provider value={{ user, loading, setLoading, login, logout,setSending,sending }}>
       {children}
     </AuthContext.Provider>
   );

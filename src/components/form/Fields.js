@@ -30,7 +30,7 @@ const Fields=React.memo(() =>{
       <fieldset>
         <legend className="field-heading">Bill To</legend>
         <div className="bill-to">
-          <Input label="Client's Name" name="clientName" />
+          <Input label="Client's Name"  name="clientName" />
           <Input
             label="Client's Email"
             name="clientEmail"
@@ -45,7 +45,6 @@ const Fields=React.memo(() =>{
       <fieldset>
           <div className="selection-field">
               <DatePicker label="Invoice Date" name="createdAt" />
-              {/* <DatePicker label="Invoice Date" name="createdAt" /> */}
               <Select label="Payment Terms" name="paymentTerms" options={options}/>
               <Input label="Description" name="description" placeholder="e.g. Graphic Design Service"/>
           </div>

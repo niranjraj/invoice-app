@@ -1,4 +1,5 @@
 import React from "react";
+import check from "../../assets/images/icon-check.svg"
 import "./DropdownOption.css";
 
 const DropdownOption = ({ checked, id, children, handleClick }) => {
@@ -13,7 +14,7 @@ const DropdownOption = ({ checked, id, children, handleClick }) => {
         }}
       />
       <span className="checkbox">
-        <i className="fas fa-check"></i>
+      <img src={check} alt="check" />
       </span>
       <span className="label-option">{children}</span>
     </label>

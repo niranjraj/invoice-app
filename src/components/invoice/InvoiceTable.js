@@ -1,4 +1,5 @@
 import React from "react";
+import {currencyFormatter} from "../utils/FormatInvoice"
 import "./InvoiceTable.css";
 
 function InvoiceTable({ items, total }) {
@@ -19,8 +20,8 @@ function InvoiceTable({ items, total }) {
               <tr className="invoice-table-body-row" key={item.name}>
                 <td className="table-item-name" >{item.name}</td>
                 <td className="table-item-quantity" >{item.quantity}</td>
-                <td className="table-item-price" >₹ {item.price}</td>
-                <td className="table-item-total" >₹ {item.total}</td>
+                <td className="table-item-price" >{currencyFormatter.format(item.price)}</td>
+                <td className="table-item-total" >{currencyFormatter.format(item.total)}</td>
               </tr>
             );
           })}
@@ -29,7 +30,7 @@ function InvoiceTable({ items, total }) {
           <tr>
             <th className="table-footer-amount" colSpan="2">Amount Due</th>
 
-            <td className="table-footer-total" colSpan="2">{total ? `₹ ${total}` : ""}</td>
+            <td className="table-footer-total" colSpan="2">{total ? total : ""}</td>
           </tr>
         </tfoot>
       </table>

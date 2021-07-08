@@ -6,12 +6,13 @@ import Backdrop from "../components/shared/Backdrop";
 import InvoiceForm from "../components/form/InvoiceForm";
 import { useInvoice } from "../contexts/InvoiceContext";
 
-
 function Home() {
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [filteredInvoices, setFilteredInvoices] = useState(null);
   const [filterStatus, setFilterStatus] = useState(null);
+
   const { invoices } = useInvoice();
+
 
   useEffect(() => {
     if (invoices) {

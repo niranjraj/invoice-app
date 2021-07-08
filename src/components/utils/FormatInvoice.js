@@ -1,12 +1,17 @@
 import dayjs from "dayjs";
 
+export const currencyFormatter= new Intl.NumberFormat('en-IN',{
+  style:'currency',
+  currency: 'INR',
+})
 export function calcTotal(items) {
   let total = 0;
   for (const item of items) {
     total += item.total;
   }
-  return total;
+  return currencyFormatter.format(total);
 }
+
 
 function filterPaymentTerms(paymentTerms){
   return Number(paymentTerms.replace(/\D/g,''));
@@ -22,6 +27,9 @@ export function createInvoice(status, values) {
     total: calcTotal(values.items),
   };
 }
+
+
+
 
 export function invoicesMessage(invoiceLength, filter) {
   if (invoiceLength === 0 && !filter) {

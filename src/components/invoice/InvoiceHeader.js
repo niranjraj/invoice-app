@@ -5,14 +5,17 @@ import Button from "../shared/Button";
 import "./InvoiceHeader.css";
 import { useAuth } from "../../contexts/AuthContext";
 
-function InvoiceHeader({ invoiceId, status, setFormIsOpen ,setPopIsOpen}) {
-  const { user } = useAuth();
-  const handleMark = (status) => {
-      console.log("in handle")
+function InvoiceHeader({ invoiceId, status, setFormIsOpen, setPopIsOpen }) {
+  const { user, setSending } = useAuth();
+  const handleMark = async (status) => {
+    console.log("in handle");
+    setSending(true);
     if (status === "paid") {
-      updateStatus(user.uid, invoiceId, "pending");
+      await updateStatus(user.uid, invoiceId, "pending");
+      return;
     } else if (status === "pending" || "draft") {
-      updateStatus(user.uid, invoiceId, "paid");
+      await updateStatus(user.uid, invoiceId, "paid");
+      return;
     }
   };
   return (
@@ -27,16 +30,22 @@ function InvoiceHeader({ invoiceId, status, setFormIsOpen ,setPopIsOpen}) {
         >
           Edit
         </Button>
-        <Button buttonStyle="invoice-delete-btn" onClick={()=>setPopIsOpen(true)} buttonSize="large">
-          Delete
-        </Button>
         <Button
-          buttonStyle="invoice-paid-btn"
-          onClick={() => handleMark(status)}
+          buttonStyle="invoice-delete-btn"
+          onClick={() => setPopIsOpen(true)}
           buttonSize="large"
         >
-          Mark as {status === "paid" ? "Pending" : "Paid"}
+          Delete
         </Button>
+        {status !== "draft" && (
+          <Button
+            buttonStyle="invoice-paid-btn"
+            onClick={() => handleMark(status)}
+            buttonSize="large"
+          >
+            Mark as {status === "paid" ? "Pending" : "Paid"}
+          </Button>
+        )}
       </div>
     </section>
   );

@@ -9,13 +9,15 @@
   width: 100%;
   border-spacing: 0px;
   background-color: var(--clr-alt-bg);
+  transition: background 300ms ease;
 }
 .invoice-table-header {
   display: table-header-group;
   font-size: 0.6875rem;
   line-height: 1.63;
   letter-spacing: -0.23px;
-  color: var(--clr-perm-shade);
+  color: var(--clr-perma-shade);
+  transition:color 300ms ease;
 }
 .invoice-table-header-row th {
   font-weight: 500;
@@ -43,6 +45,7 @@
 .table-item-name,
 .table-item-total {
   color: var(--clr-main-text);
+  transition:color 300ms ease;
 }
 
 .table-item-name,
@@ -55,12 +58,13 @@
 
 .table-footer-content {
   background-color: var(--clr-tb-ftr-bg);
+  transition: background 300ms ease;
   
 }
 
 
 .table-footer-amount {
-  color: white;
+  color: var(--clr-perma-white);
   font-size: 0.6875rem;
   text-align: start;
   padding: 2em 0px 2em 2em;
@@ -72,6 +76,6 @@
     letter-spacing: -.02em;
     text-align: end;
     font-weight: 700;
-    color:white;
+    color:var(--clr-perma-white);
     padding: 1em 2em 1em 0px ;
 }

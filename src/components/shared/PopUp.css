@@ -17,6 +17,7 @@
   border-radius: 8px;
   padding: 3em;
   background-color: var(--clr-sec-bg);
+  transition: background 300ms ease;
 }
 
 .delete-pop-heading {
@@ -25,6 +26,7 @@
   margin-bottom: 1.4em;
   line-height: 1.1;
   letter-spacing: -0.63px;
+  transition: color 300ms ease;
 }
 
 .delete-pop-msg {
@@ -33,6 +35,7 @@
   letter-spacing: -0.25px;
   line-height: 1.375em;
   margin-bottom: 1em;
+  transition: color 300ms ease;
 }
 
 .delete-pop-btn-wrapper{

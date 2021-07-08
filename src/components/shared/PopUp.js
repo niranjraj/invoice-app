@@ -12,7 +12,7 @@ const DeletePopUp =({ popUpIsOpen, setPopIsOpen,invoiceId, userId,handleClick })
             <div className="delete-pop-wrapper">
               <h2 className="delete-pop-heading">Confirm Deletion</h2>
               <p className="delete-pop-msg">
-                Are you sure you want to delete invoice #{invoiceId.slice(0,6)}? This action cannot
+                Are you sure you want to delete invoice #{invoiceId.slice(0,6).toUpperCase()}? This action cannot
                 be undone
               </p>
             </div>

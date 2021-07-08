@@ -6,25 +6,35 @@
   font-size: 0.75rem;
   line-height: 1.125;
   letter-spacing: -0.25px;
+  transition: color 300ms ease;
 }
 .input-label {
   color: var(--clr-sec-text);
+  transition: color 300ms ease;
 }
 
 .input-field-main {
   width: 100%;
   border-radius: 4px;
-  padding: 1em 1.25em;
+  padding: 1.2em 1.25em;
   background: var( --clr-sec-bg);
   color: var(--clr-main-text);
   border: 1px solid var(--clr-form-border);
   outline: none;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   line-height: 1.125;
   letter-spacing: -0.25px;
   font-weight: bold;
+  transition: color 300ms ease,background 300ms ease,border 300ms ease;
 }
 
 .input-field-main:focus{
   border: 1px solid var(--clr-purple-sec);
+}
+.input-label.touched-label{
+  color:var(--clr-perma-error);
+ 
+}
+.input-field-main.touched-input{
+border:1px solid var(--clr-perma-error);
 }

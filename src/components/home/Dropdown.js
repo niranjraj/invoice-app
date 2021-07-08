@@ -2,11 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import Button from "../shared/Button";
 import DropdownOption from "./DropdownOption";
 import "./Dropdown.css";
+import downArrow from "../../assets/images/down-arrow.svg";
 
-const downArrow = <i className="fas fa-angle-down"></i>;
-const upArrow = (
-  <i className="fas fa-angle-down" style={{ transform: "rotate(-180deg)" }}></i>
-);
 const statusOption = [
   {
     id: 0,
@@ -76,9 +73,10 @@ const Dropdown = React.memo(({ setFilterStatus }) => {
   return (
     <div className="dropdown-wrapper">
       <Button
-        buttonStyle="header-dropdown"
+        buttonStyle={`header-dropdown ${openDropdown ? "arrow-up" : ""}`}
         forwardedRef={buttonRef}
-        iconValue={openDropdown ? upArrow : downArrow}
+        iconValue={downArrow}
+        altValue="downArrow"
         onClick={toggleClick}
       >
         <h4>

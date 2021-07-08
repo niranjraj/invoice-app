@@ -3,7 +3,7 @@ import "./InvoiceStatus.css"
 function InvoiceStatus({status}) {
     console.log("invoice Status")
     return (
-        <div className="invoiceStatus">
+        <div className={`invoiceStatus ${status}-active`}>
         <div className="invoiceStatus-circle"></div>
         <div className="invoiceStatus-text">{status}</div>
     </div>

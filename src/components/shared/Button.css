@@ -27,128 +27,27 @@
   outline: none;
 }
 
-.fa-moon,
-.fa-sun {
-  font-size: 1.25rem;
-  color: #7e88c3;
-  transform: rotate(-30deg);
-}
-.header-dropdown {
-  width: max-content;
-  height: 2rem;
-  background: transparent none repeat scroll 0% 0%;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-}
 
-.plus-btn {
-  padding: 0.5rem 1rem 0.5rem 0.5rem;
-  margin-left: 2.5em;
-  min-width: 5.87em;
-  background-color: var(--clr-purple-main);
-  color: #ffffff;
-}
-.fa-plus {
-  color: var(--clr-purple-main);
-}
 
-.plus-btn .icon-value {
-  display: inline-flex;
-  margin-right: 0.5em;
-  padding: 0.625rem;
-  background: white;
-  border-radius: 50%;
-}
 
-.plus-btn .invoice-span-btn {
-  display: initial;
-}
-.plus-btn:hover {
-  background-color: var(--clr-purple-sec);
-}
-
-.datepicker-btn {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1em 1.25em;
-  border: 1px solid var(--clr-form-border);
-  border-radius: 4px;
-  width: 100%;
-  background: var(--clr-sec-bg);
-  letter-spacing: -0.25px;
-  color: var(--clr-main-text);
-}
-
-.fa-calendar {
-  color: #bec3e1;
-  font-size: 1rem;
-}
 
 .add-item-btn {
   width: 100%;
-  transition: background 0.3s ease 0s, color 0.3s ease 0s;
-  background: var( --clr-alt-bg);
+  background: var(--clr-alt-bg);
   color: var(--clr-sec-text);
+  transition: background 300ms ease , color 300ms ease ;
 }
 
 .delete-item-btn {
   display: flex;
   align-self: end;
-
   justify-content: center;
-
-  align-items: flex-start;
-  height: 3em;
+  align-items: center;
+  margin-bottom: 0.3em;
+  padding: 1em 0;
   background: transparent none repeat scroll 0% 0%;
 }
-.fa-trash {
-  color: #888eb0;
-  font-size: 1rem;
-}
 
-.discard-btn {
-  margin-right: auto;
-  background: var( --clr-main-bg);
-  color: var(--clr-sec-text);
-}
-.draft-btn{
-  background: #363b53;
-  color: #888eb0;
-}
-.save-send-btn,.invoice-paid-btn{
-  background:var(--clr-purple-main);
-  color:#ffffff;
-}
-.edit-cancel-btn,.invoice-edit-btn{
-  background: var( --clr-alt-bg);
-  color: var(--clr-sec-text);
-}
-
- .invoice-delete-btn{
-   background: #ec5757;
-   color:#ffffff;
-   
- }
-
- .fa-times{
-   position: absolute;
-   font-size: 1rem;
-   right:5px;
-   top:5px;
- }
-
-.discard-btn:hover,.edit-cancel-btn:hover{
-background:#dfe3fa;
-}
-.draft-btn:hover{
-  background:#0c0e16;
-}
-.save-send-btn:hover{
-  background:var(--clr-purple-sec);
-}
 
 
 

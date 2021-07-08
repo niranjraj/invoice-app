@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "../components/shared/Button";
 import Backdrop from "../components/shared/Backdrop";
 import LoginImg from "../assets/images/login-img.svg";
-import { firebase } from "../firebase/initFirebase";
 import { Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Loading from "./Loading";
@@ -44,7 +43,7 @@ function Login() {
           )}
         </AnimatePresence>
         <img className="login-img" src={LoginImg} alt="loginImage" />
-        <h2>There is nothing here</h2>
+        <h2 className="login-header">There is nothing here</h2>
         {user && <h2>Im logged in</h2>}
         <p>You need to log in using google account to work with the invoices</p>
         <Button

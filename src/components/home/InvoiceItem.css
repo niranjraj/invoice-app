@@ -11,6 +11,7 @@
   border: 1px solid transparent;
   cursor: pointer;
   margin-bottom: 1em;
+  transition: background 300ms ease,border 300ms ease;
   
 }
 
@@ -19,14 +20,15 @@
 }
 .invoiceItem-header {
   color: var(--clr-main-text);;
-  font-family: "Spartan", sans-serif;
   font-weight: bold;
   font-size: 0.75rem;
   line-height: 1.1;
   letter-spacing: -0.63px;
+  transition: color 300ms ease;
 }
 .invoiceItem-header span {
-  color: #7e88c3;
+  color: var(--clr-perma-shade);
+  transition: color 300ms ease;
 }
 
 .invoiceItem-date,
@@ -35,15 +37,16 @@
   font-size: 0.75rem;
   line-height: 1.125;
   letter-spacing: -0.25px;
+  transition: color 300ms ease;
 }
 
 .invoiceItem-total {
   margin-right: 1em;
   color: var(--clr-main-text);
   font-weight: bold;
-  transition: color 0.3s ease 0s;
   line-height: 1.1;
   letter-spacing: -0.63px;
+  transition: color 300ms ease;
 }
 
 .invoiceItem-total span{

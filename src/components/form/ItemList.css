@@ -1,10 +1,11 @@
 .itemList-legend {
   margin-bottom: 1.5em;
   letter-spacing: -0.25px;
-  color: #777f98;
+  color: var(--clr-perma-alt-ash);
   font-size: 1.125rem;
   font-weight: bold;
   line-height: 2rem;
+  transition: color 300ms ease;
 }
 
 .invoiceForm-item-wrapper{
@@ -13,7 +14,11 @@
     gap: 1.5em 1em;
     margin-bottom: 1em;
 }
+.invoiceForm-item-wrapper  .input-wrapper > input{
+    padding:1em 1.25em;
+}
 
+.invoiceForm-item-wrapper
 .invoiceForm-item-wrapper > :nth-child(1){
     grid-column: 1 / span 1;
 
@@ -37,5 +42,6 @@
 .disabled-field-total{
     border: none;
     padding: 1em 0;
-    color: #888EB0;
+    color: var(--clr-perma-ash);
+    transition: color 300ms ease;
 }

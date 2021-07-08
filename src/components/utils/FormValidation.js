@@ -60,8 +60,8 @@ export const validationSchema = Yup.object().shape({
     description: Yup.string().required('- All fields must be filled.'),
     items: Yup.array().of(Yup.object().shape({
         name: Yup.string().required('- All fields must be filled.'),
-        quantity: Yup.number().typeError('- Invalid input.').required('- All fields must be filled.'),
-        price: Yup.number().typeError('- Invalid input.').required('- All fields must be filled.'),
-        total: Yup.number(),
+        quantity: Yup.number().typeError('- Invalid input.').required('- All fields must be filled.').max(9999999999,"- Quantity limit reached.").min(0,'- Invalid input.'),
+        price: Yup.number().typeError('- Invalid input.').required('- All fields must be filled.').max(9999999999,"- Price limit reached.").min(0,'- Invalid input.'),
+        total: Yup.number().max(9999999999,"- Total exceeds limit."),
     })).min(1, '- An item must be added.')
 })

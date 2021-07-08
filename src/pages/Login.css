@@ -45,3 +45,7 @@
   height:2px;
  
 }
+
+.login-header{
+  color: var(--clr-main-text);
+}

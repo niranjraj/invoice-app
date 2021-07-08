@@ -3,7 +3,8 @@ import Button from "../shared/Button";
 import Dropdown from "./Dropdown";
 import { invoicesMessage } from "../utils/FormatInvoice";
 import "./Header.css";
-const plusIcon = <i className="fas fa-plus"></i>;
+import plusIcon from "../../assets/images/icon-plus.svg"
+
 
 export const Header = React.memo(
   ({ setFormIsOpen, invoices, filterStatus, setFilterStatus }) => {
@@ -19,6 +20,7 @@ export const Header = React.memo(
         <Dropdown setFilterStatus={setFilterStatus} />
         <Button
           iconValue={plusIcon}
+          altValue="plusIcon"
           onClick={() => setFormIsOpen(true)}
           buttonStyle="plus-btn"
         >

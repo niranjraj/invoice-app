@@ -3,16 +3,15 @@ import React, { forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 import { useFormikContext, useField } from "formik";
 import "react-datepicker/dist/react-datepicker.css";
-
+import calendarIcon from "../../assets/images/icon-calendar.svg"
 import Button from "../shared/Button";
 
 import "./DatePicker.css"
 
-const calendarIcon = <i className="far fa-calendar"></i>;
 
 
-const DatepickerPopper = ({ children}) => (
-  <div className="datepicker-popper">{children}</div>
+const datepickerContainer= ({ children}) => (
+  <div className="datepicker-container">{children}</div>
 );
 const CustomInput = forwardRef(({ value, onClick }, ref) => {
   return (
@@ -21,6 +20,7 @@ const CustomInput = forwardRef(({ value, onClick }, ref) => {
       buttonSize="large"
       buttonStyle="datepicker-btn"
       iconValue={calendarIcon}
+      altValue="calendarIcon"
       onClick={onClick}
     >
       {value}
@@ -43,7 +43,7 @@ const DatePicker=React.memo(({ label, name }) =>{
         {...field}
         selected={field.value}
         onChange={(value) => setFieldValue(name, value)}
-        calendarContainer={DatepickerPopper}
+        calendarContainer={datepickerContainer}
         customInput={<CustomInput />}
         dateFormat="MMM d, yyyy"
       />

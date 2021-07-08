@@ -19,7 +19,7 @@ function App() {
   const [lightTheme,setLightTheme]=useState(true)
   return (
       <div className={`container ${lightTheme? "lighttheme":"darktheme"}`}>
-        <Sidebar setLightTheme={setLightTheme}/>
+        <Sidebar setLightTheme={setLightTheme} lightTheme={lightTheme}/>
         <div className="wrapper-main">
           {loading ? (
             <Loading />

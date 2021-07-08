@@ -18,7 +18,7 @@ fieldset{
     letter-spacing: -0.25px;
     color: var(--clr-purple-main);
     font-weight: bold;
-
+    transition: color 300ms ease;
 }
 .bill-from,.bill-to{
     display:grid;
@@ -75,9 +75,10 @@ fieldset{
 }
 
 .invoiceform-error{
-    color: #EC5757;
+    color: var(--clr-perma-error);
     font-size: 0.85rem;
     padding:0.25em;
     font-weight: bold;
     line-height: 1em;
+    transition: color 300ms ease;
 }

@@ -1,4 +1,5 @@
 
+
 .datepicker-wrapper {
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -7,12 +8,30 @@
   font-size: 0.75rem;
   line-height: 1.125;
   letter-spacing: -0.25px;
+  transition: color 300ms ease;
+}
+
+.datepicker-btn {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2em 1.25em;
+  border: 1px solid var(--clr-form-border);
+  border-radius: 4px;
+  width: 100%;
+  background-color: var(--clr-sec-bg);
+  letter-spacing: -0.25px;
+  color: var(--clr-main-text);
+  transition: color 300ms ease,background 300ms ease ,border 300ms ease;
+  
 }
 
 .datepicker-label {
   grid-column: 1 / 2;
   margin-bottom: 0.625rem;
   color: var(--clr-sec-text);
+  transition: color 300ms ease;
 }
 
 .datepicker-wrapper .react-datepicker-wrapper{
@@ -40,6 +59,7 @@ padding-top:0.85em;
 
 .react-datepicker__navigation-icon::before{
   border-color: var(--clr-purple-main);
+  transition: border 300ms ease;
 }
 
 
@@ -49,6 +69,7 @@ padding-top:0.85em;
   color: var(--clr-main-text);
   background-color:var( --clr-sec-bg);
   border-bottom: none;
+  transition: color 300ms ease,background 300ms ease ;
 }
 
 
@@ -56,11 +77,13 @@ padding-top:0.85em;
 .react-datepicker__day,
 .react-datepicker__time-name {
   color:var(--clr-main-text);
+  transition: color 300ms ease;
 }
 
 .react-datepicker__day--outside-month{
-  color:#888eb0;
+  color:var(--clr-perma-ash);
   font-weight: 300;
+  transition: color 300ms ease;
 }
 
 .react-datepicker__day:hover,
@@ -72,8 +95,9 @@ padding-top:0.85em;
 .react-datepicker__quarter-text:focus,
 .react-datepicker__year-text:focus {
   background-color: var(--clr-purple-main);
-  color: #fff;
+  color: var(--clr-perma-white);
   border-color: transparent !important;
+  transition: color 300ms ease,background 300ms ease;
 }
 
 
@@ -98,6 +122,7 @@ padding-top:0.85em;
   font-weight: 700;
   color:var(--clr-purple-main);
   background-color: transparent;
+  transition: color 300ms ease,background 300ms ease;
 }
 
 .react-datepicker__month-container {

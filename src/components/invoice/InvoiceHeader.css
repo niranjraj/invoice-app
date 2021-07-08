@@ -5,21 +5,53 @@
   border-radius: 8px;
   box-shadow:  0 10px 10px -10px rgba(72,84,159,0.1);
   padding: 1.5em;
-  background: var(--clr-sec-bg);
+  background-color: var(--clr-sec-bg);
   margin-bottom: 1.5em;
+  transition: background 300ms ease;
 }
 
 .invoice-header-status {
   color: var(--clr-sec-text);
   font-size: 0.75rem;
   margin-right: 1rem;
-
   line-height: 1.125;
   letter-spacing: -0.25px;
+  transition:color 300ms ease;
 }
 
 .invoice-header-btn-wrapper {
   display: flex;
   gap: 0.5rem;
   margin-left: auto;
+}
+
+
+
+.invoice-paid-btn {
+  background-color: var(--clr-purple-main);
+  color: var(--clr-perma-white);
+  transition:background 300ms ease,color 300ms ease;
+}
+.invoice-edit-btn {
+  background-color: var(--clr-alt-bg);
+  color: var(--clr-sec-text);
+  transition:background 300ms ease,color 300ms ease;
+}
+
+.invoice-delete-btn {
+  background-color: var(--clr-perma-error);
+  color: var(--clr-perma-white);
+  transition:background 300ms ease,color 300ms ease;
+}
+
+.invoice-paid-btn:hover{
+background-color: var(--clr-purple-sec);
+}
+
+.invoice-edit-btn:hover{
+  background-color: var(--clr-discard-btn-hvr);
+}
+
+.invoice-delete-btn:hover{
+  background-color: var(--clr-perma-red-sec);
 }

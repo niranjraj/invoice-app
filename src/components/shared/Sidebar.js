@@ -1,30 +1,42 @@
-import React from 'react'
-import Logo from '../../assets/images/logo.svg';
-import Button from './Button';
-import './Sidebar.css';
-import Avatar from '../../assets/images/avatar.png';
-import {useAuth} from '../../contexts/AuthContext';
+import React from "react";
+import Logo from "../../assets/images/logo.svg";
+import moonIcon from "../../assets/images/icon-moon.svg";
+import sunIcon from "../../assets/images/icon-sun.svg";
+import Button from "./Button";
+import "./Sidebar.css";
+import Avatar from "../../assets/images/Avatar.svg";
+import { useAuth } from "../../contexts/AuthContext";
 
-const moonIcon=<i className="fas fa-moon" ></i>;
-const sunIcon=<i className="fas fa-sun"></i>;
+function Sidebar({ setLightTheme, lightTheme }) {
+  const { user,logout } = useAuth();
 
-function Sidebar({setLightTheme}) {
-    const {logout}=useAuth()
-  
-    const toggleClick = () => {
-        // open and close the dropdown
-        setLightTheme(prev=>!prev)
-      };
-    
-  
-    return (
-        <aside className="sidebar-wrapper">
-            <div className="logo-wrapper"> <img src={Logo} alt="logo" className="logo-img" /> </div>
-            <Button buttonSize="small" iconValue={moonIcon} onClick={toggleClick} />
-            <div className="divider"></div>
-            <Button buttonSize="small" onClick={logout}> <img src={Avatar} alt="Avatar" className="avatar-img" /> </Button>
-        </aside>
-    )
+  const toggleClick = () => {
+    // open and close the dropdown
+    setLightTheme((prev) => !prev);
+  };
+
+  return (
+    <aside className="sidebar-wrapper">
+      <div className="logo-wrapper">
+        {" "}
+        <img src={Logo} alt="logo" className="logo-img" />{" "}
+      </div>
+      <Button
+        buttonSize="small"
+        iconValue={lightTheme ? moonIcon : sunIcon}
+        alt="moonIcon"
+        onClick={toggleClick}
+      />
+      <div className="divider"></div>
+      <Button
+        buttonSize="small"
+        buttonStyle="avatar-img-btn"
+        iconValue={user?user.photoURL:Avatar}
+        alt="Avatar"
+        onClick={logout}
+      />
+    </aside>
+  );
 }
 
-export default Sidebar
+export default Sidebar;

@@ -13,48 +13,60 @@ export async function addInvoice(userId, invoice) {
   }
 }
 
-export function getInvoices(userId) {
+export async function getInvoices(userId) {
   try {
+    let invoices = [];
     const ref = firebase.firestore().collection(`User/${userId}/invoices`);
-    return ref;
+    const snapshot = await ref.get();
+    console.log(snapshot);
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      invoices.push({ ...data, id: doc.id });
+    });
+    
+    return invoices;
   } catch (error) {
     console.log(error);
   }
 }
 
-export function updateInvoice(userId,invoiceId,updatedInvoice){
+export async function updateInvoice(userId, invoiceId, updatedInvoice) {
   try {
-    const ref=firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);
-    ref.set(updatedInvoice);
+    const ref = firebase
+      .firestore()
+      .doc(`User/${userId}/invoices/${invoiceId}`);
+    await ref.set(updatedInvoice);
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
-export async function deleteInvoice(userId,invoiceId){
+export async function deleteInvoice(userId, invoiceId) {
   try {
-    const ref=firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);
-     await ref.delete();
+    const ref = firebase
+      .firestore()
+      .doc(`User/${userId}/invoices/${invoiceId}`);
+    await ref.delete();
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
-export async function updateStatus(userId,invoiceId,updatedStatus){
+export async function updateStatus(userId, invoiceId, updatedStatus) {
   try {
-    const ref=firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);
-    await ref.update({status:updatedStatus})
-  } catch (error) {
-    
-  }
+    const ref = firebase
+      .firestore()
+      .doc(`User/${userId}/invoices/${invoiceId}`);
+    await ref.update({ status: updatedStatus });
+  } catch (error) {}
 }
-
 
 export async function setUserId(userId, userName, photoURL) {
   const data = {
     displayName: userName,
     avatar: photoURL,
   };
-  const ref = await firebase.firestore().collection("User").doc(userId);
+  const ref = firebase.firestore().collection("User").doc(userId);
   if (ref.exists) {
+    console.log("already exists");
     return;
   }
   await ref.set(data);

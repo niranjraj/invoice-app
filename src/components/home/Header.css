@@ -13,11 +13,11 @@
 .invoice-header{
     font-size: 2rem;
     color:var(--clr-main-text);
-    font-family: "Spartan", sans-serif;
     font-weight: bold;
     font-size: 2rem;
     letter-spacing: -1px;
     margin-bottom: 0.5em;
+    transition:color 300ms ease;
 
 }
 
@@ -26,7 +26,39 @@
     line-height: 1.125;
     letter-spacing: -0.25px;
     color:var(--clr-sec-text);
+    transition:color 300ms ease;
 }
+
+.plus-btn {
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  margin-left: 2.5em;
+  display: inline-flex;
+  align-items: center;
+  min-width: 5.87em;
+  background-color: var(--clr-purple-main);
+  color: var(--clr-perma-white);
+  transition:background 300ms ease;
+}
+
+
+
+.plus-btn .icon-value {
+  margin-right: 0.5em;
+  padding: 0.625rem;
+  background-color:  var(--clr-perma-white);
+  border-radius: 50%;
+  transition:transform 400ms ease-in;
+ 
+}
+
+
+.plus-btn:hover {
+  background-color: var(--clr-purple-sec);
+}
+.plus-btn:hover .icon-value{
+  transform: rotate(180deg);
+}
+
 
 /* when browse size is below 540px */
 @media screen and (max-width: 540px) {

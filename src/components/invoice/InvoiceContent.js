@@ -10,7 +10,7 @@ function InvoiceContent({ invoice }) {
         <div className="invoice-id-wrapper">
           <h1 className="invoice-content-id">
             <span>#</span>
-            {invoice.id.slice(0, 5)}
+            {invoice.id.slice(0, 5).toUpperCase()}
           </h1>
           <div className="invoice-content-desc">{invoice.description}</div>
         </div>

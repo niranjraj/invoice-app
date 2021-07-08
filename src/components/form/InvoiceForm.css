@@ -1,12 +1,12 @@
 .form-wrapper {
   position: fixed;
-  background: var( --clr-form-bg);
+  background-color: var( --clr-form-bg);
   z-index: 10;
   top: 0px;
   left: 0px;
   padding-left: 6.4375em;
   border-radius: 0px 20px 20px 0px;
-  transition: transform 300ms ease-in;
+  transition: background 300ms ease;
 }
 
 .form-main {
@@ -21,10 +21,11 @@
   margin-bottom: 3rem;
   font-size: 1.5rem;
   color:var(--clr-main-text);
-  font-family: "Spartan", sans-serif;
   font-weight: bold;
   line-height: 1.1;
   letter-spacing: -0.63px;
+  transition: color 300ms ease;
+
 }
 
 .form-btn-wrapper ,.edit-form-wrapper{
@@ -34,4 +35,44 @@
 }
 .edit-form-wrapper{
   justify-content: flex-end;
+}
+
+
+.discard-btn {
+  margin-right: auto;
+  background-color: var(--clr-alt-bg);
+  color: var(--clr-sec-text);
+  transition:background 300ms ease,color 300ms ease;
+}
+.draft-btn {
+  background-color: var(--clr-draft-btn);
+  color: var(--clr-alt-text);
+  transition:background 300ms ease,color 300ms ease;
+}
+
+.save-send-btn{
+  background-color: var(--clr-purple-main);
+  color: var(--clr-perma-white);
+  transition:background 300ms ease,color 300ms ease;
+}
+.edit-cancel-btn{
+  background-color: var(--clr-alt-bg);
+  color: var(--clr-sec-text);
+  transition:background 300ms ease,color 300ms ease;
+}
+
+.draft-btn:hover {
+  background-color: var(--clr-perma-dark)
+}
+.save-send-btn:hover {
+  background-color: var(--clr-purple-sec);
+}
+
+
+.discard-btn:hover{
+  background-color: var(--clr-discard-btn-hvr);
+}
+
+.edit-cancel-btn:hover {
+  background-color: var(--clr-discard-btn-hvr);
 }

@@ -3,8 +3,6 @@ import { Formik, Form } from "formik";
 import { motion, AnimatePresence } from "framer-motion";
 import Fields from "./Fields";
 import Button from "../shared/Button";
-
-import { useInvoice } from "../../contexts/InvoiceContext";
 import { setInitialValues, validationSchema } from "../utils/FormValidation";
 import { createInvoice } from "../utils/FormatInvoice";
 import { useAuth } from "../../contexts/AuthContext";
@@ -13,28 +11,31 @@ import "./InvoiceForm.css";
 
 const InvoiceForm =React.memo(({ invoice, formIsOpen, setFormIsOpen }) =>{
   console.log("inform")
-  const { setSending } = useInvoice();
-  const { user } = useAuth();
+  const { user,setSending  } = useAuth();
 
   const onSubmit = async (values) => {
-    setSending(true);
+ 
     const newInvoice = { ...createInvoice("pending", values) };
     await addInvoice(user.uid, newInvoice);
-    setSending(false);
+    setSending(true);
     setFormIsOpen(false);
   };
 
   const addDraft = async (values) => {
+   
     const newInvoice = { ...createInvoice("draft", values) };
     await addInvoice(user.uid, newInvoice);
+    setSending(true);
     setFormIsOpen(false);
   };
 
-  function handleUpdate(values, errors) {
+  async function  handleUpdate(values, errors) {
     if (Object.keys(errors).length === 0 && errors.constructor === Object) {
       const updatedInvoice = { ...createInvoice("pending", values) };
-      updateInvoice(user.uid, invoice.id, updatedInvoice);
+      await updateInvoice(user.uid, invoice.id, updatedInvoice);
+      setSending(true);
     }
+    setFormIsOpen(false);
   }
 
   return (

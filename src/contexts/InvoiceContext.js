@@ -1,28 +1,26 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useAuth } from "./AuthContext";
 import { getInvoices } from "../services/api";
-
 const InvoiceContext = React.createContext();
 
 export function useInvoice() {
   return useContext(InvoiceContext);
 }
 export function InvoiceProvider({ children }) {
-  const { user } = useAuth();
-  const [sending, setSending] = useState(false);
+  const { user,sending,setSending } = useAuth();
+
   const [invoices, setInvoices] = useState(null);
 
   useEffect(() => {
-    if (user) {
-      
-      getInvoices(user.uid).onSnapshot((querySnapshot) => {
-        var newInvoices = [];
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          newInvoices.push({ ...data, id: doc.id });
-        });
+    if (user && sending) {
+      const unsubscribe = async () => {
+        const newInvoices = await getInvoices(user.uid);
         setInvoices(newInvoices);
-      });
+        setSending(false)
+      };
+      unsubscribe();
+      console.log("in useffect invoice");
+      return () => unsubscribe();
     }
   }, [user, sending]);
 

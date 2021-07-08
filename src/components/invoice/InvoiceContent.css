@@ -6,6 +6,7 @@
   font-size: 0.75rem;
   width:100%;
   color: var(--clr-sec-text);
+  transition: color 300ms ease,background 300ms ease;
 }
 
 .invoice-content-grid {
@@ -21,6 +22,7 @@
   margin-bottom: 0.5em;
   font-size: 1rem;
   color: var(--clr-main-text);;
+  transition: color 300ms ease;
 }
 
 
@@ -51,10 +53,11 @@
 .invoice-content-date-heading,
 .invoice-client-name,
 .invoice-email-content {
-  color: var(--clr-main-text);;
+  color: var(--clr-main-text);
   font-size: 0.9375rem;
   margin-bottom: 0.5em;
   font-weight: bold;
+  transition:color 300ms ease; 
 }
 
 .invoice-client-address-wrapper {

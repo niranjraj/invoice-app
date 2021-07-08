@@ -1,13 +1,23 @@
 import React from "react";
 import InvoiceItem from "./InvoiceItem";
+import { motion } from 'framer-motion'
 import EmptyPage from "../../pages/EmptyPage";
 import "./InvoiceList.css";
 
+const invoiceVariant={
+  hidden:{},
+  visible:{
+      transition:{
+        staggerChildren: .15
+      }
+  }
+
+}
 const InvoiceList = React.memo(({ invoices }) => {
   return (
     <>
       {invoices && (
-        <div className="invoicelist-wrapper">
+        <motion.div variants={invoiceVariant} initial="hidden" animate="visible" className="invoicelist-wrapper">
           {invoices.length > 0 ? (
             invoices.map((invoiceitem) => {
               return (
@@ -24,7 +34,7 @@ const InvoiceList = React.memo(({ invoices }) => {
           ) : (
             <EmptyPage isErrorPage={false} />
           )}
-        </div>
+        </motion.div>
       )}
     </>
   );
