@@ -23,15 +23,19 @@ body{
     --clr-form-border:#dfe3fa;
     --clr-alt-text:#888eb0;
     --clr-alt-bg:#f9fafe;
-  
+    --clr-logout-bg:#f9fafe;
     --clr-tb-ftr-bg:#373b53;
     --clr-purple-main:#7c5dfa;
     --clr-chk-box:#dfe3fa;
     --clr-chk-box-bg:#ffffff;
     --clr-purple-sec:#9277ff;
-    --clr-side-bar:#252945;
+    --clr-side-bar:#373B53;
     --clr-draft-btn:#363b53;
     --clr-discard-btn-hvr:#dfe3fa;
+    --clr-form-spin:#9277ff;
+    --clr-login-head:#ad99ff;
+    --clr-login-text:#b6adeb;
+    --clr-login-divider:#d3cdf4;
 
     --status-pending-bg:rgba(255, 143, 0, 0.06);
     --status-pending-text:#ff9100;
@@ -47,7 +51,7 @@ body{
     --clr-perma-red-sec:#f07575;
     --clr-perma-ash: #888eb0;
     --clr-perma-alt-ash:#777f98;
-    --clr-perma-divier:#494e6e;
+    --clr-perma-divider:#494e6e;
     --clr-perma-dark:#0c0e16;
 
 
@@ -73,18 +77,21 @@ body{
     --clr-chk-box:#1E2139;
     --clr-chk-box-bg:#252945;
     --clr-purple-sec:#9277ff;
-    --clr-side-bar:#252945;
+    --clr-side-bar:#1E2139;
     --clr-draft-btn:#252945;
     --clr-discard-btn-hvr:#494e6e;
-   
-
+    --clr-logout-bg:#0F1120;
+    --clr-form-spin:#9277ff;
+    --clr-login-head:#ad99ff;
+    --clr-login-text:#d3cdf4;
+    --clr-login-divider:#d3cdf4;
 
     --status-pending-bg:rgba(255, 143, 0, 0.06);
     --status-pending-text:#ff9100;
     --status-paid-bg:rgba(51, 214, 159, .06);
     --status-paid-text: #33D7A0;
-    --status-draft-bg: rgba(55, 59, 83, 0.0571);
-    --status-draft-text:#373B53;
+    --status-draft-bg: rgba(223, 227, 250, .06);
+    --status-draft-text:#DFE3FA;
 
         /* pemanent color */
         --clr-perma-white:#ffffff;
@@ -93,7 +100,7 @@ body{
         --clr-perma-red-sec:#f07575;
         --clr-perma-ash: #888eb0;
         --clr-perma-alt-ash:#777f98;
-        --clr-perma-divier:#494e6e;
+        --clr-perma-divider:#494e6e;
         --clr-perma-dark:#0c0e16;
 
      /* box-shadow variables */
@@ -104,32 +111,27 @@ body{
     flex-direction: row;
     background:var(--clr-main-bg);
     transition: background 300ms ease;
+    min-height: 100vh;
+    
 }
 .wrapper-main{
-    width: 100%;
-	height: 100%;
+    position:relative;
+    width:100%;
 	padding: 4.5em 3em;
 
 }
 
-/* When the browser is 1000px and below */
-@media screen and (max-width: 1000px) {
-    .wrapper-main{
-    
-        padding: 3.5em 3em;
-    
-    }
-}
-@media screen and (max-width: 840px) {
+/* When the browser is 1100px and below */
+@media screen and (max-width:1100px){
     .container{
         flex-direction: column;
     }
 }
 
-@media screen and (max-width: 750px) {
+
+@media screen and (max-width:768px){
     .wrapper-main{
-    
         padding: 2em 1.5em;
-    
+        position:relative;
     }
 }

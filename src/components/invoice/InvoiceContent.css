@@ -4,14 +4,14 @@
   border-radius: 8px;
   box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
   font-size: 0.75rem;
-  width:100%;
+  width: 100%;
   color: var(--clr-sec-text);
-  transition: color 300ms ease,background 300ms ease;
+  transition: color 300ms ease, background 300ms ease;
 }
 
 .invoice-content-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25em;
 }
 
@@ -21,10 +21,9 @@
 .invoice-content-id {
   margin-bottom: 0.5em;
   font-size: 1rem;
-  color: var(--clr-main-text);;
+  color: var(--clr-main-text);
   transition: color 300ms ease;
 }
-
 
 .invoice-address-wrapper {
   grid-area: 1/2/2/4;
@@ -57,7 +56,7 @@
   font-size: 0.9375rem;
   margin-bottom: 0.5em;
   font-weight: bold;
-  transition:color 300ms ease; 
+  transition: color 300ms ease;
 }
 
 .invoice-client-address-wrapper {
@@ -66,11 +65,12 @@
   flex-direction: column;
 }
 
-.invoice-client-address-label ,.invoice-email-label{
-    font-size: 0.6875rem;
-    line-height: 1.63;
-    letter-spacing: -0.23px;
-    margin-bottom: 0.5em;
+.invoice-client-address-label,
+.invoice-email-label {
+  font-size: 0.6875rem;
+  line-height: 1.63;
+  letter-spacing: -0.23px;
+  margin-bottom: 0.5em;
 }
 .invoice-client-name {
   margin-bottom: 0.5em;
@@ -87,3 +87,28 @@
   flex-direction: column;
 }
 
+@media screen and (max-width: 768px) {
+  .invoice-content-wrapper {
+    padding: 1.5em;
+    margin-bottom: 9em;
+  }
+  .invoice-content-grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3em;
+  }
+
+  .invoice-address-wrapper {
+    grid-area: auto;
+    text-align: start;
+    font-size: 0.6875rem;
+  }
+  .invoice-email-wrapper {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+  .invoice-content-id {
+    font-size: 0.75rem;
+  }
+  .invoice-client-address-wrapper{
+    font-size: 0.6875rem;
+  }
+}

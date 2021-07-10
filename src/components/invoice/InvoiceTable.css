@@ -12,18 +12,17 @@
   transition: background 300ms ease;
 }
 .invoice-table-header {
-  display: table-header-group;
   font-size: 0.6875rem;
   line-height: 1.63;
   letter-spacing: -0.23px;
   color: var(--clr-perma-shade);
-  transition:color 300ms ease;
+  transition: color 300ms ease;
 }
 .invoice-table-header-row th {
   font-weight: 500;
 }
 .invoice-table-header-row th:nth-child(1),
-.table-item-name{
+.table-item-name {
   text-align: start;
   padding: 0px 0px 2em 2em;
 }
@@ -38,14 +37,14 @@
   padding-bottom: 2em;
 }
 .invoice-table-header-row th:nth-child(4),
-.table-item-total{
+.table-item-total {
   text-align: end;
   padding: 0px 2em 2em 0px;
 }
 .table-item-name,
 .table-item-total {
   color: var(--clr-main-text);
-  transition:color 300ms ease;
+  transition: color 300ms ease;
 }
 
 .table-item-name,
@@ -59,9 +58,7 @@
 .table-footer-content {
   background-color: var(--clr-tb-ftr-bg);
   transition: background 300ms ease;
-  
 }
-
 
 .table-footer-amount {
   color: var(--clr-perma-white);
@@ -70,12 +67,30 @@
   padding: 2em 0px 2em 2em;
 }
 
-.table-footer-total{
-    font-size: 1.5rem;
-    line-height: 1.33;
-    letter-spacing: -.02em;
-    text-align: end;
-    font-weight: 700;
-    color:var(--clr-perma-white);
-    padding: 1em 2em 1em 0px ;
+.table-footer-total {
+  font-size: 1.5rem;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  text-align: end;
+  font-weight: 700;
+  color: var(--clr-perma-white);
+  padding: 1em 2em 1em 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .invoice-table-header , .table-item-quantity,.table-item-price,.empty-spot-col{
+    display: none;
+  }
+
+
+
+  .table-footer-total {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 440px){
+  .table-footer-total {
+    font-size: 1rem;
+  }
 }

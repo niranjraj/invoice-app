@@ -59,11 +59,12 @@
   transform: rotate(180deg);
 }
 
-
-/* when browse size is below 540px */
-@media screen and (max-width: 540px) {
-   .invoice-header{
-       font-size: 1.25rem;
-   }
-   
+@media screen and (max-width:576px) {
+  .invoice-header{
+    font-size: 1.2rem;
+  }
+  .invoice-span-btn{
+    display: none;
+  }
+  
 }

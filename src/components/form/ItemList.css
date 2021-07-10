@@ -6,36 +6,43 @@
   font-weight: bold;
   line-height: 2rem;
   transition: color 300ms ease;
+
 }
 
 .invoiceForm-item-wrapper{
     display: grid;
-    grid-template-columns: 2.5fr 4.125rem 1.25fr 0.75fr min-content;
+    position: relative;
+    grid-template-columns: 1fr 1fr 0.75fr min-content;
     gap: 1.5em 1em;
-    margin-bottom: 1em;
+    padding-bottom: 1.5em;
+    margin-bottom: 1.8em;
+   
+
 }
+
 .invoiceForm-item-wrapper  .input-wrapper > input{
     padding:1em 1.25em;
 }
 
-.invoiceForm-item-wrapper
 .invoiceForm-item-wrapper > :nth-child(1){
-    grid-column: 1 / span 1;
+    grid-column: 1 / -1;
 
 }
 .invoiceForm-item-wrapper > :nth-child(2){
-    grid-column: 2 / span 1;
+    grid-column: 1 / 2;
 
 }
 .invoiceForm-item-wrapper > :nth-child(3){
-    grid-column: 3 / span 1;
+    grid-column: 2 / 3;
+   
 }
 .invoiceForm-item-wrapper > :nth-child(4){
-    grid-column: 4 / span 1;
+    grid-column: 3 / 4;
+    background-color: transparent;
 
 }
 .invoiceForm-item-wrapper > :nth-child(5){
-    grid-column: 5 / span 1;
+    grid-column: 4 / 5;
 
 }
 

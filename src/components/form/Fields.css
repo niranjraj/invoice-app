@@ -82,3 +82,55 @@ fieldset{
     line-height: 1em;
     transition: color 300ms ease;
 }
+
+
+
+@media screen and (max-width: 768px) {
+.fields-wrapper{
+    padding-right: 1em;
+}
+  }
+
+
+
+@media screen and (max-width:576px) {
+    .bill-from,.bill-to{
+        grid-template-columns: repeat(2,1fr);
+       
+    }
+    .bill-from > :nth-child(4){
+        grid-column: 1/ -1;
+    }
+
+    .bill-to > :nth-child(6){
+        grid-column: 1 / -1;
+    }
+
+    .selection-field > :nth-child(1){
+        grid-column: 1 / -1;
+    
+    }
+    .selection-field > :nth-child(2){
+        grid-column: 1/ -1;
+    
+    }
+    
+    
+  }
+
+
+  @media screen and (max-width:390px) {
+
+    .bill-from > :nth-child(2){
+        grid-column: 1 / -1;
+    }
+    .bill-from > :nth-child(3){
+        grid-column: 1 / -1;
+    }
+    .bill-to > :nth-child(4){
+        grid-column: 1 / -1;
+    }
+    .bill-to > :nth-child(5){
+        grid-column: 1 / -1;
+    }
+  }

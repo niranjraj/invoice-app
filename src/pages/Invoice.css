@@ -24,3 +24,25 @@
 .left-arrow-icon {
   margin-right: 1.5em;
 }
+
+.invoice-footer{
+  display: none;
+}
+
+@media screen and (max-width:768px) {
+  .invoice-footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    gap: 0.5rem;
+    padding: 1.5em;
+    background-color: var(--clr-sec-bg);
+    margin-top: 2em;
+   
+  }
+}

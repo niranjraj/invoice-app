@@ -30,7 +30,7 @@ const InvoiceItem= ({id, paymentDue, clientName, total, status})=>{
             <div className="invoiceItem-date">Due {dayjs(paymentDue).format('DD MMM YYYY')}</div>
             <div className="invoiceItem-client">{clientName}</div>
             <div className="invoiceItem-total">{total}</div>
-            <InvoiceStatus status={status}/>
+            <InvoiceStatus className="status-grid" status={status}/>
             <img src={rightArrow} alt="rightArrow" className="invoice-arrow-icon"/>
         </motion.div>
         </Link>

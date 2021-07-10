@@ -51,17 +51,3 @@
 
 
 
-@media screen and (max-width: 540px) {
-  .plus-btn {
-    margin-left: 1em;
-  }
-  .plus-btn .invoice-span-btn {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 840px) {
-  .transparent-btn {
-    margin: 0px 1.75rem;
-  }
-}

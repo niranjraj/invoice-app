@@ -1,0 +1,35 @@
+
+.invoice-paid-btn {
+    background-color: var(--clr-purple-main);
+    color: var(--clr-perma-white);
+    transition:background 300ms ease,color 300ms ease;
+  }
+  .invoice-edit-btn {
+    background-color: var(--clr-alt-bg);
+    color: var(--clr-sec-text);
+    transition:background 300ms ease,color 300ms ease;
+  }
+  
+  .invoice-delete-btn {
+    background-color: var(--clr-perma-error);
+    color: var(--clr-perma-white);
+    transition:background 300ms ease,color 300ms ease;
+  }
+  
+  .invoice-paid-btn:hover{
+  background-color: var(--clr-purple-sec);
+  }
+  
+  .invoice-edit-btn:hover{
+    background-color: var(--clr-discard-btn-hvr);
+  }
+  
+  .invoice-delete-btn:hover{
+    background-color: var(--clr-perma-red-sec);
+  }
+
+  @media screen and (max-width:440px) {
+    .mark-btn-span{
+      display: none;
+    }
+  }

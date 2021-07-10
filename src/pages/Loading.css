@@ -14,8 +14,9 @@
     display: block;
     width:3em;
     height: 3em;
-    border:5px solid lightgrey;
-    border-top: 8px solid plum;
+    border:5px solid var(--clr-form-border);
+    border-top: 8px solid var(--clr-purple-main);
+    border-bottom: 8px solid var(--clr-purple-main);
     border-radius: 50%;
     position: absolute;
 }

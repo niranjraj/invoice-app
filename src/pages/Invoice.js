@@ -9,7 +9,10 @@ import Backdrop from "../components/shared/Backdrop";
 import PopUp from "../components/shared/PopUp";
 import { useAuth } from "../contexts/AuthContext";
 import { deleteInvoice } from "../services/api";
+import { updateStatus } from "../services/api";
+import InvoiceButtons from "../components/invoice/invoiceButtons"
 import {useHistory} from "react-router-dom"
+import leftArrow from "../assets/images/icon-arrow-left.svg"
 function Invoice() {
   const { id } = useParams();
     
@@ -22,27 +25,49 @@ function Invoice() {
   }
 
 
-  const { user ,setLoading,setSending} = useAuth();
-  const leftArrow = (
-    <i className="fas fa-angle-down" style={{ transform: "rotate(90deg)" }}></i>
-  );
+  const { user,setSending,setWait,wait} = useAuth();
 
   const [currentInvoice, setCurrentInvoice] = useState(null);
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [popIsOpen, setPopIsOpen] = useState(false);
 
-  function handleDelete(userId, invoiceId) {
- 
-    setLoading(true);
-    setSending(true)
-    deleteInvoice(userId, invoiceId);
-    setPopIsOpen(false);
-    setLoading(false);
-    history.push("/");
-  }
+
+
+
+
+
+
+  
   useEffect(() => {
     setCurrentInvoice(invoices?.find((item) => id === item.id));
   }, [id, invoices]);
+
+
+
+
+  const handleMark = async (status) => {
+    setWait(true);
+    if (status === "paid") {
+      await updateStatus(user.uid, currentInvoice.id, "pending");
+      setSending(true);
+      setWait(false);
+      return;
+    } else if (status === "pending" || "draft") {
+      await updateStatus(user.uid, currentInvoice.id ,"paid");
+      setSending(true);
+      setWait(false);
+      return;
+    }
+  };
+  async function handleDelete(userId, invoiceId) {
+    setWait(true);
+    await deleteInvoice(userId, invoiceId);
+    setSending(true)
+    setWait(false)
+    setPopIsOpen(false);
+    history.push("/");
+  }
+
 
   return (
     <>
@@ -52,6 +77,7 @@ function Invoice() {
             popUpIsOpen={popIsOpen}
             handleClick={handleDelete}
             userId={user.uid}
+            wait={wait}
             invoiceId={currentInvoice.id}
             setPopIsOpen={setPopIsOpen}
           />
@@ -70,10 +96,17 @@ function Invoice() {
               setPopIsOpen={setPopIsOpen}
               invoiceId={currentInvoice.id}
               status={currentInvoice.status}
+              wait={wait}
               setFormIsOpen={setFormIsOpen}
+              handleMark={handleMark}
             />
             <InvoiceContent invoice={currentInvoice} />
+        
           </div>
+          <div className="invoice-footer">
+              <InvoiceButtons status={currentInvoice.status} wait={wait} setFormIsOpen={setFormIsOpen} setPopIsOpen={setPopIsOpen} handleMark={handleMark}/>
+
+            </div>
         </div>
       )}
     </>

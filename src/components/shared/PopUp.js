@@ -1,14 +1,15 @@
 import React from "react";
 import Button from "./Button";
+import WaitState from "./WaitState";
 import "./PopUp.css";
 
-const DeletePopUp =({ popUpIsOpen, setPopIsOpen,invoiceId, userId,handleClick }) => {
-  console.log("in  pop up")
+const DeletePopUp =({ popUpIsOpen, setPopIsOpen,invoiceId, userId,handleClick,wait}) => {
   return (
     <>
       {popUpIsOpen && (
         <div onClick={() => setPopIsOpen(false)} className="pop-backdrop">
           <div className="main-pop-up">
+            
             <div className="delete-pop-wrapper">
               <h2 className="delete-pop-heading">Confirm Deletion</h2>
               <p className="delete-pop-msg">
@@ -24,8 +25,8 @@ const DeletePopUp =({ popUpIsOpen, setPopIsOpen,invoiceId, userId,handleClick })
               >
                 Cancel
               </Button>
-              <Button buttonStyle="invoice-delete-btn" buttonSize="large" onClick={()=>handleClick(userId,invoiceId)}>
-                Delete
+              <Button buttonStyle="invoice-delete-btn" disabled={wait} buttonSize="large" onClick={()=>handleClick(userId,invoiceId)}>
+               {wait? <WaitState/>:"Delete" }
               </Button>
             </div>
           </div>

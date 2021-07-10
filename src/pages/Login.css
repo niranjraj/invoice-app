@@ -1,51 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Festive&display=swap");
+
 .login-wrapper {
   width: 100%;
-  max-width: 45.625rem;
+  display: flex;
+  justify-content: space-evenly;
   height: 100%;
   margin: 0px auto;
+}
+.login-head-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.login-img {
+  height: 40em;
+  width: 40em;
+}
+
+.login-header {
+  font-family: "Festive", cursive;
+  color: var(--clr-purple-main);
+  cursor: default;
+  font-size: 6rem;
+  position: absolute;
+  top: 0px;
+  margin-bottom: 0.5em;
+}
+.login-main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 1em;
+}
+.login-main-content h3 {
+  font-size: 3rem;
+  color:var(--clr-login-head);
+}
+
+.login-main-content p {
+  font-size: 1.5rem;
+  color: var(--clr-login-text)
+}
+
+.login-btn {
+  color: var(--clr-purple-main);
+  font-size: 1rem;
+  border: 2px solid var(--clr-purple-main);
+  background-color: transparent;
+  padding: 1rem 5rem;
+  margin-top: 3em;
+  position: relative;
+  align-self: center;
+  overflow: hidden;
+  margin-right: 10em;
+}
+
+
+.cross-icon-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  transform: rotate(45deg);
+  width: 15px;
+  cursor: pointer;
+  height: 15px;
+}
+.login-modal {
+  background: var(--clr-logout-bg);
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  max-width: 30em;
+  margin: 0 1.5em;
+  border-radius: 8px;
+  padding: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:2.2em;
-}
-.login-wrapper p{
-    font-size: 0.75rem;
-    color:#888eb0;
+  z-index: 10;
 }
 
-.login-img{
-    height:25em;
-    width:25em;
-}
-.login-modal{
-  background:#ffffff;
-  position:relative;
-  top:0px;
-  height: 20em;
-  width:20em;
-  border-radius:4px;
-  display: flex;
-  flex-direction: column;
-  gap:1em;
-  padding:1em;
- align-items: center;
-  z-index:10;
-}
-
-.login-modal h2{
-  font-size:1rem;
+.login-greeter {
+  font-size: 1.5rem;
   text-align: center;
+  color:var(--clr-login-head);
   line-height: 1.25;
   margin-bottom: 0.5em;
 }
-
-.login-divider{
-  width:100%;
-  background:#0c0e16 ;
-  height:2px;
- 
+.login-divider {
+  width: 100%;
+  background-color: #d3cdf4;
+  height: 1px;
 }
 
-.login-header{
-  color: var(--clr-main-text);
+.login-description{
+  margin-top: 1em;
+  line-height: 1.5em;
+  color:var(--clr-login-text) ;
+}
+
+
+.login-greeter span {
+  font-family: "Festive", cursive;
+  font-size: 2rem;
+  color: var(--clr-purple-main);
+}
+.google-btn {
+  background-color: var(--clr-purple-main);
+  display: flex;
+  align-items: center;
+  color: var(--clr-perma-white);
+  padding: 1em 1.25em;
+  margin-top: 3em;
+}
+.google-btn span {
+  margin-left: 1em;
+}
+
+@media screen and (max-width: 1220px) {
+  .login-wrapper {
+    align-items: center;
+  }
+  .login-main-content h3 {
+    font-size: 2.5rem;
+
+  }
+
+  .login-main-content p {
+    font-size: 1.25rem;
+  }
+  .login-img {
+    height: 32em;
+    width: 32em;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .login-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-main-content h3 {
+    align-self: flex-end;
+    margin-top: 3em;
+  }
+
+  .login-main-content p {
+    align-self: flex-end;
+    justify-self: start;
+  }
+  .login-img {
+    align-self: flex-start;
+    align-content: flex-start;
+  }
+  .login-btn {
+    margin-top: 1em;
+    align-self: flex-end;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login-main-content h3 {
+    font-size: 2rem;
+  }
+  .login-header {
+    font-size: 4rem;
+  }
+
+  .login-main-content p {
+    font-size: 1rem;
+  }
+  .login-img {
+    height: 25em;
+    width: 100%;
+    }
+
+  .login-btn {
+    padding: 1em 4em;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+  .login-btn {
+    padding: 1em 4em;
+    align-self: center;
+  }
+
 }

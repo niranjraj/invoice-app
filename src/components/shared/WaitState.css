@@ -1,0 +1,17 @@
+.wait-loader {
+  display: block;
+  width: 2em;
+  height: 2em;
+  border: 1px solid transparent;
+  border-top: 3px solid var(--clr-perma-white);
+  border-bottom: 3px solid var(--clr-perma-white);
+  border-radius: 50%;
+  transition: border 300ms ease;
+}
+.form-spin-btn {
+  width: 2.5em;
+  height: 2.5em;
+  border-top: 4px solid var(--clr-form-spin);
+  border-bottom: 4px solid var(--clr-form-spin);
+  margin-right: 4em;
+}

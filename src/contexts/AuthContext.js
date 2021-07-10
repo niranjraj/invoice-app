@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+
 import { firebase } from "../firebase/initFirebase";
 import { setUserId } from "../services/api";
 const AuthContext = React.createContext();
@@ -9,8 +10,11 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [sending,setSending]=useState(false)
-  const [loading, setLoading] = useState(true);
+  const [sending,setSending]=useState(false) // set when data is updated or added and unset after get
+  const [loading, setLoading] = useState(true); //set for initial loading screen
+  const [wait,setWait]=useState(false);
+
+
 
   async function login() {
     try {
@@ -18,7 +22,6 @@ export function AuthProvider({ children }) {
       const provider = new firebase.auth.GoogleAuthProvider();
       await firebase.auth().signInWithRedirect(provider);
       
-      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -37,8 +40,10 @@ export function AuthProvider({ children }) {
           setUserId(newUser.uid, newUser.displayName, newUser.photoURL);
         }
         setUser(newUser);
-        setSending(true)
         setLoading(false);
+        setSending(true);
+
+     
       });
       return () => unsubscribe();
     } catch (error) {
@@ -47,7 +52,7 @@ export function AuthProvider({ children }) {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, loading, setLoading, login, logout,setSending,sending }}>
+    <AuthContext.Provider value={{ user, loading, setLoading, login, logout,setSending,sending,setWait,wait }}>
       {children}
     </AuthContext.Provider>
   );
