@@ -1,21 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../components/shared/Button";
 import Backdrop from "../components/shared/Backdrop";
-import { Redirect} from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { firebase } from "../firebase/initFirebase";
 import crossIcon from "../assets/images/icon-plus.svg";
 import googleIcon from "../assets/images/google.svg";
 import invoiceContent from "../assets/images/invoice-content.svg";
 
 function Login() {
   const [loginIsOpen, setLoginIsOpen] = useState(false);
-  const { login, user } = useAuth();
+  const { login, user, setUser, setLoading } = useAuth();
+  const history = useHistory();
 
+  useEffect(() => {
+    console.log("here boy");
+    const unsubscribe = async () => {
+      if (!user) {
+        const result = await firebase.auth().getRedirectResult();
+        if (result.user) {
+          setLoading(true)
+          setUser(result.user);
+          setLoading(false);
+          history.push("/");
+        }
+      }
+    };
+    unsubscribe();
+    return () => unsubscribe();
+  }, []);
 
-  if(user){
-    return <Redirect to='/'/>
+  if (user) {
+    return <Redirect to="/" />;
   }
 
   return (

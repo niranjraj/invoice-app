@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik, Form } from "formik";
 import { motion, AnimatePresence } from "framer-motion";
 import Fields from "./Fields";
 import Button from "../shared/Button";
 import WaitState from "../shared/WaitState";
-import { setInitialValues, validationSchema } from "../utils/FormValidation";
-import { createInvoice } from "../utils/FormatInvoice";
+import { setInitialValues, validationSchema } from "../../utils/FormValidation";
+import { createInvoice } from "../../utils/FormatInvoice";
 import { useAuth } from "../../contexts/AuthContext";
 import { addInvoice, updateInvoice } from "../../services/api";
 import "./InvoiceForm.css";
 
 const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
   console.log("inform");
-  const { user, setSending, wait, setWait } = useAuth();
+  const { user, setSending, wait, setWait,firstLogin } = useAuth();
 
   const onSubmit = async (values) => {
     setWait(true);
@@ -42,6 +42,11 @@ const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
     }
     setFormIsOpen(false);
   }
+
+  useEffect(()=>{
+  firstLogin();
+  },[])
+
 
   return (
     <AnimatePresence>

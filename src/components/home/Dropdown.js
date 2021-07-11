@@ -79,9 +79,9 @@ const Dropdown = React.memo(({ setFilterStatus }) => {
         altValue="downArrow"
         onClick={toggleClick}
       >
-        <h4>
+        <h1>
           Filter <span>by status</span>
-        </h4>
+        </h1>
       </Button>
       <div
         ref={dropdownRef}

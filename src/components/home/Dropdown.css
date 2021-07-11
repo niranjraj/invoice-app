@@ -2,7 +2,7 @@
   position: relative;
   z-index: 1;
 }
-.header-dropdown h4 {
+.header-dropdown h1 {
   color: var(--clr-main-text);
   font-size: 0.75rem;
   font-weight: bold;

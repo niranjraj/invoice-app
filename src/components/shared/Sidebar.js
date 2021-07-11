@@ -6,7 +6,7 @@ import sunIcon from "../../assets/images/icon-sun.svg";
 import Button from "./Button";
 import "./Sidebar.css";
 import Avatar from "../../assets/images/Avatar.svg";
-import { greetingMsg } from "../utils/Greeting";
+import { greetingMsg } from "../../utils/Greeting";
 import { useAuth } from "../../contexts/AuthContext";
 
 function Sidebar({ setLightTheme, lightTheme, popIsOpen, setPopIsOpen }) {
@@ -41,7 +41,7 @@ function Sidebar({ setLightTheme, lightTheme, popIsOpen, setPopIsOpen }) {
       <Button
         buttonSize="small"
         iconValue={lightTheme ? moonIcon : sunIcon}
-        alt="moonIcon"
+        alt={lightTheme? "moonIcon":"sunIcon"}
         onClick={toggleClick}
       />
       <div className="avatar-img-wrapper">

@@ -5,6 +5,8 @@ import InvoiceList from "../components/home/InvoiceList";
 import Backdrop from "../components/shared/Backdrop";
 import InvoiceForm from "../components/form/InvoiceForm";
 import { useInvoice } from "../contexts/InvoiceContext";
+import Seo from "../components/shared/Seo"
+
 
 function Home() {
   const [formIsOpen, setFormIsOpen] = useState(false);
@@ -29,6 +31,7 @@ function Home() {
   
   return (
     <>
+      <Seo title={`Invoicely | (${filteredInvoices?.length})`}/>
       <Backdrop formIsOpen={formIsOpen} setFormIsOpen={setFormIsOpen} />
       <Wrapper>
         <InvoiceForm formIsOpen={formIsOpen} setFormIsOpen={setFormIsOpen} />

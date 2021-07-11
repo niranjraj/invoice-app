@@ -18,7 +18,6 @@ export async function getInvoices(userId) {
     let invoices = [];
     const ref = firebase.firestore().collection(`User/${userId}/invoices`);
     const snapshot = await ref.get();
-    console.log(snapshot);
     snapshot.forEach((doc) => {
       const data = doc.data();
       invoices.push({ ...data, id: doc.id });

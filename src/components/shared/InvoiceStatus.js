@@ -1,5 +1,6 @@
 import React from "react";
 import "./InvoiceStatus.css";
+
 function InvoiceStatus({ status ,className}) {
   console.log("invoice Status");
   return (
@@ -10,4 +11,4 @@ function InvoiceStatus({ status ,className}) {
   );
 }
 
-export default InvoiceStatus;
+export default React.memo(InvoiceStatus);
