@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../shared/Button";
 import Dropdown from "./Dropdown";
-import { invoicesMessage } from "../../utils/FormatInvoice";
+import { invoicesMessage } from "../../utils/formatInvoice";
 import "./Header.css";
 import plusIcon from "../../assets/images/icon-plus.svg"
 

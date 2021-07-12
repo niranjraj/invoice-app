@@ -15,15 +15,21 @@ export async function addInvoice(userId, invoice) {
 
 export async function getInvoices(userId) {
   try {
-    let invoices = [];
-    const ref = firebase.firestore().collection(`User/${userId}/invoices`);
+    let newInvoices = [];
+    let key=null
+    const ref = firebase.firestore().collection(`User/${userId}/invoices`).orderBy("timeStamp", 'desc').limit(15);
     const snapshot = await ref.get();
-    snapshot.forEach((doc) => {
-      const data = doc.data();
-      invoices.push({ ...data, id: doc.id });
-    });
-    
-    return invoices;
+    if(!snapshot.empty){
+      snapshot.forEach((doc) => {
+        const data = doc.data();
+        newInvoices.push({ ...data, id: doc.id });
+        key=data.timeStamp;
+      });
+      
+
+    }
+
+    return {newInvoices,key};
   } catch (error) {
     console.log(error);
   }
@@ -54,7 +60,7 @@ export async function updateStatus(userId, invoiceId, updatedStatus) {
     const ref = firebase
       .firestore()
       .doc(`User/${userId}/invoices/${invoiceId}`);
-    await ref.update({ status: updatedStatus });
+    await ref.update({ status: updatedStatus,timeStamp:new Date()});
   } catch (error) {}
 }
 
@@ -69,4 +75,23 @@ export async function setUserId(userId, userName, photoURL) {
     return;
   }
   await ref.set(data);
+}
+
+export async function getNextBatch(startKey,userId){
+  console.log("next batch called")
+  const ref = firebase.firestore().collection(`User/${userId}/invoices`).orderBy("timeStamp", 'desc').startAfter(startKey).limit(15);
+  const snapshot = await ref.get();
+  let newInvoices = [];
+  let key=null
+  if(!snapshot.empty){
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      newInvoices.push({ ...data, id: doc.id });
+      key=data.timeStamp;
+      console.log("in snapshot")
+     
+    });
+  }
+
+  return {newInvoices,key}
 }

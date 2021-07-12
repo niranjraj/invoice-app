@@ -1,8 +1,19 @@
-.invoiceList-wrapper{
+.invoicelist-wrapper{
     display: flex;
     flex-direction: column;
     gap: 1em;
     width: 100%;
-    align-items: center;
+    overflow-x: hidden;
   
+}
+.infinit-scroll-text{
+    color:var(--clr-purple-main);
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 1em 0;
+    text-align: center;
+}
+
+.infinite-scroll-component{
+    overflow-x: hidden !important;
 }

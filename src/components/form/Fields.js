@@ -3,7 +3,7 @@ import Input from "./Input";
 import DatePicker from "./DatePicker";
 import Select from "./Select";
 import ItemList from "./ItemList";
-import formErrorMsg from "../../utils/ErrorMessage";
+import formErrorMsg from "../../utils/errorMessage";
 import "./Fields.css";
 import { useFormikContext } from "formik";
 

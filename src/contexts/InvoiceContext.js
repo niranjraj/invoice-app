@@ -7,16 +7,18 @@ export function useInvoice() {
   return useContext(InvoiceContext);
 }
 export function InvoiceProvider({ children }) {
-  const { user,sending,setSending } = useAuth();
-
+  const { user, sending, setSending } = useAuth();
+  const [hasMore, setHasMore] = useState(true);
   const [invoices, setInvoices] = useState(null);
+  const [startKey, setStartKey] = useState(null);
 
   useEffect(() => {
     if (user && sending) {
       const unsubscribe = async () => {
-        const newInvoices = await getInvoices(user.uid);
+        const { newInvoices, key } = await getInvoices(user.uid);
+        key?setStartKey(key):setHasMore(false)
         setInvoices(newInvoices);
-        setSending(false)
+        setSending(false);
       };
       unsubscribe();
       console.log("in useffect invoice");
@@ -25,7 +27,18 @@ export function InvoiceProvider({ children }) {
   }, [user, sending]);
 
   return (
-    <InvoiceContext.Provider value={{ invoices, sending, setSending }}>
+    <InvoiceContext.Provider
+      value={{
+        invoices,
+        setInvoices,
+        setStartKey,
+        startKey,
+        sending,
+        setSending,
+        hasMore,
+        setHasMore
+      }}
+    >
       {children}
     </InvoiceContext.Provider>
   );

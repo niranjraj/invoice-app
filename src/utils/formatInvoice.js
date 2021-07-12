@@ -25,6 +25,7 @@ export function createInvoice(status, values) {
       .format("YYYY-MM-DD"),
     status,
     total: calcTotal(values.items),
+    timeStamp: new Date(),
   };
 }
 

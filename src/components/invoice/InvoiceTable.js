@@ -1,5 +1,5 @@
 import React from "react";
-import { currencyFormatter } from "../../utils/FormatInvoice";
+import { currencyFormatter } from "../../utils/formatInvoice";
 import "./InvoiceTable.css";
 
 function InvoiceTable({ items, total }) {
