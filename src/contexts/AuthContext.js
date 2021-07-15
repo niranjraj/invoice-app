@@ -13,20 +13,27 @@ export function AuthProvider({ children }) {
   const [sending, setSending] = useState(false); // for fetching newly added invoices 
   const [loading, setLoading] = useState(true); //set for initial loading screen
   const [wait, setWait] = useState(false); // wait state for disabling buttons
+  const [error,setError]=useState(null);
+
   async function login() {
     try {
       setLoading(true);
       const provider = new firebase.auth.GoogleAuthProvider();
       await firebase.auth().signInWithRedirect(provider);
     } catch (error) {
-      console.log(error);
+      setError("Could not connect...")
     }
   }
 
   async function logout() {
-    await firebase.auth().signOut();
-    setUser(null);
-    return;
+    try {
+      await firebase.auth().signOut();
+      setUser(null);
+      return;
+    } catch (error) {
+      setError("Something went wrong...")
+    }
+  
   }
   function firstLogin() {
     if (user) {
@@ -50,6 +57,7 @@ export function AuthProvider({ children }) {
       return () => unsubscribe();
     } catch (error) {
       console.log(error);
+      setError("Something went wrong")
     }
   }, []);
 
@@ -58,11 +66,13 @@ export function AuthProvider({ children }) {
       value={{
         user,
         loading,
+        error,
         setLoading,
         setUser,
         login,
         logout,
         firstLogin,
+        setError,
         setSending,
         sending,
         setWait,

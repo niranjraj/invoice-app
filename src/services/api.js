@@ -1,67 +1,48 @@
 import { firebase } from "../firebase/initFirebase";
 
 export async function addInvoice(userId, invoice) {
-  try {
     const ref = firebase
       .firestore()
       .collection("User")
       .doc(userId)
       .collection("invoices");
     await ref.add(invoice);
-  } catch (error) {
-    console.log(error);
-  }
+    throw new Error("new error");
+
 }
 
 export async function getInvoices(userId) {
-  try {
-    let newInvoices = [];
-    let key=null
-    const ref = firebase.firestore().collection(`User/${userId}/invoices`).orderBy("timeStamp", 'desc').limit(15);
-    const snapshot = await ref.get();
-    if(!snapshot.empty){
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-        newInvoices.push({ ...data, id: doc.id });
-        key=data.timeStamp;
-      });
-      
-
-    }
-
-    return {newInvoices,key};
-  } catch (error) {
-    console.log(error);
+  let newInvoices = [];
+  let key = null;
+  const ref = firebase
+    .firestore()
+    .collection(`User/${userId}/invoices`)
+    .orderBy("timeStamp", "desc")
+    .limit(15);
+  const snapshot = await ref.get();
+  if (!snapshot.empty) {
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      newInvoices.push({ ...data, id: doc.id });
+      key = data.timeStamp;
+    });
   }
+
+  return { newInvoices, key };
 }
 
 export async function updateInvoice(userId, invoiceId, updatedInvoice) {
-  try {
-    const ref = firebase
-      .firestore()
-      .doc(`User/${userId}/invoices/${invoiceId}`);
-    await ref.set(updatedInvoice);
-  } catch (error) {
-    console.log(error);
-  }
+  const ref = firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);
+  await ref.set(updatedInvoice);
 }
 export async function deleteInvoice(userId, invoiceId) {
-  try {
-    const ref = firebase
-      .firestore()
-      .doc(`User/${userId}/invoices/${invoiceId}`);
-    await ref.delete();
-  } catch (error) {
-    console.log(error);
-  }
+  const ref = firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);
+  await ref.delete();
+
 }
 export async function updateStatus(userId, invoiceId, updatedStatus) {
-  try {
-    const ref = firebase
-      .firestore()
-      .doc(`User/${userId}/invoices/${invoiceId}`);
-    await ref.update({ status: updatedStatus,timeStamp:new Date()});
-  } catch (error) {}
+  const ref = firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);
+  await ref.update({ status: updatedStatus, timeStamp: new Date() });
 }
 
 export async function setUserId(userId, userName, photoURL) {
@@ -77,21 +58,23 @@ export async function setUserId(userId, userName, photoURL) {
   await ref.set(data);
 }
 
-export async function getNextBatch(startKey,userId){
-  console.log("next batch called")
-  const ref = firebase.firestore().collection(`User/${userId}/invoices`).orderBy("timeStamp", 'desc').startAfter(startKey).limit(15);
+export async function getNextBatch(startKey, userId) {
+  const ref = firebase
+    .firestore()
+    .collection(`User/${userId}/invoices`)
+    .orderBy("timeStamp", "desc")
+    .startAfter(startKey)
+    .limit(15);
   const snapshot = await ref.get();
   let newInvoices = [];
-  let key=null
-  if(!snapshot.empty){
+  let key = null;
+  if (!snapshot.empty) {
     snapshot.forEach((doc) => {
       const data = doc.data();
       newInvoices.push({ ...data, id: doc.id });
-      key=data.timeStamp;
-      console.log("in snapshot")
-     
+      key = data.timeStamp;
     });
   }
 
-  return {newInvoices,key}
+  return { newInvoices, key };
 }

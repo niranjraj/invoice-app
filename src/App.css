@@ -10,8 +10,10 @@
 
 body{
     font-family: 'Spartan', sans-serif;
+    overflow-x: hidden;
     
 }
+
 .lighttheme{
 
     /* color theme variables */
@@ -37,6 +39,7 @@ body{
     --clr-login-text:#b6adeb;
     --clr-login-divider:#d3cdf4;
 
+
     --status-pending-bg:rgba(255, 143, 0, 0.06);
     --status-pending-text:#ff9100;
     --status-paid-bg:rgba(51, 214, 159, .06);
@@ -53,7 +56,7 @@ body{
     --clr-perma-alt-ash:#777f98;
     --clr-perma-divider:#494e6e;
     --clr-perma-dark:#0c0e16;
-
+    --clr-perma-login-text:#F8F8FB;
 
     /* box-shadow variables */
     --shadow-drop-dwn:0px 10px 20px rgba(72 ,84, 159 , 0.25);
@@ -85,6 +88,7 @@ body{
     --clr-login-head:#ad99ff;
     --clr-login-text:#d3cdf4;
     --clr-login-divider:#d3cdf4;
+  
 
     --status-pending-bg:rgba(255, 143, 0, 0.06);
     --status-pending-text:#ff9100;
@@ -102,6 +106,7 @@ body{
         --clr-perma-alt-ash:#777f98;
         --clr-perma-divider:#494e6e;
         --clr-perma-dark:#0c0e16;
+        --clr-perma-login-text:#F8F8FB;
 
      /* box-shadow variables */
      --shadow-drop-dwn:0px 10px 20px rgba(72, 84, 159, 0.25);
@@ -119,6 +124,37 @@ body{
     width:100%;
 	padding: 4.5em 3em;
 
+}
+
+.error-msg{
+    position:fixed;
+    background:var(--clr-sec-bg);
+    color:var(--clr-main-text);
+    border:1px solid  var(--clr-sec-bg);
+    height:90px;
+    top:50px;
+    width:100%;
+    right:3em;
+    max-width:45.625em;
+    padding:1em;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 12;
+    box-shadow: var(--shadow-drop-dwn);
+    cursor: pointer;
+}
+
+.error-msg-icon-close{
+    color:var(--clr-alt-text);
+    position: absolute;
+    font-size: 0.75rem;
+    bottom:2px;
+    cursor: pointer;
+}
+.error-msg:hover{
+    border:1px solid  var(--clr-perma-red-sec);
 }
 
 /* When the browser is 1100px and below */

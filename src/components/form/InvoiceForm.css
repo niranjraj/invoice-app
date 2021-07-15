@@ -1,3 +1,7 @@
+body.form-modal-open{
+  overflow-y: hidden;
+}
+
 .form-wrapper {
   position: fixed;
   background-color: var(--clr-form-bg);

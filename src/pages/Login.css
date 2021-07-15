@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Festive&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap");
 
 .login-wrapper {
   width: 100%;
@@ -20,14 +20,18 @@
 }
 
 .login-header {
-  font-family: "Festive", cursive;
+  font-family: "Playfair Display", serif;
+
   color: var(--clr-purple-main);
   cursor: default;
+  font-weight: 400;
   font-size: 6rem;
   position: absolute;
-  top: 0px;
+  top: 10px;
+  left: 1em;
   margin-bottom: 0.5em;
 }
+
 .login-main-content {
   display: flex;
   flex-direction: column;
@@ -37,19 +41,23 @@
 }
 .login-main-content h3 {
   font-size: 3rem;
-  color:var(--clr-login-head);
+  cursor: default;
+
+  color: var(--clr-login-head);
 }
 
 .login-main-content p {
   font-size: 1.5rem;
-  color: var(--clr-login-text)
+  cursor: default;
+  color: var(--clr-login-text);
 }
 
 .login-btn {
   color: var(--clr-purple-main);
   font-size: 1rem;
+  position: relative;
   border: 2px solid var(--clr-purple-main);
-  background-color: transparent;
+  background-color: var(--clr-purple-main);
   padding: 1rem 5rem;
   margin-top: 3em;
   position: relative;
@@ -57,7 +65,48 @@
   overflow: hidden;
   margin-right: 10em;
 }
+.login-btn span {
+  position: relative;
+  z-index: 2;
+  color: var(--clr-purple-main);
+}
 
+.login-btn::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  display: inline-block;
+  border-radius: 32%;
+  top: -100%;
+  left: -10%;
+  height: 250px;
+  background-color: var(--clr-main-bg);
+  transition: width 500ms ease-in-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(200deg);
+  }
+}
+.login-btn:hover::before {
+  animation: spin 1.4s ease-in-out forwards;
+}
+.login-btn:hover span {
+  color: var(--clr-perma-login-text);
+  transition: color 1.4s ease-in;
+}
+
+.login-btn:focus::before {
+  animation: spin 800ms ease-in-out forwards;
+}
+.login-btn:focus span {
+  color: var(--clr-perma-login-text);
+  transition: color 800ms ease;
+}
 
 .cross-icon-btn {
   position: absolute;
@@ -68,11 +117,11 @@
   cursor: pointer;
   height: 15px;
 }
+
 .login-modal {
   background: var(--clr-logout-bg);
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 30%;
   width: 100%;
   max-width: 30em;
   margin: 0 1.5em;
@@ -81,34 +130,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 10;
+  z-index: 30;
 }
 
 .login-greeter {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-align: center;
-  color:var(--clr-login-head);
+
+  color: var(--clr-login-head);
   line-height: 1.25;
   margin-bottom: 0.5em;
 }
+.login-greeter span {
+  font-size: 2rem;
+  font-family: "Playfair Display", serif;
+}
 .login-divider {
   width: 100%;
-  background-color: #d3cdf4;
+  background-color: var(--clr-login-divider);
   height: 1px;
 }
 
-.login-description{
+.login-description {
   margin-top: 1em;
   line-height: 1.5em;
-  color:var(--clr-login-text) ;
+  color: var(--clr-login-text);
 }
 
-
-.login-greeter span {
-  font-family: "Festive", cursive;
-  font-size: 2rem;
-  color: var(--clr-purple-main);
-}
 .google-btn {
   background-color: var(--clr-purple-main);
   display: flex;
@@ -116,6 +164,10 @@
   color: var(--clr-perma-white);
   padding: 1em 1.25em;
   margin-top: 3em;
+}
+
+.google-btn:hover {
+  background-color: var(--clr-purple-sec);
 }
 .google-btn span {
   margin-left: 1em;
@@ -127,7 +179,6 @@
   }
   .login-main-content h3 {
     font-size: 2.5rem;
-
   }
 
   .login-main-content p {
@@ -178,7 +229,7 @@
   .login-img {
     height: 25em;
     width: 100%;
-    }
+  }
 
   .login-btn {
     padding: 1em 4em;
@@ -187,10 +238,8 @@
 }
 
 @media screen and (max-width: 550px) {
-
   .login-btn {
     padding: 1em 4em;
     align-self: center;
   }
-
 }

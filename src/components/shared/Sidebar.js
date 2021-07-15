@@ -2,6 +2,7 @@ import React from "react";
 import WaitState from "./WaitState";
 import Logo from "../../assets/images/logo.svg";
 import moonIcon from "../../assets/images/icon-moon.svg";
+import { motion, AnimatePresence } from "framer-motion";
 import sunIcon from "../../assets/images/icon-sun.svg";
 import Button from "./Button";
 import "./Sidebar.css";
@@ -9,6 +10,28 @@ import Avatar from "../../assets/images/Avatar.svg";
 import { greetingMsg } from "../../utils/greeting";
 import { useAuth } from "../../contexts/AuthContext";
 
+let popUpVariant = {
+  hidden:i=> ({
+    scale: 0.2,
+    originX:i?0.8:0.2,
+  }),
+  visible:i=> ({
+    scale: 1,
+    originX: i?0.2:1,
+    transition: {
+      type: "easeOut",
+      duration: 0.3,
+    },
+  }),
+  exit:i=> ({
+    scale: 0.2,
+    originX: i?0.8:0.2,
+    transition: {
+      type: "easeOut",
+      duration: 0.3,
+    },
+  }),
+};
 function Sidebar({ setLightTheme, lightTheme, popIsOpen, setPopIsOpen }) {
   const { user, logout, wait, setWait } = useAuth();
 
@@ -41,7 +64,7 @@ function Sidebar({ setLightTheme, lightTheme, popIsOpen, setPopIsOpen }) {
       <Button
         buttonSize="small"
         iconValue={lightTheme ? moonIcon : sunIcon}
-        alt={lightTheme? "moonIcon":"sunIcon"}
+        alt={lightTheme ? "moonIcon" : "sunIcon"}
         onClick={toggleClick}
       />
       <div className="avatar-img-wrapper">
@@ -51,19 +74,31 @@ function Sidebar({ setLightTheme, lightTheme, popIsOpen, setPopIsOpen }) {
           alt="AvatrImg"
           onClick={togglePop}
         />
-        <div className={`pop-logout ${popIsOpen ? "logout-open" : ""}`}>
-          <h1 className="greeting-logout">{`${greetingMsg()} ${
-            user ? user.displayName : ""
-          }. Would you like to sign out? `}</h1>
-          <Button
-            buttonSize="large"
-            buttonStyle="sign-out-btn"
-            onClick={handleLogout}
-            disabled={wait}
-          >
-            {wait ? <WaitState /> : "Signout"}
-          </Button>
-        </div>
+        <AnimatePresence>
+          {popIsOpen && (
+            <motion.div
+              variants={popUpVariant}
+              initial="hidden"
+              animate="visible"
+              custom={window.innerWidth<1100}
+              exit="exit"
+              key="popIsOpen"
+              className="pop-logout"
+            >
+              <h1 className="greeting-logout">{`${greetingMsg()} ${
+                user ? user.displayName : ""
+              }. Would you like to sign out? `}</h1>
+              <Button
+                buttonSize="large"
+                buttonStyle="sign-out-btn"
+                onClick={handleLogout}
+                disabled={wait}
+              >
+                {wait ? <WaitState /> : "Signout"}
+              </Button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </aside>
   );

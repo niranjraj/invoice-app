@@ -10,12 +10,12 @@ const animation = {
   },
 };
 
-function Backdrop({ formIsOpen, setFormIsOpen }) {
+function Backdrop({ formIsOpen,popUpMode,setFormIsOpen }) {
   return (
     <AnimatePresence>
       {formIsOpen && (
         <motion.div
-          className="backdrop-style"
+          className={`backdrop-style ${popUpMode?"popMode":""}`}
           variants={animation}
           initial="hidden"
           animate="visible"

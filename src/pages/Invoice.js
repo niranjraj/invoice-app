@@ -7,13 +7,31 @@ import { useInvoice } from "../contexts/InvoiceContext";
 import InvoiceForm from "../components/form/InvoiceForm";
 import { Link, useParams } from "react-router-dom";
 import Backdrop from "../components/shared/Backdrop";
+import {motion} from "framer-motion"
 import PopUp from "../components/shared/PopUp";
 import { useAuth } from "../contexts/AuthContext";
-import { deleteInvoice } from "../services/api";
-import { updateStatus } from "../services/api";
+import { deleteInvoice ,updateStatus} from "../services/api";
 import InvoiceButtons from "../components/invoice/invoiceButtons";
 import { useHistory } from "react-router-dom";
 import leftArrow from "../assets/images/icon-arrow-left.svg";
+
+
+
+const invoiceVariant = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {  duration: 0.3 }
+  },
+  exit: {
+    opacity: 0,
+    x: "-50%",
+    transition: { duration: 0.3}
+  },
+};
+
 function Invoice() {
   const { id } = useParams();
   const history = useHistory();
@@ -30,7 +48,7 @@ function Invoice() {
     }
   }
 
-  const { user, setSending, setWait, wait } = useAuth();
+  const { user, setSending, setWait, wait,setError } = useAuth();
 
   const [currentInvoice, setCurrentInvoice] = useState(null);
   const [formIsOpen, setFormIsOpen] = useState(false);
@@ -41,7 +59,9 @@ function Invoice() {
   }, [id, invoices]);
 
   const handleMark = async (status) => {
-    setWait(true);
+
+    try {
+      setWait(true);
     if (status === "paid") {
       await updateStatus(user.uid, currentInvoice.id, "pending");
       setSending(true);
@@ -53,20 +73,29 @@ function Invoice() {
       setWait(false);
       return;
     }
+    } catch (error) {
+      setError("Something went wrong....could not update")
+    }
+    
   };
+
   async function handleDelete(userId, invoiceId) {
+  try {
     setWait(true);
     await deleteInvoice(userId, invoiceId);
     setSending(true);
     setWait(false);
     setPopIsOpen(false);
     history.push("/");
+  } catch (error) {
+    setError("Something went wrong....could not delete invoice")
+  }
   }
 
   return (
     <>
       {currentInvoice && (
-        <div>
+        <>
           <Seo title={`Invoice #${id.slice(0,6).toUpperCase()}`} />
           <PopUp
             popUpIsOpen={popIsOpen}
@@ -82,7 +111,7 @@ function Invoice() {
             formIsOpen={formIsOpen}
             setFormIsOpen={setFormIsOpen}
           />
-          <div className="invoice-wrapper">
+          <motion.div variants={invoiceVariant} initial="hidden" animate="visible" exit="exit" className="invoice-wrapper">
             <Link className="home-link-wrapper" to={"/"}>
               <img src={leftArrow} alt="<-" className="left-arrow-icon"/>
               <span>Go back</span>
@@ -96,7 +125,7 @@ function Invoice() {
               handleMark={handleMark}
             />
             <InvoiceContent invoice={currentInvoice} />
-          </div>
+          </motion.div>
           <div className="invoice-footer">
             <InvoiceButtons
               status={currentInvoice.status}
@@ -106,7 +135,7 @@ function Invoice() {
               handleMark={handleMark}
             />
           </div>
-        </div>
+        </>
       )}
     </>
   );

@@ -56,7 +56,10 @@
 }
 .pop-logout {
   position: absolute;
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: var(--clr-logout-bg);
   color:var(--clr-main-text);
   height: 14em;
@@ -79,6 +82,7 @@
 }
 .pop-logout.logout-open {
   display: flex;
+  visibility: visible;
   flex-direction: column;
   align-items: center;
   justify-content: center;

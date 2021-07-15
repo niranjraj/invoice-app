@@ -10,3 +10,8 @@
   z-index: 5;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
+
+.backdrop-style.popMode{
+  z-index:12;
+
+}

@@ -10,43 +10,93 @@ import { useAuth } from "../../contexts/AuthContext";
 import { addInvoice, updateInvoice } from "../../services/api";
 import "./InvoiceForm.css";
 
+const formVariants = {
+  hidden: {
+    opacity: 0,
+    x: -100,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      duration: 0.5,
+    },
+  },
+  exit: {
+    opacity: 0,
+    x: -100,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      duration: 0.5,
+    },
+  },
+};
+
 const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
   console.log("inform");
-  const { user, setSending, wait, setWait,firstLogin } = useAuth();
+  const { user, setSending, wait, setWait,setError, firstLogin } = useAuth();
+
+  //removes overflow from body when form is open
+  if (formIsOpen) {
+    document.body.classList.add("form-modal-open");
+  } else {
+    if (document.body.classList) {
+      document.body.classList.remove("form-modal-open");
+    }
+  }
 
   const onSubmit = async (values) => {
+  try {
     setWait(true);
     const newInvoice = { ...createInvoice("pending", values) };
     await addInvoice(user.uid, newInvoice);
     setSending(true);
     setWait(false);
     setFormIsOpen(false);
+  } catch (error) {
+    setError("Something went wrong...Invoice did not submit")
+  }
+    
   };
 
   const addDraft = async (values) => {
-    setWait(true);
+
+    try {
+      setWait(true);
     const newInvoice = { ...createInvoice("draft", values) };
     await addInvoice(user.uid, newInvoice);
     setSending(true);
     setWait(false);
     setFormIsOpen(false);
+    } catch (error) {
+      setError("Something went wrong...Unable to add draft")
+    }
+    
   };
 
   async function handleUpdate(values, errors) {
-    if (Object.keys(errors).length === 0 && errors.constructor === Object) {
-      setWait(true);
-      const updatedInvoice = { ...createInvoice("pending", values) };
-      await updateInvoice(user.uid, invoice.id, updatedInvoice);
-      setSending(true);
-      setWait(false);
+
+    try {
+      if (Object.keys(errors).length === 0 && errors.constructor === Object) {
+        setWait(true);
+        const updatedInvoice = { ...createInvoice("pending", values) };
+        await updateInvoice(user.uid, invoice.id, updatedInvoice);
+        setSending(true);
+        setWait(false);
+      }
+      setFormIsOpen(false);
+    } catch (error) {
+      setError("Something went wrong...Invoice did not update")
     }
-    setFormIsOpen(false);
+    
   }
 
-  useEffect(()=>{
-  firstLogin();
-  },[])
-
+  useEffect(() => {
+    firstLogin();
+  }, []);
 
   return (
     <AnimatePresence>
@@ -59,8 +109,10 @@ const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
           {(formik) => (
             <motion.div
               className="form-wrapper"
-              initial={{ x: -100 }}
-              animate={{ x: 0 }}
+              variants={formVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
             >
               <Form className="form-main">
                 <h2 className="form-heading">Create Invoice</h2>

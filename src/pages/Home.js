@@ -9,6 +9,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { getNextBatch } from "../services/api";
 import Seo from "../components/shared/Seo";
 
+
 function Home() {
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [filteredInvoices, setFilteredInvoices] = useState(null);
