@@ -49,7 +49,6 @@ export async function setUserId(userId, userName, photoURL) {
   };
   const ref = firebase.firestore().collection("User").doc(userId);
   if (ref.exists) {
-    console.log("already exists");
     return;
   }
   await ref.set(data);

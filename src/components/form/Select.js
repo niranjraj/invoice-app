@@ -16,7 +16,6 @@ const Select = React.memo(({ name, label, options }) => {
     setShow(false);
   };
   const handleClickOff = (e) => {
-    console.log("in handle");
     if (!selectRef.current?.contains(e.target)) {
       setShow(false);
     }

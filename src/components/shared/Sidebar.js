@@ -46,7 +46,6 @@ function Sidebar({ setLightTheme, lightTheme, popIsOpen, setPopIsOpen }) {
   };
 
   const handleLogout = async () => {
-    console.log("in logout");
     if (user) {
       setWait(true);
       await logout();

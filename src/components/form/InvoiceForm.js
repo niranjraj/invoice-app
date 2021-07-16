@@ -36,7 +36,6 @@ const formVariants = {
 };
 
 const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
-  console.log("inform");
   const { user, setSending, wait, setWait, setError, firstLogin } = useAuth();
 
   //removes overflow from body when form is open
@@ -55,10 +54,10 @@ const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
       await addInvoice(user.uid, newInvoice);
       setSending(true);
     } catch (error) {
-      console.log(error);
+      setError("Something went wrong...Invoice did not submit");
+    } finally {
       setWait(false);
       setFormIsOpen(false);
-      setError("Something went wrong...Invoice did not submit");
     }
   };
 
