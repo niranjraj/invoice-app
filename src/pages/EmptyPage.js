@@ -1,7 +1,7 @@
 import React from "react";
 import noInvoiceImg from "../assets/images/no-invoice.svg";
 import Button from "../components/shared/Button";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import pageNotFound from "../assets/images/pageNotFound.svg";
 import "./EmptyPage.css";
 function EmptyPage({ isErrorPage }) {
@@ -10,14 +10,17 @@ function EmptyPage({ isErrorPage }) {
       <img
         src={isErrorPage ? pageNotFound : noInvoiceImg}
         alt="NothingHere"
+        width="200"
+        height="200"
         className="noinvoice-img"
       />
       <h1 className="noinvoice-heading">There is nothing here.</h1>
       {isErrorPage ? (
-          <Link to="/">
-          <Button buttonStyle="save-send-btn" buttonSize="large">Go back to invoices list</Button>
-          </Link>
-
+        <Link to="/">
+          <Button buttonStyle="empty-go-back-btn" buttonSize="large">
+            Go back to invoices list
+          </Button>
+        </Link>
       ) : (
         <p className="noinvoice-msg">
           Get started creating invoices by clicking the <br />{" "}

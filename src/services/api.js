@@ -1,14 +1,12 @@
 import { firebase } from "../firebase/initFirebase";
 
 export async function addInvoice(userId, invoice) {
-    const ref = firebase
-      .firestore()
-      .collection("User")
-      .doc(userId)
-      .collection("invoices");
-    await ref.add(invoice);
-    throw new Error("new error");
-
+  const ref = firebase
+    .firestore()
+    .collection("User")
+    .doc(userId)
+    .collection("invoices");
+  await ref.add(invoice);
 }
 
 export async function getInvoices(userId) {
@@ -38,7 +36,6 @@ export async function updateInvoice(userId, invoiceId, updatedInvoice) {
 export async function deleteInvoice(userId, invoiceId) {
   const ref = firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);
   await ref.delete();
-
 }
 export async function updateStatus(userId, invoiceId, updatedStatus) {
   const ref = firebase.firestore().doc(`User/${userId}/invoices/${invoiceId}`);

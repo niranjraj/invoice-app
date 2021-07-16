@@ -52,3 +52,17 @@
     color: var(--clr-perma-ash);
     transition: color 300ms ease;
 }
+
+.delete-item-btn {
+    display: flex;
+    align-self: end;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.3em;
+    padding: 1em 0;
+    background: transparent none repeat scroll 0% 0%;
+  }
+.delete-item-btn .icon-value{
+   width:13px;
+   height: 16px;
+}  

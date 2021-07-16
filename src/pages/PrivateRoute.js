@@ -5,11 +5,12 @@ import {useAuth} from '../contexts/AuthContext';
 function PrivateRoute({component:RouteComponent,...rest}) {
 
     const {user}=useAuth()
+    const sessionUser=JSON.parse(sessionStorage.getItem("user"));
     return (
       <Route
       {...rest}
 
-      render={routeProps=> user ? (
+      render={routeProps=> (user||sessionUser) ? (
         <RouteComponent {...routeProps} />
       ) : (
         <Redirect to={"/login"} />

@@ -20,7 +20,7 @@ export const Header = React.memo(
         <Dropdown setFilterStatus={setFilterStatus} />
         <Button
           iconValue={plusIcon}
-          altValue="plusIcon"
+          altValue="+"
           onClick={() => setFormIsOpen(true)}
           buttonStyle="plus-btn"
         >

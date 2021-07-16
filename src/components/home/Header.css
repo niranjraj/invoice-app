@@ -1,32 +1,31 @@
-.home-header{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 4rem;
+.home-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 4rem;
 }
 
-.header-text{
-    display: flex;
-    flex-direction: column;
-    margin-right: auto;
+.header-text {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
 }
-.invoice-header{
-    font-size: 2rem;
-    color:var(--clr-main-text);
-    font-weight: bold;
-    font-size: 2rem;
-    letter-spacing: -1px;
-    margin-bottom: 0.5em;
-    transition:color 300ms ease;
-
+.invoice-header {
+  font-size: 2rem;
+  color: var(--clr-main-text);
+  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: -1px;
+  margin-bottom: 0.5em;
+  transition: color 300ms ease;
 }
 
-.invoice-msg{
-    font-size: 0.75rem;
-    line-height: 1.125;
-    letter-spacing: -0.25px;
-    color:var(--clr-sec-text);
-    transition:color 300ms ease;
+.invoice-msg {
+  font-size: 0.75rem;
+  line-height: 1.125;
+  letter-spacing: -0.25px;
+  color: var(--clr-sec-text);
+  transition: color 300ms ease;
 }
 
 .plus-btn {
@@ -37,34 +36,32 @@
   min-width: 5.87em;
   background-color: var(--clr-purple-main);
   color: var(--clr-perma-white);
-  transition:background 300ms ease;
+  transition: background 300ms ease;
 }
-
-
 
 .plus-btn .icon-value {
-  margin-right: 0.5em;
+  height: 32px;
+  width: 32px;
+  margin-right: 0.85em;
   padding: 0.625rem;
-  background-color:  var(--clr-perma-white);
-  border-radius: 50%;
-  transition:transform 400ms ease-in;
- 
-}
 
+  background-color: var(--clr-perma-white);
+  border-radius: 50%;
+  transition: transform 400ms ease-in;
+}
 
 .plus-btn:hover {
   background-color: var(--clr-purple-sec);
 }
-.plus-btn:hover .icon-value{
+.plus-btn:hover .icon-value {
   transform: rotate(180deg);
 }
 
-@media screen and (max-width:576px) {
-  .invoice-header{
+@media screen and (max-width: 576px) {
+  .invoice-header {
     font-size: 1.2rem;
   }
-  .invoice-span-btn{
+  .invoice-span-btn {
     display: none;
   }
-  
 }

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../components/shared/Button";
 import Backdrop from "../components/shared/Backdrop";
 import { Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { firebase } from "../firebase/initFirebase";
+import Seo from "../components/shared/Seo";
 import crossIcon from "../assets/images/icon-plus.svg";
 import googleIcon from "../assets/images/google.svg";
 import invoiceContent from "../assets/images/invoice-content.svg";
@@ -73,31 +73,23 @@ const loginVariant = {
 
 function Login() {
   const [loginIsOpen, setLoginIsOpen] = useState(false);
-  const { login, user, setUser, setLoading ,setError} = useAuth();
+  const { login, user, setUser, setLoading, setError } = useAuth();
   const history = useHistory();
 
-  useEffect(() => {
-    console.log("here boy");
+  async function signIn() {
+    setLoading(true);
     try {
-      const unsubscribe = async () => {
-        if (!user) {
-          const result = await firebase.auth().getRedirectResult();
-          if (result.user) {
-            setLoading(true);
-            setUser(result.user);
-            setLoading(false);
-            history.push("/");
-          }
-        }
-      };
-      unsubscribe();
-      return () => unsubscribe();
+      const result = await login();
+      if (result.user) {
+        setUser(result.user);
+        history.push("/");
+      }
     } catch (error) {
-      setError("Something went wrong...Please ensure cookies are enabled")
+      setError("Something went wrong...");
+    } finally {
+      setLoading(false);
     }
-    
-    
-  }, []);
+  }
 
   if (user) {
     return <Redirect to="/" />;
@@ -105,6 +97,7 @@ function Login() {
 
   return (
     <>
+      <Seo title="Login | Invoicely" />
       <Backdrop formIsOpen={loginIsOpen} setFormIsOpen={setLoginIsOpen} />
       <div className="login-wrapper">
         <AnimatePresence>
@@ -119,6 +112,8 @@ function Login() {
               <img
                 src={crossIcon}
                 alt="x"
+                width="22"
+                height="22"
                 className="cross-icon-btn"
                 onClick={() => setLoginIsOpen(false)}
               />
@@ -133,7 +128,7 @@ function Login() {
               <Button
                 buttonStyle="google-btn"
                 iconValue={googleIcon}
-                onClick={login}
+                onClick={signIn}
               >
                 Sign in with Google
               </Button>

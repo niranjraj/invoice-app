@@ -59,12 +59,13 @@ function Sidebar({ setLightTheme, lightTheme, popIsOpen, setPopIsOpen }) {
     <aside className="sidebar-wrapper">
       <div className="logo-wrapper">
         {" "}
-        <img src={Logo} alt="logo" className="logo-img" />{" "}
+        <img src={Logo} alt="logo" height="37" width="40" className="logo-img" />{" "}
       </div>
       <Button
         buttonSize="small"
+        buttonStyle="theme-btn"
         iconValue={lightTheme ? moonIcon : sunIcon}
-        alt={lightTheme ? "moonIcon" : "sunIcon"}
+        altValue={lightTheme ? "moonIcon" : "sunIcon"}
         onClick={toggleClick}
       />
       <div className="avatar-img-wrapper">
@@ -72,6 +73,8 @@ function Sidebar({ setLightTheme, lightTheme, popIsOpen, setPopIsOpen }) {
           className="avatar-img"
           src={user ? user.photoURL : Avatar}
           alt="AvatrImg"
+          height="40"
+          width="40"
           onClick={togglePop}
         />
         <AnimatePresence>

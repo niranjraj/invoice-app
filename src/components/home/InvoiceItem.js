@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 import InvoiceStatus from "../shared/InvoiceStatus";
 import dayjs from "dayjs";
 import "./InvoiceItem.css";
@@ -15,14 +15,14 @@ const itemVariant = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.4,
+      duration: 0.3,
     },
   },
   exit: {
     opacity: 0,
     scale: 0.5,
     transition: {
-      duration: 0.4,
+      duration: 0.3,
     },
   },
 };
@@ -51,6 +51,8 @@ const InvoiceItem = ({ id, paymentDue, clientName, total, status }) => {
           <img
             src={rightArrow}
             alt="rightArrow"
+            width="7"
+            height="10"
             className="invoice-arrow-icon"
           />
         </motion.div>

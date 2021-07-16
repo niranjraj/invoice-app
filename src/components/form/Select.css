@@ -1,16 +1,16 @@
 .selection-field-wrapper {
   display: flex;
   flex-direction: column;
-  position:relative;
+  position: relative;
   gap: 0.625em;
   color: var(--clr-sec-text);
   font-size: 0.75rem;
   line-height: 1.125;
   letter-spacing: -0.25px;
-  transition:color 300ms ease;
+  transition: color 300ms ease;
 }
 .select-payment-wrapper {
-  position:absolute;
+  position: absolute;
   z-index: 4;
   top: 110%;
   width: 100%;
@@ -23,19 +23,18 @@
   list-style: none;
   transition: background 300ms ease;
 }
-.select-payment-option{
-  padding:1em;
+.select-payment-option {
+  padding: 1em;
   font-weight: bold;
-  color:var(--clr-main-text);;
-  width:100%;
+  color: var(--clr-main-text);
+  width: 100%;
   font-weight: bold;
   cursor: pointer;
   font-size: 0.75rem;
-  transition:color 300ms ease;
-
+  transition: color 300ms ease;
 }
-.select-payment-option:hover{
-  color:var(--clr-purple-main);
+.select-payment-option:hover {
+  color: var(--clr-purple-main);
 }
 
 .select-payment-term {
@@ -43,13 +42,19 @@
   border: 1px solid var(--clr-form-border);
   border-radius: 4px;
   padding: 1.2em 1.25em;
-  background-color: var( --clr-sec-bg);
+  background-color: var(--clr-sec-bg);
   appearance: none;
   outline: none;
   color: var(--clr-main-text);
   font-weight: bold;
   cursor: pointer;
-  transition: color 300ms ease,background 300ms ease,border 300ms ease;
+  transition: color 300ms ease, background 300ms ease, border 300ms ease;
+}
+.select-down-arrow {
+  position: absolute;
+  right: 1em;
+  cursor: pointer;
+  top: 60%;
 }
 .select-payment-term:focus {
   border: 1px solid var(--clr-purple-sec);

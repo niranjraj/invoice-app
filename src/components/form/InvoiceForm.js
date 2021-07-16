@@ -37,7 +37,7 @@ const formVariants = {
 
 const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
   console.log("inform");
-  const { user, setSending, wait, setWait,setError, firstLogin } = useAuth();
+  const { user, setSending, wait, setWait, setError, firstLogin } = useAuth();
 
   //removes overflow from body when form is open
   if (formIsOpen) {
@@ -49,49 +49,47 @@ const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
   }
 
   const onSubmit = async (values) => {
-  try {
     setWait(true);
-    const newInvoice = { ...createInvoice("pending", values) };
-    await addInvoice(user.uid, newInvoice);
-    setSending(true);
-    setWait(false);
-    setFormIsOpen(false);
-  } catch (error) {
-    setError("Something went wrong...Invoice did not submit")
-  }
-    
+    try {
+      const newInvoice = { ...createInvoice("pending", values) };
+      await addInvoice(user.uid, newInvoice);
+      setSending(true);
+    } catch (error) {
+      console.log(error);
+      setWait(false);
+      setFormIsOpen(false);
+      setError("Something went wrong...Invoice did not submit");
+    }
   };
 
   const addDraft = async (values) => {
-
+    setWait(true);
     try {
-      setWait(true);
-    const newInvoice = { ...createInvoice("draft", values) };
-    await addInvoice(user.uid, newInvoice);
-    setSending(true);
-    setWait(false);
-    setFormIsOpen(false);
+      const newInvoice = { ...createInvoice("draft", values) };
+      await addInvoice(user.uid, newInvoice);
+      setSending(true);
     } catch (error) {
-      setError("Something went wrong...Unable to add draft")
+      setError("Something went wrong...Unable to add draft");
+    } finally {
+      setWait(false);
+      setFormIsOpen(false);
     }
-    
   };
 
   async function handleUpdate(values, errors) {
-
     try {
       if (Object.keys(errors).length === 0 && errors.constructor === Object) {
         setWait(true);
         const updatedInvoice = { ...createInvoice("pending", values) };
         await updateInvoice(user.uid, invoice.id, updatedInvoice);
         setSending(true);
-        setWait(false);
       }
-      setFormIsOpen(false);
     } catch (error) {
-      setError("Something went wrong...Invoice did not update")
+      setError("Something went wrong...Invoice did not update");
+    } finally {
+      setWait(false);
+      setFormIsOpen(false);
     }
-    
   }
 
   useEffect(() => {

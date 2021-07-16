@@ -14,7 +14,7 @@ const DropdownOption = ({ checked, id, children, handleClick }) => {
         }}
       />
       <span className="checkbox">
-      <img src={check} alt="check" />
+      <img src={check} width="10" height="8" alt="check" />
       </span>
       <span className="label-option">{children}</span>
     </label>

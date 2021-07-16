@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import downArrow from "../../assets/images/down-arrow.svg";
 import { useField } from "formik";
 import "./Select.css";
-const downArrow = <i className="fas fa-angle-down"></i>;
+
 const Select = React.memo(({ name, label, options }) => {
-  const [field, meta, helpers] = useField(name);
+  const [field, , helpers] = useField(name);
   const [show, setShow] = useState(false);
   const selectRef = useRef();
 
@@ -45,6 +45,7 @@ const Select = React.memo(({ name, label, options }) => {
           onClick={handleShow}
           {...field}
         />
+        <img className="select-down-arrow" width="11" height="7" src={downArrow} alt="V" />
       </div>
       {show && (
         <ul className="select-payment-wrapper">

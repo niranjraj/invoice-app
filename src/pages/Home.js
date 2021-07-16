@@ -14,13 +14,18 @@ function Home() {
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [filteredInvoices, setFilteredInvoices] = useState(null);
   const [filterStatus, setFilterStatus] = useState(null);
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
-  const { invoices, startKey, setInvoices, setStartKey, hasMore, setHasMore } =
-    useInvoice();
+  const {
+    invoices,
+    startKey,
+    setInvoices,
+    setStartKey,
+    hasMore,
+    setHasMore,
+  } = useInvoice();
 
   async function scrollUpdate() {
-    console.log("in format");
     if (startKey) {
       const { newInvoices, key } = await getNextBatch(startKey, user.uid);
       if (key) {
@@ -48,7 +53,11 @@ function Home() {
 
   return (
     <>
-      <Seo title={`Invoices (${filteredInvoices?.length}) | Invoicely`} />
+      <Seo
+        title={`Invoices (${
+          filteredInvoices ? filteredInvoices.length : "0"
+        }) | Invoicely`}
+      />
       <Backdrop formIsOpen={formIsOpen} setFormIsOpen={setFormIsOpen} />
       <Wrapper>
         <InvoiceForm formIsOpen={formIsOpen} setFormIsOpen={setFormIsOpen} />
@@ -58,11 +67,13 @@ function Home() {
           setFormIsOpen={setFormIsOpen}
           setFilterStatus={setFilterStatus}
         />
-        <InvoiceList
-          invoices={filteredInvoices}
-          hasMore={hasMore}
-          scrollUpdate={scrollUpdate}
-        />
+        {!loading && (
+          <InvoiceList
+            invoices={filteredInvoices}
+            hasMore={hasMore}
+            scrollUpdate={scrollUpdate}
+          />
+        )}
       </Wrapper>
     </>
   );

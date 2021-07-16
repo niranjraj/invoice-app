@@ -26,6 +26,10 @@
   transition: color 300ms ease,background 300ms ease ,border 300ms ease;
   
 }
+.datepicker-btn .icon-value{
+  width:16px;
+  height: 16px;
+}
 
 .datepicker-label {
   grid-column: 1 / 2;

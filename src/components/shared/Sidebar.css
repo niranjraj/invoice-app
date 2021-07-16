@@ -39,6 +39,19 @@
   width: 40px;
   height: 37px;
 }
+
+.theme-btn {
+  margin: 1.75em 0;
+  border: none;
+  padding: 0.25em;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.theme-btn:hover img {
+  transform: rotate(45deg);
+  transition: transform 300ms ease;
+}
 .avatar-img-wrapper {
   background: transparent;
   display: flex;
@@ -61,7 +74,7 @@
   align-items: center;
   justify-content: center;
   background-color: var(--clr-logout-bg);
-  color:var(--clr-main-text);
+  color: var(--clr-main-text);
   height: 14em;
   padding: 3em;
   bottom: 2em;
@@ -69,15 +82,15 @@
   left: 120px;
   box-shadow: var(--shadow-drop-dwn);
   border-radius: 10px;
-  transition: background 300ms ease,color 300ms ease,box-shadow 300ms ease;
+  transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease;
 }
 .sign-out-btn {
-  color:var(--clr-perma-white);
+  color: var(--clr-perma-white);
   background-color: var(--clr-purple-main);
-  transition: color 300ms ease,background 300ms ease;
+  transition: color 300ms ease, background 300ms ease;
 }
 
-.sign-out-btn:hover{
+.sign-out-btn:hover {
   background-color: var(--clr-purple-sec);
 }
 .pop-logout.logout-open {
@@ -157,7 +170,7 @@
 @media screen and (max-width: 440px) {
   .pop-logout {
     padding: 1em;
-    height:10em;
+    height: 10em;
   }
   .greeting-logout {
     font-size: 1rem;

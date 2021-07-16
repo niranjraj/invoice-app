@@ -19,14 +19,17 @@ export function AuthProvider({ children }) {
     try {
       setLoading(true);
       const provider = new firebase.auth.GoogleAuthProvider();
-      await firebase.auth().signInWithRedirect(provider);
+      return await firebase.auth().signInWithPopup(provider);
     } catch (error) {
       setError("Could not connect...")
+    }finally{
+      setLoading(false)
     }
   }
 
   async function logout() {
     try {
+      sessionStorage.removeItem("user");
       await firebase.auth().signOut();
       setUser(null);
       return;
@@ -36,13 +39,18 @@ export function AuthProvider({ children }) {
   
   }
   function firstLogin() {
-    if (user) {
-      const checkLogin =
-        user.metadata.creationTime === user.metadata.lastSignInTime;
-      if (checkLogin) {
-        setUserId(user.uid, user.displayName, user.photoURL);
+    try {
+      if (user) {
+        const checkLogin =
+          user.metadata.creationTime === user.metadata.lastSignInTime;
+        if (checkLogin) {
+          setUserId(user.uid, user.displayName, user.photoURL);
+        }
       }
+    } catch (error) {
+      setError("Something went wrong... login again")
     }
+
   }
 
   useEffect(() => {
@@ -50,13 +58,13 @@ export function AuthProvider({ children }) {
       const unsubscribe = firebase.auth().onAuthStateChanged((newUser) => {
         if (newUser) {
           setUser(newUser)
+          sessionStorage.setItem("user",JSON.stringify(newUser))
           setSending(true);
         }
         setLoading(false);
       });
       return () => unsubscribe();
     } catch (error) {
-      console.log(error);
       setError("Something went wrong")
     }
   }, []);
