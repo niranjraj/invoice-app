@@ -13,7 +13,7 @@ function Home() {
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [filteredInvoices, setFilteredInvoices] = useState(null);
   const [filterStatus, setFilterStatus] = useState(null);
-  const { user, loading} = useAuth();
+  const { user, loading } = useAuth();
 
   const { invoices, startKey, setInvoices, setStartKey, hasMore, setHasMore } =
     useInvoice();
@@ -31,22 +31,22 @@ function Home() {
     }
   }
 
- 
-
- 
+  const memoizedInvoices = React.useMemo(() => {
+    if (invoices && filterStatus) {
+      invoices.filter((invoice) => {
+        return invoice.status === filterStatus;
+      });
+    }
+  }, [invoices, filterStatus]);
 
   useEffect(() => {
     if (invoices) {
       setFilteredInvoices(invoices);
       if (filterStatus) {
-        setFilteredInvoices(
-          invoices.filter((invoice) => {
-            return invoice.status === filterStatus;
-          })
-        );
+        setFilteredInvoices(memoizedInvoices);
       }
     }
-  }, [invoices, filterStatus]);
+  }, [invoices, filterStatus, memoizedInvoices]);
 
   return (
     <>

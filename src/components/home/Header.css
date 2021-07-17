@@ -65,6 +65,13 @@
   .invoice-span-btn {
     display: none;
   }
+  .plus-btn{
+    margin-left: 1em;
+  }
+  .plus-btn .btn-text{
+    font-size: 0.65rem;
+    
+  }
 }
 @media screen and (max-width: 340px) {
   .plus-btn .btn-text{

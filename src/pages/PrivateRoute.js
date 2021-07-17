@@ -13,7 +13,7 @@ function PrivateRoute({component:RouteComponent,...rest}) {
       render={routeProps=> (user||sessionUser) ? (
         <RouteComponent {...routeProps} />
       ) : (
-        <Redirect to={"/login"} />
+        <Redirect to={"/"} />
       )}/>
 
    

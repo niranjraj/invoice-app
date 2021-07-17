@@ -21,7 +21,6 @@ export function InvoiceProvider({ children }) {
           const { newInvoices, key } = await getInvoices(user.uid);
           key ? setStartKey(key) : setHasMore(false);
           setInvoices(newInvoices);
-          setSending(false);
         };
         unsubscribe();
         return () => unsubscribe();

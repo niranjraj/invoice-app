@@ -106,13 +106,14 @@ function App() {
               <Suspense fallback={<Loading />}>
                 <AnimatePresence exitBeforeEnter>
                   <Switch location={location} key={location.pathname}>
-                    <PrivateRoute exact path="/" component={Home} />
+                  <Route exact path="/" component={Login} />
+                    <PrivateRoute exact path="/home" component={Home} />
                     <PrivateRoute
                       exact
                       path="/invoice/:id"
                       component={Invoice}
                     />
-                    <Route path="/login" component={Login} />
+                 
                     <Route>
                       <EmptyPage isErrorPage={true} />
                     </Route>

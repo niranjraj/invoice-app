@@ -81,7 +81,7 @@ function Invoice() {
     try {
       await deleteInvoice(userId, invoiceId);
       setSending(true);
-      history.push("/");
+      history.push("/home");
     } catch (error) {
       console.log(error)
       setError("Something went wrong....could not delete invoice");

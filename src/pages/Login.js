@@ -86,7 +86,7 @@ function Login() {
         if (result.additionalUserInfo.isNewUser) {
           await setUserId(result.user.uid, result.user.displayName);
         }
-        history.push("/");
+        history.push("/home");
       }
     } catch (error) {
       console.log(error);
@@ -97,7 +97,7 @@ function Login() {
   }
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/home" />;
   }
 
   return (
