@@ -50,6 +50,7 @@
   transition: transform 400ms ease-in;
 }
 
+
 .plus-btn:hover {
   background-color: var(--clr-purple-sec);
 }
@@ -62,6 +63,11 @@
     font-size: 1.2rem;
   }
   .invoice-span-btn {
+    display: none;
+  }
+}
+@media screen and (max-width: 340px) {
+  .plus-btn .btn-text{
     display: none;
   }
 }

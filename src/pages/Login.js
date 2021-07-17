@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { m, AnimatePresence } from "framer-motion";
+import { setUserId } from "../services/api";
 import Button from "../components/shared/Button";
 import Backdrop from "../components/shared/Backdrop";
 import { Redirect, useHistory } from "react-router-dom";
@@ -9,7 +10,7 @@ import Seo from "../components/shared/Seo";
 import crossIcon from "../assets/images/icon-plus.svg";
 import googleIcon from "../assets/images/google.svg";
 import invoiceContent from "../assets/images/invoice-content.svg";
-import LazyAnimate from "../components/shared/LazyAnimate"
+import LazyAnimate from "../components/shared/LazyAnimate";
 const headingVariant = {
   hidden: {
     opacity: 0,
@@ -82,9 +83,13 @@ function Login() {
       const result = await login();
       if (result.user) {
         setUser(result.user);
+        if (result.additionalUserInfo.isNewUser) {
+          await setUserId(result.user.uid, result.user.displayName);
+        }
         history.push("/");
       }
     } catch (error) {
+      console.log(error);
       setError("Something went wrong...");
     } finally {
       setLoading(false);
@@ -152,18 +157,10 @@ function Login() {
             })}
           </m.h1>
           <div className="login-main-content">
-            <m.h3
-              variants={headingVariant}
-              initial="hidden"
-              animate="visible"
-            >
+            <m.h3 variants={headingVariant} initial="hidden" animate="visible">
               The Easiest way to Manage Invoices
             </m.h3>
-            <m.p
-              variants={headingVariant}
-              initial="hidden"
-              animate="visible"
-            >
+            <m.p variants={headingVariant} initial="hidden" animate="visible">
               Create,organize and track invoices easily across all devices
             </m.p>
             <Button

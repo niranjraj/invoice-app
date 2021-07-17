@@ -8,6 +8,7 @@ const spinTransition = {
   duration: 1,
   ease: "linear",
 };
+
 function Loading() {
   return (
     <div className="loading-state">

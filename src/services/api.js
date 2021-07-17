@@ -42,10 +42,9 @@ export async function updateStatus(userId, invoiceId, updatedStatus) {
   await ref.update({ status: updatedStatus, timeStamp: new Date() });
 }
 
-export async function setUserId(userId, userName, photoURL) {
+export async function setUserId(userId, userName) {
   const data = {
     displayName: userName,
-    avatar: photoURL,
   };
   const ref = firebase.firestore().collection("User").doc(userId);
   if (ref.exists) {

@@ -9,21 +9,14 @@ import { useAuth } from "../contexts/AuthContext";
 import { getNextBatch } from "../services/api";
 import Seo from "../components/shared/Seo";
 
-
 function Home() {
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [filteredInvoices, setFilteredInvoices] = useState(null);
   const [filterStatus, setFilterStatus] = useState(null);
-  const { user, loading } = useAuth();
+  const { user, loading} = useAuth();
 
-  const {
-    invoices,
-    startKey,
-    setInvoices,
-    setStartKey,
-    hasMore,
-    setHasMore,
-  } = useInvoice();
+  const { invoices, startKey, setInvoices, setStartKey, hasMore, setHasMore } =
+    useInvoice();
 
   async function scrollUpdate() {
     if (startKey) {
@@ -37,6 +30,10 @@ function Home() {
       }
     }
   }
+
+ 
+
+ 
 
   useEffect(() => {
     if (invoices) {

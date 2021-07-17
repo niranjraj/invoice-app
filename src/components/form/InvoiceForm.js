@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Formik, Form } from "formik";
 import { m, AnimatePresence } from "framer-motion";
 import Fields from "./Fields";
@@ -37,7 +37,7 @@ const formVariants = {
 };
 
 const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
-  const { user, setSending, wait, setWait, setError, firstLogin } = useAuth();
+  const { user, setSending, wait, setWait, setError} = useAuth();
 
   //removes overflow from body when form is open
   if (formIsOpen) {
@@ -92,9 +92,6 @@ const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
     }
   }
 
-  useEffect(() => {
-    firstLogin();
-  }, []);
 
   return (
     <AnimatePresence>
