@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import Button from "../components/shared/Button";
 import Backdrop from "../components/shared/Backdrop";
 import { Redirect, useHistory } from "react-router-dom";
@@ -9,7 +9,7 @@ import Seo from "../components/shared/Seo";
 import crossIcon from "../assets/images/icon-plus.svg";
 import googleIcon from "../assets/images/google.svg";
 import invoiceContent from "../assets/images/invoice-content.svg";
-
+import LazyAnimate from "../components/shared/LazyAnimate"
 const headingVariant = {
   hidden: {
     opacity: 0,
@@ -96,13 +96,13 @@ function Login() {
   }
 
   return (
-    <>
+    <LazyAnimate>
       <Seo title="Login | Invoicely" />
       <Backdrop formIsOpen={loginIsOpen} setFormIsOpen={setLoginIsOpen} />
       <div className="login-wrapper">
         <AnimatePresence>
           {loginIsOpen && (
-            <motion.div
+            <m.div
               variants={loginVariant}
               initial="hidden"
               animate="visible"
@@ -132,12 +132,12 @@ function Login() {
               >
                 Sign in with Google
               </Button>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
 
         <div className="login-head-content">
-          <motion.h1
+          <m.h1
             variants={headingVariant}
             initial="hidden"
             animate="visible"
@@ -145,27 +145,27 @@ function Login() {
           >
             {"Invoicely".split("").map((char, index) => {
               return (
-                <motion.span key={`${char}-${index}`} variants={letterVariant}>
+                <m.span key={`${char}-${index}`} variants={letterVariant}>
                   {char}
-                </motion.span>
+                </m.span>
               );
             })}
-          </motion.h1>
+          </m.h1>
           <div className="login-main-content">
-            <motion.h3
+            <m.h3
               variants={headingVariant}
               initial="hidden"
               animate="visible"
             >
               The Easiest way to Manage Invoices
-            </motion.h3>
-            <motion.p
+            </m.h3>
+            <m.p
               variants={headingVariant}
               initial="hidden"
               animate="visible"
             >
               Create,organize and track invoices easily across all devices
-            </motion.p>
+            </m.p>
             <Button
               buttonStyle="login-btn"
               buttonSize="large"
@@ -177,7 +177,7 @@ function Login() {
             </Button>
           </div>
         </div>
-        <motion.img
+        <m.img
           variants={imgVariant}
           initial="hidden"
           animate="visible"
@@ -188,7 +188,7 @@ function Login() {
           alt="loginImage"
         />
       </div>
-    </>
+    </LazyAnimate>
   );
 }
 

@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Formik, Form } from "formik";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import Fields from "./Fields";
 import Button from "../shared/Button";
 import WaitState from "../shared/WaitState";
+import LazyAnimate from "../shared/LazyAnimate"
 import { setInitialValues, validationSchema } from "../../utils/formValidation";
 import { createInvoice } from "../../utils/formatInvoice";
 import { useAuth } from "../../contexts/AuthContext";
@@ -104,7 +105,8 @@ const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
           onSubmit={onSubmit}
         >
           {(formik) => (
-            <motion.div
+            <LazyAnimate>
+              <m.div
               className="form-wrapper"
               variants={formVariants}
               initial="hidden"
@@ -181,7 +183,9 @@ const InvoiceForm = React.memo(({ invoice, formIsOpen, setFormIsOpen }) => {
                   </div>
                 )}
               </Form>
-            </motion.div>
+            </m.div>
+            </LazyAnimate>
+            
           )}
         </Formik>
       )}

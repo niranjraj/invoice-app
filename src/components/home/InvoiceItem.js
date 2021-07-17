@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {  motion } from "framer-motion";
+import {  m } from "framer-motion";
 import InvoiceStatus from "../shared/InvoiceStatus";
+import LazyAnimate from "../shared/LazyAnimate"
 import dayjs from "dayjs";
 import "./InvoiceItem.css";
 import rightArrow from "../../assets/images/icon-arrow-right.svg";
@@ -31,7 +32,8 @@ const InvoiceItem = ({ id, paymentDue, clientName, total, status }) => {
   return (
 
       <Link style={{ textDecoration: "none" }} to={`/invoice/${id}`}>
-        <motion.div
+        <LazyAnimate>
+        <m.div
           variants={itemVariant}
           initial="hidden"
           animate="visible"
@@ -55,7 +57,9 @@ const InvoiceItem = ({ id, paymentDue, clientName, total, status }) => {
             height="10"
             className="invoice-arrow-icon"
           />
-        </motion.div>
+        </m.div>
+        </LazyAnimate>
+        
       </Link>
    
   );

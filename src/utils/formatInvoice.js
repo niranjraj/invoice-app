@@ -42,9 +42,9 @@ export function invoicesMessage(invoiceLength, filter) {
   } else if (invoiceLength === 1 && filter) {
       return `There is 1 ${filter} invoice.`
   } else if (!filter) {
-      return `There are ${invoiceLength} total invoices.`
+      return `There are ${invoiceLength?invoiceLength:"0"} total invoices.`
   } else {
-      return `There are ${invoiceLength} ${filter} invoices.`
+      return `There are ${invoiceLength?invoiceLength:"0"} ${filter} invoices.`
   }
 }
 

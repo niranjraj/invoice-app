@@ -8,7 +8,8 @@ import { HelmetProvider } from "react-helmet-async";
 import Loading from "./pages/Loading";
 import { useAuth } from "./contexts/AuthContext";
 import PrivateRoute from "./pages/PrivateRoute";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
+import LazyAnimate from "./components/shared/LazyAnimate";
 import { useTheme } from "./hooks/useTheme";
 import errorIcon from "./assets/images/error.svg";
 import Seo from "./components/shared/Seo";
@@ -59,8 +60,7 @@ function App() {
 
   return (
     <HelmetProvider>
-
-      <Seo title="Invoicely"/>
+      <Seo title="Invoicely" />
       <div className={`container ${lightTheme ? "lighttheme" : "darktheme"}`}>
         <Backdrop
           setFormIsOpen={setPopUp}
@@ -75,24 +75,26 @@ function App() {
         />
         <AnimatePresence exitBeforeEnter>
           {error && !loading && (
-            <motion.div
-              variants={errorVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="error-msg"
-              onClick={() => setError(null)}
-            >
-              <img
-                className="error-msg-icon"
-                src={errorIcon}
-                alt="Error"
-                width="40"
-                height="40"
-              />
-              <span> {error}</span>
-              <span className="error-msg-icon-close">click me to close</span>
-            </motion.div>
+            <LazyAnimate>
+              <m.div
+                variants={errorVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="error-msg"
+                onClick={() => setError(null)}
+              >
+                <img
+                  className="error-msg-icon"
+                  src={errorIcon}
+                  alt="Error"
+                  width="40"
+                  height="40"
+                />
+                <span> {error}</span>
+                <span className="error-msg-icon-close">click me to close</span>
+              </m.div>
+            </LazyAnimate>
           )}
         </AnimatePresence>
 

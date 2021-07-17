@@ -7,7 +7,8 @@ import { useInvoice } from "../contexts/InvoiceContext";
 import InvoiceForm from "../components/form/InvoiceForm";
 import { Link, useParams } from "react-router-dom";
 import Backdrop from "../components/shared/Backdrop";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
+import LazyAnimate from "../components/shared/LazyAnimate";
 import PopUp from "../components/shared/PopUp";
 import { useAuth } from "../contexts/AuthContext";
 import { deleteInvoice, updateStatus } from "../services/api";
@@ -108,27 +109,35 @@ function Invoice() {
             formIsOpen={formIsOpen}
             setFormIsOpen={setFormIsOpen}
           />
-          <motion.div
-            variants={invoiceVariant}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            className="invoice-wrapper"
-          >
-            <Link className="home-link-wrapper" to={"/"}>
-              <img src={leftArrow} alt="<" width="7" height="10" className="left-arrow-icon" />
-              <span>Go back</span>
-            </Link>
-            <InvoiceHeader
-              setPopIsOpen={setPopIsOpen}
-              invoiceId={currentInvoice.id}
-              status={currentInvoice.status}
-              wait={wait}
-              setFormIsOpen={setFormIsOpen}
-              handleMark={handleMark}
-            />
-            <InvoiceContent invoice={currentInvoice} />
-          </motion.div>
+          <LazyAnimate>
+            <m.div
+              variants={invoiceVariant}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="invoice-wrapper"
+            >
+              <Link className="home-link-wrapper" to={"/"}>
+                <img
+                  src={leftArrow}
+                  alt="<"
+                  width="7"
+                  height="10"
+                  className="left-arrow-icon"
+                />
+                <span>Go back</span>
+              </Link>
+              <InvoiceHeader
+                setPopIsOpen={setPopIsOpen}
+                invoiceId={currentInvoice.id}
+                status={currentInvoice.status}
+                wait={wait}
+                setFormIsOpen={setFormIsOpen}
+                handleMark={handleMark}
+              />
+              <InvoiceContent invoice={currentInvoice} />
+            </m.div>
+          </LazyAnimate>
           <div className="invoice-footer">
             <InvoiceButtons
               status={currentInvoice.status}

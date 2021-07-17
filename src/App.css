@@ -1,5 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap");
 
+
+
+@font-face {
+    font-family: 'Spartan';
+    src:url(assets/fonts/Spartan-Medium.woff2) format('woff2');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Spartan';
+    src:url(assets/fonts/Spartan-Bold.woff2) format('woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src:url(assets/fonts/PlayfairDisplay-Medium.woff2) format('woff2');
+    font-weight: 500;
+  }
 *,
 *::before,
 *::after {

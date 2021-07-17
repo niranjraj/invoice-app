@@ -1,16 +1,24 @@
-import React from 'react'
-import {motion} from "framer-motion"
-import './WaitState.css'
+import React from "react";
+import { m } from "framer-motion";
+import LazyAnimate from "./LazyAnimate";
+import "./WaitState.css";
 
-const spinTransition={
-    loop:Infinity,
-    duration:1,
-    ease:"linear"
-}
-const WaitState = ({spinStyle}) => {
-    return (
-        <motion.span className={`wait-loader ${spinStyle}`} animate={{rotate:360}} transition={spinTransition}></motion.span>
-    )
-}
+const spinTransition = {
+  loop: Infinity,
+  duration: 1,
+  ease: "linear",
+};
+const WaitState = ({ spinStyle }) => {
+  return (
+    <LazyAnimate>
+      {" "}
+      <m.span
+        className={`wait-loader ${spinStyle}`}
+        animate={{ rotate: 360 }}
+        transition={spinTransition}
+      ></m.span>
+    </LazyAnimate>
+  );
+};
 
-export default WaitState
+export default WaitState;
