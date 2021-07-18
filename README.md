@@ -5,6 +5,7 @@
 [Invoicely](https://invoicely.vercel.app/) is a professional, full-featured and
 high performance web app for Invoices! You can acess the web site with a click and you can create, manage, update
 and customize invoices to your needs.
+
 [![Invoicely](InvoicelyLight.png)](https://invoicely.vercel.app/)
 
 ## Table of contents
@@ -49,12 +50,13 @@ and customize invoices to your needs.
 
 ### What I Learned
    This is one of the biggest projects i build with react,it comes with alot of libraries that i learned and implemented.Some of these are:
-    - **Formik**: Handling form data  in the site.
-    - **Yup**: Provide validation schema for formik.
-    - **Helmet-async**: To manage the head tags and meta tags for SEO (this is a fork of react-helmet and it is much better)
-    - **Framer-motion**: For those buttery smooth animations (couldn't find any advanced guides or tutorials )
-    - **React-datepicker**: Now this was a mess to work with(spend most time customizing the design)
-    - **Infinite-Scroll**: Used this with firebase to limit request for queries.Learned to control the data flow.
+   
+   - **Formik**: Handling form data  in the site.
+   - **Yup**: Provide validation schema for formik.
+   - **Helmet-async**: To manage the head tags and meta tags for SEO (this is a fork of react-helmet and it is much better)
+   - **Framer-motion**: For those buttery smooth animations (couldn't find any advanced guides or tutorials )
+   - **React-datepicker**: Now this was a mess to work with(spend most time customizing the design)
+   - **Infinite-Scroll**: Used this with firebase to limit request for queries.Learned to control the data flow.
    Other things i learned, about firebase authentication and setting up security rules for request.Learned about reusable components,state management and   optimising react components.
 
 ### Continue Development
