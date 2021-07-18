@@ -1,18 +1,12 @@
 <div align="center">
     <a href="https://reactjs.org/" >
        <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" align="center" alt="react-bage"/>
-     </a>                                    
+     </a>
+     <sup>[![Version Badge](http://versionbadg.es//[niranjraj]/[invoice-app].svg)](https://npmjs.org/package/[package.json])</sup>
+
 </div>
 
-<h1 align="center">Invoicely -Frontend mentor</h1>
-                  
- [![Build Status](https://travis-ci.org/niranjraj/invoice-app.png?branch=master)](https://travis-ci.org/niranjraj/invoice-app)
-
-                  
-
-<div align="center">
- 
-</div>                  
+<h1 align="center">Invoicely -Frontend mentor</h1>                
 
 :star: Star me on GitHub — it motivates me a lot!
 
