@@ -2,8 +2,12 @@
     <a href="https://reactjs.org/" >
        <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" align="center" alt="react-bage"/>
      </a>
-     <sup>[![Version Badge](http://versionbadg.es//[niranjraj]/[invoice-app].svg)](https://npmjs.org/package/[package.json])</sup>
-
+     <a href="https://firebase.google.com/" >
+      <img alt="Firebase" src="https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase"/>
+     </a>
+      <a href="https://vercel.com/" >
+      <img alt="Vercel" src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
+     </a>
 </div>
 
 <h1 align="center">Invoicely -Frontend mentor</h1>                
