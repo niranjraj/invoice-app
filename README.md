@@ -1,12 +1,12 @@
-<div align="center>
-    <a href="https://reactjs.org/">
-       <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="react-bage"/>
+<div align="center">
+    <a href="https://reactjs.org/" >
+       <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" align="center" alt="react-bage"/>
      </a>                                    
 </div>
 
 <h1 align="center">Invoicely -Frontend mentor</h1>
                   
- [![Build Status](https://travis-ci.org/niranjraj/invoice-ap.png?branch=master)](https://travis-ci.org/niranjraj/invoice-app)
+ [![Build Status](https://travis-ci.org/niranjraj/invoice-app.png?branch=master)](https://travis-ci.org/niranjraj/invoice-app)
 
                   
 
