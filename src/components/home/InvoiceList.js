@@ -2,13 +2,14 @@ import React from "react";
 import InvoiceItem from "./InvoiceItem";
 import EmptyPage from "../../pages/EmptyPage";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Loading from "../../pages/Loading";
 import "./InvoiceList.css";
 
 const InvoiceList = React.memo(({ invoices, scrollUpdate, hasMore }) => {
   return (
     <>
-      {invoices && (
-        <div  className="invoicelist-wrapper">
+      {invoices ? (
+        <div className="invoicelist-wrapper">
           {invoices.length > 0 ? (
             <InfiniteScroll
               dataLength={invoices.length}
@@ -33,6 +34,8 @@ const InvoiceList = React.memo(({ invoices, scrollUpdate, hasMore }) => {
             <EmptyPage isErrorPage={false} />
           )}
         </div>
+      ) : (
+        <Loading />
       )}
     </>
   );

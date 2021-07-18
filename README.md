@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Invoicely -Frontend Mentor <img src="https://img.shields.io/github/package-json/v/niranjraj/invoice-app?color=97CA00">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+:star: Star me on GitHub — it motivates me a lot!
 
-## Available Scripts
+[Invoicely](https://invoicely.vercel.app/) is a professional, full-featured and
+high performance web app for Invoices! You can acess the web site with a click and you can create, manage, update
+and customize invoices to your needs.
+[![Invoicely](InvoicelyLight.png)](https://invoicely.vercel.app/)
 
-In the project directory, you can run:
+## Table of contents
 
-### `yarn start`
+- [Overview](#overview)
+  - [Key Features](#key-features)
+  - [Link](#link)
+  - [Audit](#audit)
+  - [Built with](#built-with)
+- [Development](#development)
+  - [What I learned](#what-i-learned)
+  - [Continue development](#continue-development)
+  - [What I would do differently](#what-i-would-do-differently)
+- [More Preview](#more-preview)  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Overview
 
-### `yarn test`
+### Key Features
+    - The app allows users to login via google account.
+    - Create, read, update, and delete invoices.
+    - Filter invoices by status.
+    - Form validation for updating and creating invoices.
+    - Responsive and interactive webpages.
+    - Data synchronisation.
+    - Toggle light and dark mode.
+    - Supports multiple devices.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Link
+    - Live Site URL: [https://invoicely.vercel.app/](https://invoicely.vercel.app/)
 
-### `yarn build`
+### Audit
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ![lighthouse](lighthouseAudit.png)    
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built with
+    - **React**: Framework for building this project.
+    - **Create-React-App**: Environment for building the project,comes with boilerplate and preconfigured webpack.
+    - **Firebase**: For Authentication and  data management and restrictions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Development
 
-### `yarn eject`
+### What I Learned
+    This is one of the biggest projects i build with react,it comes with alot of libraries that i learned and implemented.Some of these are:
+    - **Formik**: Handling form data  in the site.
+    - **Yup**: Provide validation schema for formik.
+    - **Helmet-async**: To manage the head tags and meta tags for SEO (this is a fork of react-helmet and it is much better)
+    - **Framer-motion**: For those buttery smooth animations (couldn't find any advanced guides or tutorials )
+    - **React-datepicker**: Now this was a mess to work with(spend most time customizing the design)
+    - **Infinite-Scroll**: Used this with firebase to limit request for queries.Learned to control the data flow.
+    Other things i learned, about firebase authentication and setting up security rules for request.Learned about reusable components,state management and optimising react components.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Continue Development
+    Prerequisite for development with this application, you will need [Git](https://git-scm.com/),[NodeJs](https://nodejs.org/en/) and an account in [Firebase](https://firebase.google.com/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   #Clone this repo
+   $ git clone https://github.com/niranjraj/invoice-app.git
+    
+   #Cd into the repo
+   $ cd invoice-app
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   #Install the dependencies in the package.json
+   $ npm install # or yarn
 
-## Learn More
+   #Start development server
+   $ npm run start  # or yarn start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```
+   make sure to setup apikeys of firebase in a .env file at the root of project for authentication and database to work.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### What I would do differently
+    - For future projects i will use NextJs instead of Create-react-app,for server side rendering ,build in routing and better SEO.
+    - Some reusable code was never turned into components in this project and better structure for the styles.
+    - Spend more time with framer motion and formik.
 
-### Code Splitting
+## More Preview
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Dark mode 
+     ![invoicely-dark](InvoicelyDark.png)   
 
-### Analyzing the Bundle Size
+### Form 
+    ![invoicely-form](InvoicelyForm.png)    
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Edit Form
+    ![edit-form](EditInvoicely.png)   
 
-### Making a Progressive Web App
+### Main 
+    ![invoicely-main](InvoicelyMain.png)  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Mobile
+    ![invoicely-main](InvoicelyMobile.png)  
