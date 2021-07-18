@@ -1,4 +1,13 @@
-# Invoicely -Frontend Mentor <img src="https://img.shields.io/github/package-json/v/niranjraj/invoice-app?color=97CA00">
+<div align="center><a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="react-bage"/></a></div>
+
+<h1 align="center">Invoicely -Frontend mentor</h1>
+ [![Build Status](https://travis-ci.org/niranjraj/invoice-ap.png?branch=master)](https://travis-ci.org/niranjraj/invoice-app)
+
+                  
+
+<div align="center">
+ 
+</div>                  
 
 :star: Star me on GitHub — it motivates me a lot!
 
@@ -57,7 +66,8 @@ and customize invoices to your needs.
    - **Framer-motion**: For those buttery smooth animations (couldn't find any advanced guides or tutorials )
    - **React-datepicker**: Now this was a mess to work with(spend most time customizing the design)
    - **Infinite-Scroll**: Used this with firebase to limit request for queries.Learned to control the data flow.
-   Other things i learned, about firebase authentication and setting up security rules for request.Learned about reusable components,state management and   optimising react components.
+                  
+  Other things i learned, about firebase authentication and setting up security rules for request.Learned about reusable components,state management and   optimising react components.
 
 ### Continue Development
    Prerequisite for development with this application, you will need [Git](https://git-scm.com/),[NodeJs](https://nodejs.org/en/) and an account in [Firebase](https://firebase.google.com/)
