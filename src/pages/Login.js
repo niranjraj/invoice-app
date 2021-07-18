@@ -4,7 +4,6 @@ import { m, AnimatePresence } from "framer-motion";
 import { setUserId } from "../services/api";
 import Button from "../components/shared/Button";
 import Backdrop from "../components/shared/Backdrop";
-import { Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Seo from "../components/shared/Seo";
 import crossIcon from "../assets/images/icon-plus.svg";
@@ -74,8 +73,8 @@ const loginVariant = {
 
 function Login() {
   const [loginIsOpen, setLoginIsOpen] = useState(false);
-  const { login, user, setUser, setLoading, setError } = useAuth();
-  const history = useHistory();
+  const { login,setUser, setLoading, setError } = useAuth();
+
 
   async function signIn() {
     setLoading(true);
@@ -86,18 +85,12 @@ function Login() {
         if (result.additionalUserInfo.isNewUser) {
           await setUserId(result.user.uid, result.user.displayName);
         }
-        history.push("/home");
       }
     } catch (error) {
-      console.log(error);
       setError("Something went wrong...");
     } finally {
       setLoading(false);
     }
-  }
-
-  if (user) {
-    return <Redirect to="/home" />;
   }
 
   return (

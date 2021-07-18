@@ -16,7 +16,7 @@ function EmptyPage({ isErrorPage }) {
       />
       <h1 className="noinvoice-heading">There is nothing here.</h1>
       {isErrorPage ? (
-        <Link to="/home">
+        <Link to="/">
           <Button buttonStyle="empty-go-back-btn" buttonSize="large">
             Go back to invoices list
           </Button>

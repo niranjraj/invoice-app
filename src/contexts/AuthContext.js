@@ -10,7 +10,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [sending, setSending] = useState(false); // for fetching newly added invoices
-  const [loading, setLoading] = useState(true); //set for initial loading screen
+  const [loading, setLoading] = useState(false); //set for initial loading screen
   const [wait, setWait] = useState(false); // wait state for disabling buttons
   const [error, setError] = useState(null);
 
@@ -28,7 +28,7 @@ export function AuthProvider({ children }) {
 
   async function logout() {
     try {
-      sessionStorage.removeItem("user");
+      localStorage.removeItem("user");
       await firebase.auth().signOut();
       setUser(null);
       return;
@@ -38,18 +38,20 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
+    setLoading(true);
     try {
       const unsubscribe = firebase.auth().onAuthStateChanged((newUser) => {
         if (newUser) {
           setUser(newUser);
-          sessionStorage.setItem("user", JSON.stringify(newUser));
+          localStorage.setItem("user", JSON.stringify(newUser));
           setSending(true);
         }
-        setLoading(false);
       });
       return () => unsubscribe();
     } catch (error) {
       setError("Something went wrong");
+    } finally {
+      setLoading(false);
     }
   }, []);
 

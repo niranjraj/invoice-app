@@ -14,8 +14,7 @@ import { useTheme } from "./hooks/useTheme";
 import errorIcon from "./assets/images/error.svg";
 import Seo from "./components/shared/Seo";
 
-const Home = React.lazy(() => import("./pages/Home"));
-const Login = React.lazy(() => import("./pages/Login"));
+const WrapperRoute = React.lazy(() => import("./pages/WrapperRoute"));
 const EmptyPage = React.lazy(() => import("./pages/EmptyPage"));
 const Invoice = React.lazy(() => import("./pages/Invoice"));
 
@@ -106,14 +105,13 @@ function App() {
               <Suspense fallback={<Loading />}>
                 <AnimatePresence exitBeforeEnter>
                   <Switch location={location} key={location.pathname}>
-                  <Route exact path="/" component={Login} />
-                    <PrivateRoute exact path="/home" component={Home} />
+                    <Route exact path="/" component={WrapperRoute} />
                     <PrivateRoute
                       exact
                       path="/invoice/:id"
                       component={Invoice}
                     />
-                 
+
                     <Route>
                       <EmptyPage isErrorPage={true} />
                     </Route>
