@@ -81,7 +81,7 @@ and customize invoices to your needs.
     - For future projects i will use NextJs instead of Create-react-app,for server side rendering ,build in routing and better SEO.
     - Some reusable code was never turned into components in this project and better structure for the styles.
     - Spend more time with framer motion and formik.
-    - Learn TypeScript
+    - TypeScript.
 
 ## More Preview
 
