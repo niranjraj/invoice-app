@@ -83,7 +83,6 @@ function Invoice() {
       setSending(true);
       history.push("/");
     } catch (error) {
-      console.log(error)
       setError("Something went wrong....could not delete invoice");
     } finally {
       setWait(false);
