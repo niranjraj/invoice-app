@@ -18,7 +18,7 @@
 high performance web app for Invoices! You can acess the web site with a click and you can create, manage, update
 and customize invoices to your needs.
 
-[![Invoicely](InvoicelyLight.png)](https://invoicely.vercel.app/)
+[![Invoicely](preview.png)](https://invoicely.vercel.app/)
 
 ## Table of contents
 
