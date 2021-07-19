@@ -93,7 +93,7 @@ and customize invoices to your needs.
    make sure to setup apikeys of firebase in a .env file at the root of project for authentication and database to work.
 
 ### What I would do differently
-   - For future projects i will use NextJs instead of Create-react-app,for server side rendering ,build in routing and better SEO.
+   - For future projects i will use NextJs instead of Create-react-app,for server side rendering ,built-in routing and better SEO.
    - Some reusable code was never turned into components in this project and better structure for the styles.
    - Spend more time with framer motion and formik.
    - TypeScript.
