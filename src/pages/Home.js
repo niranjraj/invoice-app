@@ -31,13 +31,15 @@ function Home() {
     }
   }
 
-  const memoizedInvoices = React.useMemo(() => {
+  var memoizedInvoices = React.useMemo(() => {
     if (invoices && filterStatus) {
-      invoices.filter((invoice) => {
+      return invoices.filter((invoice) => {
         return invoice.status === filterStatus;
       });
     }
   }, [invoices, filterStatus]);
+
+  console.log(memoizedInvoices);
 
   useEffect(() => {
     if (invoices) {
